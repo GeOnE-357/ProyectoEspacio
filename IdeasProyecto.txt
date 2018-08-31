@@ -5,3 +5,34 @@ El espacio tiene las siguientes necesidades:
 	4- Comprobar que los alumnos cumplan con la asistencia.
 	5- Gestionar el uso de juegos de computadoras disponibles en el espacio.
 	6- Corroborar que no halla superposicion de cursos, ni juegos de computadoras.
+
+informacion
+-Alumnos
+.nombre y apellido
+.mail
+.telefono
+.dni?
+.Curso_id
+
+-Facilitadores
+.nombre y apellido
+.telefono
+.mail
+.podemos agregar datos como legajo etc
+
+Cursos
+.materia
+.duracion
+.Aula_id
+Profesor_id
+
+Aula
+.nombre
+.horario_id
+
+Horarios
+
+Computadoras
+.marca
+.cantidad
+.Aula_id
