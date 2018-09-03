@@ -1,0 +1,33 @@
+# cache autogenerado por django
+__pycache__/
+computadoras/__pycache__
+espacio/__pycache__
+personas/__pycache__
+presentes/__pycache__
+
+# base de datos local
+db.sqlite3
+
+#basura
+.DS_Store
+.directory
+
+#pip logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.log
+*.pot
+
+# mas
+MANIFEST
+*.egg-info
+
+
+# temp folder
+/tmp
+
+# dependencias
+/node_modules
+/bower_components

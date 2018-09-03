@@ -6,33 +6,35 @@ El espacio tiene las siguientes necesidades:
 	5- Gestionar el uso de juegos de computadoras disponibles en el espacio.
 	6- Corroborar que no halla superposicion de cursos, ni juegos de computadoras.
 
-informacion
+INFORMACION
+
 -Alumnos
-.nombre y apellido
-.mail
-.telefono
-.dni?
-.Curso_id
+	.nombre y apellido
+	.mail
+	.telefono
+	.dni?
+	.Curso_id
+	.Activo/Inactivo
 
 -Facilitadores
-.nombre y apellido
-.telefono
-.mail
-.podemos agregar datos como legajo etc
+	.nombre y apellido
+	.telefono
+	.mail
+	.podemos agregar datos como legajo etc
 
-Cursos
-.materia
-.duracion
-.Aula_id
-Profesor_id
+-Cursos
+	.materia
+	.duracion
+	.Aula_id
+	.Profesor_id
 
-Aula
-.nombre
-.horario_id
+-Aula
+	.nombre
+	.horario_id
 
-Horarios
+-Horarios
 
-Computadoras
-.marca
-.cantidad
-.Aula_id
+-Computadoras
+	.marca
+	.cantidad
+	.Aula_id
