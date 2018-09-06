@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cursos',
     'personas',
     'presentes',
+    'dependencias',
 ]
 
 MIDDLEWARE = [
