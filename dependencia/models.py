@@ -29,4 +29,4 @@ class Horario(models.Model):
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	
 	def __str__(self):
-		return self.estado			
+		return self.estado
