@@ -20,11 +20,7 @@ class DetalleAula(models.Model):
 	"""docstring for ClassName"""
 	aulaId=models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.PROTECT)
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
-	def __init__(self, arg):
-		super(ClassName, self).__init__()
-		self.arg = arg
 		
-
 	
 class Dia(models.Model):
 	dia = models.CharField(max_length=10) 
