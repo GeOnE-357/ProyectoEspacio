@@ -11,14 +11,14 @@ class Dependencia(models.Model):
 
 class Aula(models.Model):
 	nombre = models.CharField(max_length=10)
-	dependenciaId = models.ForeignKey('dependencias.Dependencia', blank=True, default="",on_delete=models.PROTECT)
+	dependenciaId= models.ForeignKey('dependencia.Dependencia', blank=True, default="", on_delete=models.PROTECT)
 
 	def __str__(self):
 		return self.nombre
 
 class Dia(models.Model):
 	dia = models.CharField(max_length=10)
-	aulaId = models.ForeignKey('dependencias.Aula', blank=True, default="",on_delete=models.PROTECT)
+	aulaId = models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.PROTECT)
 
 	def __str__(self):
 		return self.dia
@@ -26,7 +26,7 @@ class Dia(models.Model):
 class Horario(models.Model):
 	hora = models.IntegerField(blank=True)
 	estado = models.CharField(max_length=10)
-	diaId = models.ForeignKey('dependencias.Dia', blank=True, default="", on_delete=models.PROTECT)
+	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	
 	def __str__(self):
-		return self.estado
+		return self.estado			
