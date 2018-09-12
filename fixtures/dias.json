@@ -1,0 +1,9 @@
+[
+	{"model":"dependencia.Dia","fields":{"dia":"Lunes"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Martes"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Miercoles"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Jueves"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Viernes"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Sabado"}},
+	{"model":"dependencia.Dia","fields":{"dia":"Domingo"}}
+]
