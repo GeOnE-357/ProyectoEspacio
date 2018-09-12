@@ -16,4 +16,4 @@ class Profesor(Persona):
 	legajo=models.IntegerField(blank=True)
 
 class Alumno(Persona):	
-	trabajo=BooleanField(default=True) 
+	trabajo=models.BooleanField(default=True) 
