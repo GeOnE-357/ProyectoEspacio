@@ -20,6 +20,10 @@ class DetalleAula(models.Model):
 	"""docstring for ClassName"""
 	aulaId=models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.PROTECT)
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
+	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
+	estado=models.CharField(max_length=20)
+	def __str__(self):
+		return self.estado
 		
 	
 class Dia(models.Model):
@@ -31,11 +35,3 @@ class Dia(models.Model):
 class Horario(models.Model):
 	hora = models.IntegerField(blank=True)
 		
-class DetalleHorario(models.Model):
-	"""docstring for DetalleAula"""
-	aulaId=models.ForeignKey('dependencia.Dia',blank=True, default="",on_delete=models.PROTECT)
-	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
-	estado=models.CharField(max_length=10)
-
-	def __str__(self):
-		return self.estado
