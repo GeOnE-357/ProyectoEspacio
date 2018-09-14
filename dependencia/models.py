@@ -1,8 +1,8 @@
 from django.db import models
 
 class Dependencia(models.Model):
-	nombre = models.CharField(max_length=10)
-	direccion = models.CharField(max_length=15)
+	nombre = models.CharField(max_length=50)
+	direccion = models.CharField(max_length=50)
 	telefono = models.IntegerField(blank=True)
 	whatsapp = models.IntegerField(blank=True)
 
@@ -10,7 +10,7 @@ class Dependencia(models.Model):
 		return self.nombre+" "+self.direccion
 
 class Aula(models.Model):
-	nombre = models.CharField(max_length=10)
+	nombre = models.CharField(max_length=50)
 	dependenciaId= models.ForeignKey('dependencia.Dependencia', blank=True, default="", on_delete=models.PROTECT)
 
 	def __str__(self):
@@ -22,12 +22,13 @@ class DetalleAula(models.Model):
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
 	estado=models.CharField(max_length=20)
+	cursoID=models.ForeignKey('cursos.Curso', blank=True, default="", on_delete=models.PROTECT)
 	def __str__(self):
 		return self.estado
 		
 	
 class Dia(models.Model):
-	dia = models.CharField(max_length=10) 
+	dia = models.CharField(max_length=15) 
 
 	def __str__(self):
 		return self.dia
