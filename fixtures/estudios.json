@@ -1,0 +1,6 @@
+[
+	{"model":"personas.Estudio","fields":{"nivel":"Primario"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Secundario"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Terciario"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Universitario"}}
+]
