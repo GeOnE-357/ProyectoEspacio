@@ -1,0 +1,17 @@
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Applicacion para el registro y control de cursos del EDLT.">
+    <meta name="author" content="Soledad Casco, Arias Emilio">
+    <link rel="icon" href="">
+
+    <link rel="stylesheet" href="{% static "/css/font-awesome.css" %}" />
+    <link rel="stylesheet" href="{% static "/css/estilo.css" %}" />
+    <title>{% block title %} EDLT {% endblock %}</title>
+</head>
+<body>
+    {% include  "nav.html" %}
+    {% block content %}{% endblock %}
+</body>
+</html>

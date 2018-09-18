@@ -1,0 +1,314 @@
+body
+	{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		background-color: orange;
+		margin: 0;
+		padding: 0;
+	}
+
+/* ---------- Barra de Navegacion ---------- */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+li 
+	{
+	    float: left;
+	    width: 15%;
+	}
+
+li.right
+	{
+		float: right;
+		width: 15%;
+	}
+
+li a, .drop-btn 
+	{
+	    display: inline-block;
+	    color: #333;
+	    text-align: center;
+	    padding:10%;
+	    width: 80%;
+	    text-decoration: none;
+	}
+
+li a:hover, .drop:hover .drop-btn 
+	{
+	    background-color: #333;
+	    color: white;
+	}
+
+li.drop 
+	{
+	    display: inline-block;
+	}
+
+.drop-cont 
+	{
+	    display: none;
+	    position: absolute;
+	    background-color: #000033;
+	    width: 15%;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    z-index: 1;
+	    cursor: pointer;
+	}
+
+.drop-cont a 
+	{
+	    color: white;
+	    text-decoration: none;
+	    display: block;
+	    text-align: center;
+	    cursor: pointer;
+	}
+
+.drop-cont a:hover 
+	{
+		background-color: #000066;
+	}
+
+.drop:hover .drop-cont 
+	{
+	    display: block;
+	}	
+
+.logout-btn
+	{
+		color: white;
+		background-color: #DF0101;
+	    width: 100%;
+	    font-size: 0.9em;
+	    border: hidden;
+	    padding: 15%;
+	    margin-left: 68%;
+	    cursor: pointer;
+	}
+
+.logout-btn:hover
+	{
+		background-color: #8A0808;
+	}
+
+/* ---------- Home 3 o 4 botones ---------- */	
+
+h1
+	{
+		margin-left: 6%;
+		color:white;
+	}
+
+.prin-btn-full
+	{
+		display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 93%;
+	    margin-top: 1%;
+	    padding-top: 1.5%;
+	    padding-bottom: 1.5%; 
+	    text-decoration: none;
+		background-color: orange;	
+	}
+
+div.prin-group
+	{
+		width: 93%;
+		margin-left:6%;
+	}
+
+.sec-btn-3, .prin-btn-3 
+	{
+	    display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 31%;
+	    padding-top: 1%;
+	    padding-bottom: 1%; 
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+.sec-btn, .prin-btn 
+	{
+	    display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 23.25%;
+	    padding-top: 1%;
+	    padding-bottom: 1%; 
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+.sec-btn:hover, .sec-btn-3:hover
+	{
+	    background-color: #000099;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+.prin-btn:hover, .prin-btn-3:hover
+	{
+		background-color: #000033;
+		background-blend-mode: transparent;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+
+/* ---------- Acceso Denegado ---------- */
+
+.neg
+	{
+		width: 50%;
+		margin: 8% 22.5%;
+		padding: 2%;
+		border-radius: 5px;
+		border-color: white;
+		border: solid;	  
+		color: white;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+.neg h2 
+	{
+		font-size: 300%;
+		display: block;
+		text-align: center;
+		margin-top: 1%;
+		margin-bottom: 1%;
+	}
+
+.neg span
+	{
+		font-size: 800%;
+		display: block;
+		text-align: center;
+		margin-top: 3%;
+	}
+
+.neg p
+	{
+		margin: 0% 10% 4% 10%;
+		text-align: justify;
+	}
+
+/* ---------- Formularios ---------- */
+
+form
+	{
+		width: 60%;
+		margin-left: 20%;
+		border: solid;
+		padding-top: 2%;
+		padding-left: 2%;
+		padding-bottom: 2%;
+		text-align: left;
+	}
+
+.none
+	{
+		border:hidden;
+		margin: 0;
+		padding: 0;
+	}
+
+.UserForm
+	{
+    	color: #D3D3D3;
+		border-radius: 5px;
+    	background-color: #555;
+		width: 50%;
+		border:none;
+		padding: 2% 2%;
+	}
+
+.LogTitle
+	{
+		margin-left: 20%;
+	}
+
+.UserForm label
+	{
+		display: block;
+		margin-top: 5%;
+	}
+
+.UserForm input
+	{
+		width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	    background-color: #DFDFDF;
+	}
+
+.UserForm button
+	{
+		width: 100%;
+	    background-color:#FE9A2E;
+	    color: white;
+	    padding: 14px 20px;
+	    margin: 5% 0;
+	    border: none;
+	    border-radius: 4px;
+	    cursor: pointer;
+	}
+
+.UserForm button:hover
+	{
+		background-color: #e08728;
+	}
+
+.UserForm ul
+	{
+		background-color: #F6CECE;
+		border:none;
+		padding: 2%;
+		border-radius: 5px;
+	}
+
+.UserForm ul li
+	{
+		color: #B43104;
+		width: 96%;
+		text-align: justify;
+	}
+
+/* ---------- Tablas ---------- */
+
+table
+	{
+		width: 90%;
+		margin-left: 5%;
+		border-collapse: collapse;
+		text-align: center;
+	}
+
+th
+	{
+		padding: 1%;
+		background-color: #D3D3D3;
+	}
+
+th:hover
+	{
+		background-color: lightgrey;
+	}
+
+td
+	{
+		border-bottom: solid;
+		padding: 1%;
+		border-bottom-color: #DFDFDF;
+		border-bottom-width: 1px;	
+	}

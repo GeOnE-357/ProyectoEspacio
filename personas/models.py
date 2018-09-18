@@ -7,7 +7,7 @@ class Persona(models.Model):
 	mail=models.EmailField(max_length=30)
 	telefono=models.IntegerField(blank=True)
 	nacimiento=models.DateField(auto_now=False, auto_now_add=False)
-	titulo=models.Charfield(max_length=30)
+	titulo=models.CharField(max_length=30)
 	estudiosId=models.ForeignKey('personas.Estudio', blank=True, default="", on_delete=models.PROTECT)
 
 	class Meta:
@@ -24,5 +24,5 @@ class Estudio(models.Model):
 	nivel=models.CharField(max_length=30)
 	estado=models.CharField(max_length=30)
 
-	def__str__(self):
+	def __str__(self):
 		return self.nivel+" / "+self.estado
