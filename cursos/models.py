@@ -6,19 +6,23 @@ class Curso(models.Model):
 	materiaID=models.ForeignKey('cursos.Materia',blank=True,default="",on_delete=models.PROTECT)
 	modulo=models.IntegerField(blank=True)
 	profesorID=models.ForeignKey('personas.Profesor', blank=True, default="", on_delete=models.PROTECT)
-	mes=models.CharField(max_length=10)
+	mes=models.ForeignKey('cursos.Mes', blank=True, default="", on_delete=models.PROTECT)
 	anio=models.IntegerField(blank=True)
 	estado=models.CharField(max_length=15)
 	def __str__(self):
-		return self.mes + self.estado
+		return self.anio + self.estado
 
 class Materia(models.Model):
 	nombre=models.CharField(max_length=50)
 	tipo=models.CharField(max_length=20)
 	def __str__(self):
-		return self.mes + self.estado
+		return self.nombre + self.estado
 
+class Mes(models.Model):
+	mes=models.CharField(max_length=15)
 
+	def __str__(self):
+		return self.mes
 
 class Asistencia(models.Model):
 	"""docstring for Asistencia"""
