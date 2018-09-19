@@ -6,12 +6,20 @@
   <h1>Personas</h1>
   <div class="box">
   <table class="table ">
-    <thead>
-    </thead>
+    <tr>
+      <th>#ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Dni</th>
+      <th>Mail</th>
+      <th>Tel.</th>
+      <th>Fec. Nac.</th>
+      <th>Expediente</th>
+    </tr>
     <tbody>
     {% for Profesor in persona %}
     <tr>
-      <td># {{ Profesor.id }} </td>
+      <td> {{ Profesor.id }} </td>
       <td> {{ Profesor.nombre }} </td>
       <td> {{ Profesor.apellido }} </td>
       <td> {{ Profesor.dni }} </td>
