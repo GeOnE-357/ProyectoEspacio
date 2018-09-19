@@ -7,6 +7,17 @@ body
 	}
 
 /* ---------- Barra de Navegacion ---------- */
+.logo
+	{
+		width: 30%;
+		display: inline-block;
+	}
+
+header
+	{
+		background-color: white;
+    	
+	}
 
 ul {
     list-style-type: none;
@@ -14,7 +25,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);   
 }
 
 li 

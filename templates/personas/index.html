@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+
+{% block title %}Listar Personas{% endblock %}
+
+{% block content %}
+  <h1>Personas</h1>
+  <div class="box">
+  <table class="table ">
+    <thead>
+    </thead>
+    <tbody>
+    {% for Profesor in persona %}
+    <tr>
+      <td># {{ Profesor.id }} </td>
+      <td> {{ Profesor.nombre }} </td>
+      <td> {{ Profesor.apellido }} </td>
+      <td> {{ Profesor.dni }} </td>
+      <td> {{ Profesor.mail }} </td>
+      <td> {{ Profesor.telefono }} </td>
+      <td> {{ Profesor.nacimiento }} </td>
+      <td> {{ Profesor.expediente }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}

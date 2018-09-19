@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from personas.models import *
 
-# Create your views here.
+def personasListar(request):
+    return render(request, 'personas/index.html', {
+        'persona': Profesor.objects.all()
+    })

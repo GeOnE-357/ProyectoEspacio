@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name="admin"),
     url(r'^$', views.home, name="home"),
+    url(r'^personas/', include('personas.urls'))
 ]
