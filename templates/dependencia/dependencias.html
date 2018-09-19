@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+
+{% block title %}Listar Personas{% endblock %}
+
+{% block content %}
+  <h1>Dependencias</h1>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Whatsapp</th>
+    </tr>
+    <tbody>
+    {% for dep in dependencia %}
+    <tr>
+      <td> {{ dep.id }} </td>
+      <td> {{ dep.nombre }} </td>
+      <td> {{ dep.direccion }} </td>
+      <td> {{ dep.telefono }} </td>
+      <td> {{ dep.whatsapp }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}
