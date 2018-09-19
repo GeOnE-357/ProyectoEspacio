@@ -1,6 +1,14 @@
 [
-	{"model":"personas.Estudio","fields":{"nivel":"Primario"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Secundario"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Terciario"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Universitario"}}
+	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Completo"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Cursando"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Incompleto"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Completo"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Cursando"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Incompleto"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Completo"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Cursando"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Incompleto"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Completo"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Cursando"}},
+	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Incompleto"}}
 ]

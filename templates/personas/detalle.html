@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}Profesor.nombre{% endblock %}
+
+{% block content %}
+  <h1>Profesores</h1>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>#ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Dni</th>
+      <th>Mail</th>
+      <th>Tel.</th>
+      <th>Fec. Nac.</th>
+      <th>Expediente</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td> {{ Profesor.id }} </td>
+      <td> {{ Profesor.nombre }} </td>
+      <td> {{ Profesor.apellido }} </td>
+      <td> {{ Profesor.dni }} </td>
+      <td> {{ Profesor.mail }} </td>
+      <td> {{ Profesor.telefono }} </td>
+      <td> {{ Profesor.nacimiento }} </td>
+      <td> {{ Profesor.expediente }} </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}
