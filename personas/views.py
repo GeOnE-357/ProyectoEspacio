@@ -25,6 +25,7 @@ def alumnoNuevo(request):
 		if form.is_valid():
 			instance = form.save(commit=False)
 			instance.save()
+			return redirect('personas-index')
 	else:
 		form = alumnoForm()
 	return render(request, 'personas/crear.html', {'form':form})

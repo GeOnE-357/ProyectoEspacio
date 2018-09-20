@@ -20,6 +20,6 @@ from . import views #llamo a los views, para poder tener la pagina de inicio.
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name="admin"),
     url(r'^$', views.home, name="home"),
-    url(r'^personas/', include('personas.urls')), #Incluido el archivo urls.py de la app personas.
+    url(r'^Personas/', include('personas.urls')), #Incluido el archivo urls.py de la app personas.
      url(r'^dependencia/', include('dependencia.urls')),
 ]
