@@ -11,10 +11,6 @@
       <th>#ID</th>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Dni</th>
-      <th>Mail</th>
-      <th>Tel.</th>
-      <th>Fec. Nac.</th>
       <th>Expediente</th>
     </tr>
     <tbody>
@@ -23,10 +19,6 @@
       <td><a href="{% url 'profesor-detalle' Profesor.id %}">{{ Profesor.id }}</a></td>
       <td> {{ Profesor.nombre }} </td>
       <td> {{ Profesor.apellido }} </td>
-      <td> {{ Profesor.dni }} </td>
-      <td> {{ Profesor.mail }} </td>
-      <td> {{ Profesor.telefono }} </td>
-      <td> {{ Profesor.nacimiento }} </td>
       <td> {{ Profesor.expediente }} </td>
     </tr>
     {% endfor %}
@@ -41,11 +33,8 @@
       <th>#ID</th>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Dni</th>
       <th>Mail</th>
       <th>Tel.</th>
-      <th>Fec. Nac.</th>
-      <th>Expediente</th>
     </tr>
     <tbody>
     {% for Alumno in alumnos %}
@@ -53,11 +42,8 @@
       <td><a href="{% url 'alumno-detalle' Alumno.id %}">{{ Alumno.id }}</a></td>
       <td> {{ Alumno.nombre }} </td>
       <td> {{ Alumno.apellido }} </td>
-      <td> {{ Alumno.dni }} </td>
       <td> {{ Alumno.mail }} </td>
       <td> {{ Alumno.telefono }} </td>
-      <td> {{ Alumno.nacimiento }} </td>
-      <td> {{ Alumno.expediente }} </td>
     </tr>
     {% endfor %}
   </tbody>
