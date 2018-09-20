@@ -4,8 +4,7 @@ from .forms import profesorForm, alumnoForm
 
 def personasListar(request):
     return render(request, 'personas/index.html', {
-        'profesores': Profesor.objects.all(),
-        'alumnos': Alumno.objects.all()
+        'profesores': Profesor.objects.all(), 'alumnos': Alumno.objects.all(),
     })
 
 def profesorNuevo(request):
@@ -29,3 +28,11 @@ def alumnoNuevo(request):
 	else:
 		form = alumnoForm()
 	return render(request, 'personas/crear.html', {'form':form})
+
+def profesorDetalle(request, id):
+    profe = Profesor.objects.get(id=id)
+    return render(request, 'personas/profeDetalle.html', {'Profesor':profe})
+
+def alumnoDetalle(request, id):
+    alum = Alumno.objects.get(id=id)
+    return render(request, 'personas/alumDetalle.html', {'Alumno':alum})

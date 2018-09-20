@@ -3,6 +3,7 @@
 {% block title %}Listar Personas{% endblock %}
 
 {% block content %}
+
   <h1>Profesores</h1>
   <div class="box">
   <table class="table ">
@@ -19,7 +20,7 @@
     <tbody>
     {% for Profesor in profesores %}
     <tr>
-      <td> {{ Profesor.id }} </td>
+      <td><a href="{% url 'profesor-detalle' Profesor.id %}">{{ Profesor.id }}</a></td>
       <td> {{ Profesor.nombre }} </td>
       <td> {{ Profesor.apellido }} </td>
       <td> {{ Profesor.dni }} </td>
@@ -34,7 +35,7 @@
 </div>
 
 <h1>Alumnos</h1>
-  <div class="box">
+<div class="box">
   <table class="table ">
     <tr>
       <th>#ID</th>
@@ -44,11 +45,12 @@
       <th>Mail</th>
       <th>Tel.</th>
       <th>Fec. Nac.</th>
+      <th>Expediente</th>
     </tr>
     <tbody>
     {% for Alumno in alumnos %}
     <tr>
-      <td> {{ Alumno.id }} </td>
+      <td><a href="{% url 'alumno-detalle' Alumno.id %}">{{ Alumno.id }}</a></td>
       <td> {{ Alumno.nombre }} </td>
       <td> {{ Alumno.apellido }} </td>
       <td> {{ Alumno.dni }} </td>
@@ -61,5 +63,4 @@
   </tbody>
   </table>
 </div>
-
 {% endblock %}
