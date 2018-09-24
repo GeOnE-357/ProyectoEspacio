@@ -4,10 +4,10 @@
 </header>
 <ul>
   <li class="drop">
-    <a class="drop-btn" href="{% url 'personas-index' tipo=1 %}">Personas</a>
+    <a class="drop-btn">Personas</a>
     <div class="drop-cont">
-      <a class="drop-btn" href="{% url 'profesor-crear' %}">Profesores</a>
-      <a class="drop-btn" href="{% url 'alumno-crear' %}">Alumnos</a>
+      <a class="drop-btn" href="{% url 'personas-index' tipo='Profesor' %}">Listar Profesores</a>
+      <a class="drop-btn" href="{% url 'personas-index' tipo='Alumno' %}">Listar Alumnos</a>
     </div>
   </li>
   <li class="drop">
