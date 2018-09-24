@@ -16,7 +16,7 @@
       <tbody>
         {% for Profesor in personas %}
         <tr>
-          <td><a href="{% url 'profesor-detalle' Profesor.id %}">{{ Profesor.id }}</a></td>
+          <td><a href="{% url 'persona-detalle' tipo Profesor.id %}">{{ Profesor.id }}</a></td>
           <td> {{ Profesor.nombre }} </td>
           <td> {{ Profesor.apellido }} </td>
           <td> {{ Profesor.expediente }} </td>
@@ -39,7 +39,7 @@
       <tbody>
         {% for Alumno in personas %}
         <tr>
-          <td><a href="{% url 'alumno-detalle' Alumno.id %}">{{ Alumno.id }}</a></td>
+          <td><a href="{% url 'persona-detalle' tipo Alumno.id %}">{{ Alumno.id }}</a></td>
           <td> {{ Alumno.nombre }} </td>
           <td> {{ Alumno.apellido }} </td>
           <td> {{ Alumno.mail }} </td>

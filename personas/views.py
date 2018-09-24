@@ -36,10 +36,11 @@ def alumnoNuevo(request):
 	return render(request, 'personas/crear.html', {'form':form})
 
 
-def alumDetalle(request, id):
-	alum = Alumno.objects.get(id=id)
-	return render(request, 'personas/alumDetalle.html', {'Alumno':alum})
-
-def profDetalle(request, id):
-	profe = Profesor.objects.get(id=id)
-	return render(request, 'personas/profeDetalle.html', {'Profesor':profe})
+def personaDetalle(request, tipo, id):
+	a=tipo
+	if a == 'Profesor':
+		persona = Profesor.objects.get(id=id)
+		return render(request, 'personas/detalle.html', {'Profesor':persona, 'tipo':a})
+	else:
+		persona = Alumno.objects.get(id=id)
+		return render(request, 'personas/detalle.html', {'Alumno':persona, 'tipo':a})
