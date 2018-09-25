@@ -12,27 +12,26 @@ def personasListar(request, tipo):
 			'personas': Alumno.objects.all(), 'tipo':a})
 
 
-def profesorNuevo(request):
+def personaNuevo(request, tipo):
+	a=tipo
 	if request.method == "POST":
-		form = profesorForm(request.POST or None)
-		if form.is_valid():
-			instance = form.save(commit=False)
-			instance.save()
-			return redirect('personas-index')
+		if a =="Profesor":
+			form = profesorForm(request.POST or None)
+			if form.is_valid():
+				instance = form.save(commit=False)
+				instance.save()
+				return redirect('personas-index')
+		else:
+			form = alumnoForm(request.POST or None)
+			if form.is_valid():
+				instance = form.save(commit=False)
+				instance.save()
+				return redirect('personas-index')
 	else:
-		form = profesorForm()
-	return render(request, 'personas/crear.html', {'form':form})
-
-
-def alumnoNuevo(request):
-	if request.method == "POST":
-		form = alumnoForm(request.POST or None)
-		if form.is_valid():
-			instance = form.save(commit=False)
-			instance.save()
-			return redirect('personas-index')
-	else:
-		form = alumnoForm()
+		if a =="Profesor":
+			form = profesorForm()
+		else:
+			form = alumnoForm()
 	return render(request, 'personas/crear.html', {'form':form})
 
 

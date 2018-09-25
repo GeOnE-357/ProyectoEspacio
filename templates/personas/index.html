@@ -5,6 +5,7 @@
 {% block content %}
 {% if tipo == 'Profesor'%}
   <h1>Profesores</h1>
+  <a class="drop-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
   <div class="box">
     <table class="table ">
       <tr>
@@ -27,6 +28,7 @@
   </div>
 {% else %}
   <h1>Alumnos</h1>
+  <a class="drop-btn" href="{% url 'personas-crear' tipo %}">Crear Alumno</a>
   <div class="box">
     <table class="table ">
       <tr>
