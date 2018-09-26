@@ -9,12 +9,11 @@
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      >
     </tr>
     <tbody>
     {% for a in aulas %}
     <tr>
-      <td>{{ a.id }}</td>
+      <td><a href="{% url 'detalleAula' a.id %}">{{ a.id }}</a></td>
       <td> {{ a.nombre }} </td>
     </tr>
     {% endfor %}

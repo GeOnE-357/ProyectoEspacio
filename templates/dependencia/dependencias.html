@@ -16,7 +16,7 @@
     <tbody>
     {% for de in dependencia %}
     <tr>
-      <td><a href="{% url 'aulas' de.id %}">{{ de.id }}</td>
+      <td><a href="{% url 'aulas' de.id %}">{{ de.id }}</a></td>
       <td> {{ de.nombre }} </td>
       <td> {{ de.direccion }} </td>
       <td> {{ de.telefono }} </td>

@@ -12,4 +12,8 @@ def dependencias(request):
 def aulas(request, id):
 	return render (request, 'dependencia/aulas.html',{
 		'aulas':Aula.objects.filter(dependenciaId=id)})
+
+def detalleAula(request,id):
+	return render(request,'dependencia/detalleAula.html',{
+		'detalleA':DetalleAula.objects.filter(aulaId=id)})
    

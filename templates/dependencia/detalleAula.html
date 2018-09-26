@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block title %}Detalle de Aula{% endblock %}
+
+{% block content %}
+  <h1>Aula</h1>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>ID</th>
+      <th>Nombre id</th>
+      <th>Dia id</th>
+      <th>Hora id</th>
+      <th>Estado</th>
+      <th>Curso id</th>
+    </tr>
+    <tbody>
+    {% for da in detalleA %}
+    <tr>
+      <td> {{ da.aulaId }}</td>
+      <td> {{ da.diaId }} </td>
+      <td> {{ da.horaId }} </td>
+      <td> {{ da.estado }} </td>
+      <td> {{ da.cursoID }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}
