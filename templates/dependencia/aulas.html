@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+{% block title %}Aulas{% endblock %}
+
+{% block content %}
+  <h1>Aulas</h1>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      >
+    </tr>
+    <tbody>
+    {% for a in aulas %}
+    <tr>
+      <td>{{ a.id }}</td>
+      <td> {{ a.nombre }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}

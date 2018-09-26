@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from dependencia.models import *
 # Create your views here.
 
-def indexDependencia(request):
-    return HttpResponse("pag principal...En construccion")
 
 def dependencias(request):
     return render(request, 'dependencia/dependencias.html', {
         'dependencia': Dependencia.objects.all(),
-        
     })
-    
+
+def aulas(request, id):
+	return render (request, 'dependencia/aulas.html',{
+		'aulas':Aula.objects.filter(dependenciaId=id)})
+   

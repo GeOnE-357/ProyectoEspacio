@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 
-{% block title %}Listar Personas{% endblock %}
+{% block title %}Dependencias{% endblock %}
 
 {% block content %}
   <h1>Dependencias</h1>
@@ -14,13 +14,13 @@
       <th>Whatsapp</th>
     </tr>
     <tbody>
-    {% for dep in dependencia %}
+    {% for de in dependencia %}
     <tr>
-      <td> {{ dep.id }} </td>
-      <td> {{ dep.nombre }} </td>
-      <td> {{ dep.direccion }} </td>
-      <td> {{ dep.telefono }} </td>
-      <td> {{ dep.whatsapp }} </td>
+      <td><a href="{% url 'aulas' de.id %}">{{ de.id }}</td>
+      <td> {{ de.nombre }} </td>
+      <td> {{ de.direccion }} </td>
+      <td> {{ de.telefono }} </td>
+      <td> {{ de.whatsapp }} </td>
     </tr>
     {% endfor %}
   </tbody>
