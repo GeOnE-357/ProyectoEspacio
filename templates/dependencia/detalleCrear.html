@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT - Crear Detalle{% endblock %}
+
+{% block content %}
+    <h1>Crear</h1>
+	<form method="POST" class="UserForm">
+    	{% csrf_token %}
+      	{{ form }}
+        <button type="submit">Registrar</button>
+    </form>
+{% endblock %}
