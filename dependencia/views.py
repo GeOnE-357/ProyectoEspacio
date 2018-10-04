@@ -32,6 +32,4 @@ def crearAula(request):
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
 def detalleCrear(request):
-	if
-        form = DetalleAulaForm()
-        return render(request, 'dependencia/detalleCrear.html', {'form': form})
+       return render(request, 'dependencia/detalleCrear.html')
