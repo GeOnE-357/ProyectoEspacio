@@ -1,16 +1,18 @@
 from django import forms
 from .models import Dependencia, Aula,DetalleAula, Dia, Horario
 
-class dependenciaForm(forms.ModelForm):
-	model = Dependencia
-    fields = ('nombre', 'direccion', 'telefono', 'whatsapp')
+class DependenciaForm(forms.ModelForm):
+	class Meta:
+		model = Dependencia 
+		fields= ('nombre', 'direccion', 'telefono', 'whatsapp')
 
 
-class aulaForm(forms.ModelForm):
+class AulaForm(forms.ModelForm):
+	class Meta:
+		model = Aula 
+		fields = ('nombre', 'dependenciaId')
 
-	model = Aula
-    fields = ('nombre', 'dependenciaId')
-
-class detalleAulaForm(forms.ModelForm):
-	model=DetalleAula
-	fields=('aulaId','diaId','horaId','horaId','cursoID')            
+class DetalleAulaForm(forms.ModelForm):
+	class Meta:
+		model=DetalleAula 
+		fields=('aulaId','diaId','horaId','horaId','cursoID')            
