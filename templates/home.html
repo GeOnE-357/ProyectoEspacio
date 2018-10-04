@@ -4,4 +4,7 @@
 
 {% block content %}
 	<h1>Pagina principal!!!</h1>
+	{% if user.is_authenticated %}
+		<h1>Bienvenido: {{ user.get_username }}!</h1>
+	{% endif %}
 {% endblock %}

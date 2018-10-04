@@ -15,6 +15,7 @@
       <th>Mail</th>
       <th>Tel.</th>
       <th>Fec. Nac.</th>
+      <th>Editar</th>
     </tr>
     <tbody>
     <tr>
@@ -25,6 +26,7 @@
       <td> {{ Profesor.mail }} </td>
       <td> {{ Profesor.telefono }} </td>
       <td> {{ Profesor.nacimiento }} </td>
+      <td><a href="{% url 'persona-editar' tipo Profesor.id %}">Editar</a></td>
     </tr>
   </tbody>
   </table>
@@ -41,6 +43,7 @@
       <th>Mail</th>
       <th>Tel.</th>
       <th>Fec. Nac.</th>
+      <th>Editar</th>
     </tr>
     <tbody>
     <tr>
@@ -51,6 +54,7 @@
       <td> {{ Alumno.mail }} </td>
       <td> {{ Alumno.telefono }} </td>
       <td> {{ Alumno.nacimiento }} </td>
+      <td><a href="{% url 'persona-editar' tipo Alumno.id %}">Editar</a></td>
     </tr>
   </tbody>
   </table>

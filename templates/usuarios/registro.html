@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block content %}
+	{% if user.is_staff %}
+		<div>
+			<h1 class="LogTitle">Registro</h1>
+			<form class="UserForm" action="/Usuario/registrar/" method="POST">
+				{% csrf_token %}
+				{{ form }}
+				<button type="submit">Registrar</button>
+			</form>
+		</div>
+	{% else %}
+        {% include  "denegado.html" %}
+    {% endif %}
+{% endblock %}

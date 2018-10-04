@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block content %}
+	<div>
+		<h1 class="LogTitle">Iniciar sesion</h1>
+		<form class="UserForm" action="{% url "login" %}" method="POST">
+			{% csrf_token %}
+			{{ form }}			
+			<button type="submit">Iniciar</button>
+		</form>
+	</div>
+{% endblock %}

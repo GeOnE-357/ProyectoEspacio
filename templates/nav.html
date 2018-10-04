@@ -20,4 +20,9 @@
     <div class="drop-cont">
     </div>
   </li>
+  {% if user.is_authenticated %}
+    <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
+  {% else %}
+    <li class="right"><a class="drop-btn" href="{% url 'login'%}">Login</a></li>
+  {% endif %}
 </ul>

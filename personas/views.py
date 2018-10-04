@@ -20,13 +20,13 @@ def personaNuevo(request, tipo):
 			if form.is_valid():
 				instance = form.save(commit=False)
 				instance.save()
-				return redirect('personas-index')
+				return redirect('personas-index', a)
 		else:
 			form = alumnoForm(request.POST or None)
 			if form.is_valid():
 				instance = form.save(commit=False)
 				instance.save()
-				return redirect('personas-index')
+				return redirect('personas-index', a)
 	else:
 		if a =="Profesor":
 			form = profesorForm()
@@ -43,3 +43,15 @@ def personaDetalle(request, tipo, id):
 	else:
 		persona = Alumno.objects.get(id=id)
 		return render(request, 'personas/detalle.html', {'Alumno':persona, 'tipo':a})
+
+
+def personaEditar(request, tipo, id):
+	a=tipo
+	if a == 'Profesor':
+		persona = Profesor.objects.get(id=id)
+		form = profesorForm(instance=persona)
+		return render(request, 'personas/modificar.html', {'form':form})
+	else:
+		persona = Alumno.objects.get(id=id)
+		form = alumnoForm(instance=persona)
+		return render(request, 'personas/modificar.html', {'form':form})

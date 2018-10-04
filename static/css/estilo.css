@@ -100,9 +100,9 @@ li a:hover, .drop:hover .drop-btn:hover
 		color: white;
 		background-color: #DF0101;
 	    width: 100%;
-	    font-size: 0.9em;
+	    font-size: 1em;
+	    padding: 16.9%;
 	    border: hidden;
-	    padding: 15%;
 	    margin-left: 68%;
 	    cursor: pointer;
 	}
