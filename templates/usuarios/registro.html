@@ -3,7 +3,11 @@
 {% block content %}
 	{% if user.is_staff %}
 		<div>
-			<h1 class="LogTitle">Registro</h1>
+			{% if user.is_superuser %}
+				<h1 class="LogTitle">Registrar Staff</h1>
+			{% else %}
+				<h1 class="LogTitle">Registrar Usuario Profesor</h1>
+			{% endif %}
 			<form class="UserForm" action="/Usuario/registrar/" method="POST">
 				{% csrf_token %}
 				{{ form }}

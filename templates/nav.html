@@ -20,6 +20,18 @@
     <div class="drop-cont">
     </div>
   </li>
+  {% if user.is_staff %}
+  <li class="drop">
+    <a class="drop-btn">Usuarios</a>
+    <div class="drop-cont">
+    {% if user.is_superuser %}
+      <a class="drop-btn" href="{% url 'usuario-crear' %}">Crear Staff</a>
+    {% else %}
+      <a class="drop-btn" href="{% url 'usuario-crear' %}">Crear Profesor</a>
+    {% endif %}
+    </div>
+  {% endif %}
+  </li>
   {% if user.is_authenticated %}
     <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
   {% else %}

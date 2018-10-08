@@ -15,7 +15,9 @@
       <th>Mail</th>
       <th>Tel.</th>
       <th>Fec. Nac.</th>
+      {% if user.is_staff %}
       <th>Editar</th>
+      {% endif %}
     </tr>
     <tbody>
     <tr>
@@ -26,7 +28,9 @@
       <td> {{ Profesor.mail }} </td>
       <td> {{ Profesor.telefono }} </td>
       <td> {{ Profesor.nacimiento }} </td>
+      {% if user.is_staff %}
       <td><a href="{% url 'persona-editar' tipo Profesor.id %}">Editar</a></td>
+      {% endif %}
     </tr>
   </tbody>
   </table>

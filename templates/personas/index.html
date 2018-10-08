@@ -5,7 +5,9 @@
 {% block content %}
 {% if tipo == 'Profesor'%}
   <h1>Profesores</h1>
-  <a class="drop-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
+  <div class="sub-nav">
+    <a class="sub-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
+  </div>
   <div class="box">
     <table class="table ">
       <tr>
@@ -17,7 +19,8 @@
       <tbody>
         {% for Profesor in personas %}
         <tr>
-          <td><a href="{% url 'persona-detalle' tipo Profesor.id %}">{{ Profesor.id }}</a></td>
+          
+          <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Profesor.id %}" {% endif %}>{{ Profesor.id }}</a></td>
           <td> {{ Profesor.nombre }} </td>
           <td> {{ Profesor.apellido }} </td>
           <td> {{ Profesor.expediente }} </td>
@@ -41,7 +44,9 @@
       <tbody>
         {% for Alumno in personas %}
         <tr>
-          <td><a href="{% url 'persona-detalle' tipo Alumno.id %}">{{ Alumno.id }}</a></td>
+          
+          <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Alumno.id %}" {% endif %}>{{ Alumno.id }}</a></td>
+          
           <td> {{ Alumno.nombre }} </td>
           <td> {{ Alumno.apellido }} </td>
           <td> {{ Alumno.mail }} </td>
