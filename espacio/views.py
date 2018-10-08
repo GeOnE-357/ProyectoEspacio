@@ -1,19 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from .forms import UsuarioForm
 
 def home(request):
     return render(request, 'home.html')
 
 def registrarUsuario(request):
 	if request.method=='POST':
-		form = UserCreationForm(request.POST)
+		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
 			instance.save()
 			return redirect('home')
 	else:
-		form = UserCreationForm()
+		form = UsuarioForm()
 	return render(request, 'usuarios/registro.html', {'form':form})
 
 def loginUsuario(request):
