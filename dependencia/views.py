@@ -35,9 +35,12 @@ def detalleCrear(request):
        return render(request, 'dependencia/detalleCrear.html')
 
 def dependenciaCrear(request):
-	if request.models=="POST":
+	if request.method=="POST":
 		form=DependenciaForm(request.POST or none)
 		if form.is_valid:
 			instacia=form.save(commit=False)
 			instacia.save()
 			return redirect('dependencia')
+	else:
+		form=DependenciaForm()
+		return render(request,'dependencia/dependenciacrear.html',{'form':form})
