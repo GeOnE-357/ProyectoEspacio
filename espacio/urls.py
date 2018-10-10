@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls, name="admin"),
     url(r'^$', views.home, name="home"),
     url(r'^Personas/', include('personas.urls')), #Incluido el archivo urls.py de la app personas.
-    url(r'^dependencia/', include('dependencia.urls')),
+    url(r'^Dependencia/', include('dependencia.urls')),
     url(r'^Usuario/Registrar/$', views.registrarUsuario, name="usuario-crear"),
     url(r'^Usuario/Login/$', views.loginUsuario, name="login"),
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),

@@ -16,8 +16,10 @@
     </div>
   </li>
   <li class="drop">
-    <a href="{% url 'dependencia'%}" class="drop-btn">Dependencias</a>
+    <a href="" class="drop-btn">Dependencias</a>
     <div class="drop-cont">
+      <a href="{% url 'dependencia'%}" class="drop-btn">Listar</a>
+      
     </div>
   </li>
   {% if user.is_staff %}
