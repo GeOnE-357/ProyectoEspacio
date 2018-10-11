@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from dependencia.models import *
-from .forms import DetalleAulaForm, AulaForm
+from .forms import *
 # Create your views here.
 
 
@@ -33,3 +33,14 @@ def crearAula(request):
 
 def detalleCrear(request):
        return render(request, 'dependencia/detalleCrear.html')
+
+def dependenciaCrear(request):
+	if request.method=="POST":
+		form=DependenciaForm(request.POST or none)
+		if form.is_valid:
+			instacia=form.save(commit=False)
+			instacia.save()
+			return redirect('dependencia')
+	else:
+		form=DependenciaForm()
+		return render(request,'dependencia/dependenciacrear.html',{'form':form})
