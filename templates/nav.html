@@ -25,9 +25,9 @@
     <a class="drop-btn">Usuarios</a>
     <div class="drop-cont">
     {% if user.is_superuser %}
-      <a class="drop-btn" href="{% url 'usuario-crear' %}">Crear Staff</a>
+      <a class="drop-btn" href="{% url 'usuario-crear'%}">Crear Staff</a>
     {% else %}
-      <a class="drop-btn" href="{% url 'usuario-crear' %}">Crear Profesor</a>
+      <a class="drop-btn" href="{% url 'usuario-crear'%}">Crear Usuario</a>
     {% endif %}
     </div>
   {% endif %}

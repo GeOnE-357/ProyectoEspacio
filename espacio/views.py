@@ -12,7 +12,7 @@ def registrarUsuario(request):
 		if form.is_valid():
 			instance=form.save(commit=False)
 			if request.user.is_superuser:
-				instance.is_staff = True
+				instance.is_staff=True
 			instance.save()
 			return redirect('home')
 	else:
