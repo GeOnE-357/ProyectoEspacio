@@ -4,7 +4,7 @@
 	{% if user.is_staff or user.is_superuser %}
 		<div>
 			<h1 class="LogTitle">Registrar</h1>
-			<form class="UserForm" action="{% url 'usuario-crear' %}" method="POST">
+			<form class="UserForm" method="POST">
 				{% csrf_token %}
 				{{ form }}
 				<button type="submit">Registrar</button>
