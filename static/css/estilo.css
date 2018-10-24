@@ -112,6 +112,32 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #8A0808;
 	}
 
+.sub-nav
+	{
+		width: 90%;
+		margin-left: 5%;
+	}
+
+.sub-btn
+	{
+	    display: inline-block;
+	    padding: 1%;
+	    width: 20%;
+	    text-decoration: none;
+	    text-align: center;
+	    color: black;
+	    font-weight: bold;
+	    background-color: white;
+	    border-radius: 50px;
+	    margin-bottom: 1%;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+.sub-btn:hover
+	{
+		color: #333;
+		background-color: lightgrey;
+	}
 
 /* ---------- Acceso Denegado ---------- */
 
