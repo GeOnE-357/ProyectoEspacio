@@ -36,9 +36,10 @@ def crearAula(request):
 
 def detalleCrear(request):
 	det=DetalleAula()
+	a=Aula.objects.latest('id')
 	for d in Dia.objects.all():
 		for h in Horario.objects.all():
-			det.aulaid=1
+			det.aulaId=a
 			det.diaId=d
 			det.estado="disponible"
 			det.horaId=h
