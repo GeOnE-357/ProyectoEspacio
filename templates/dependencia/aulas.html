@@ -6,6 +6,10 @@
   <h1>Aulas</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'aulacrear' %}">Crear Aula</a>
+    <form type="get" action=".">
+      <input type="text" placeholder="Buscar Aula.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
   <div class="box">
   <table class="table ">
