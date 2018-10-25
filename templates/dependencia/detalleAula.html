@@ -9,21 +9,11 @@
   <div class="box">
   <table class="table ">
     <tr>
+      <th>Hora</th>
       {% for d in dia %}
       <th>{{d.dia}}</th>
       {% endfor %}
     </tr>
-    <tbody>
-    {% for da in detalleA %}
-    <tr>
-      <td> {{ da.aulaId }}</td>
-      <td> {{ da.diaId }} </td>
-      <td> {{ da.horaId }} </td>
-      <td> {{ da.estado }} </td>
-      <td> {{ da.cursoID }} </td>
-    </tr>
-    {% endfor %}
-  </tbody>
   </table>
 </div>
 

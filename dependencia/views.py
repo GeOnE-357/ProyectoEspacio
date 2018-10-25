@@ -20,6 +20,7 @@ def detalleAula(request,id):
 		'detalleA':DetalleAula.objects.filter(aulaId=id),
 		'aula':Aula.objects.filter(id=id),
 		'dia':Dia.objects.all(),
+		'hora':Horario.objects.all(),
 		})
 
 def crearAula(request):
