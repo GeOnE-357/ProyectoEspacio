@@ -18,6 +18,8 @@ def aulas(request, id):
 def detalleAula(request,id):
 	return render(request,'dependencia/detalleAula.html',{
 		'detalleA':DetalleAula.objects.filter(aulaId=id),
+		'aula':Aula.objects.filter(id=id),
+		'dia':Dia.objects.all(),
 		})
 
 def crearAula(request):
