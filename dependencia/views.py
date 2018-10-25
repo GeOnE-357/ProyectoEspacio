@@ -26,13 +26,30 @@ def crearAula(request):
 		if form.is_valid():
 			instacia= form.save(commit=False)
 			instacia.save()
-			return redirect('dependencia')
+			return redirect('detallecrear')
 	else:
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request):
-       return render(request, 'dependencia/detalleCrear.html')
+def detalleCrear():
+	aula=DetalleAula.objects.latest(id)
+	form=DetalleAulaForm()
+	d=0
+	i=0
+	while i<8:
+		dia=i+1
+		while d<15:
+			hora=d+1
+			instacia=form.save(commit=False)
+			instacia.aulaid=Aula.objects.get(aula)
+			instacia.diaId=Dia.objects.get(id=dia)
+			instacia.estado="disponible"
+			instacia.horaId=Horario.objects.get(id=hora)
+			instacia.save()
+			d=d+1
+		d=0
+		i=i+1
+	return render('dependencia')
 
 def dependenciaCrear(request):
 	if request.method=="POST":
