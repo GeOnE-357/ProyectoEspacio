@@ -15,4 +15,4 @@ class AulaForm(forms.ModelForm):
 class DetalleAulaForm(forms.ModelForm):
 	class Meta:
 		model=DetalleAula 
-		fields=('aulaId','diaId','horaId','horaId','cursoID')            
+		fields=('aulaId','diaId','horaId','estado','cursoID')            

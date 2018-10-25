@@ -34,25 +34,16 @@ def crearAula(request):
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear():
-	aula=DetalleAula.objects.latest(id)
-	form=DetalleAulaForm()
-	d=0
-	i=0
-	while i<8:
-		dia=i+1
-		while d<15:
-			hora=d+1
-			instacia=form.save(commit=False)
-			instacia.aulaid=Aula.objects.get(aula)
-			instacia.diaId=Dia.objects.get(id=dia)
-			instacia.estado="disponible"
-			instacia.horaId=Horario.objects.get(id=hora)
-			instacia.save()
-			d=d+1
-		d=0
-		i=i+1
-	return render('dependencia')
+def detalleCrear(request):
+	det=DetalleAula()
+	for d in Dia.objects.all():
+		for h in Horario.objects.all():
+			det.aulaid=1
+			det.diaId=d
+			det.estado="disponible"
+			det.horaId=h
+			det.save()
+	return redirect('dependencia')
 
 def dependenciaCrear(request):
 	if request.method=="POST":
