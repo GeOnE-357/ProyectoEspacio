@@ -6,11 +6,15 @@
   <h1>Dependencias</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'dependenciacrear' %}">Crear Dependencia</a>
+    <form type="get" action=".">
+      <input type="text" placeholder="Buscar Dependencia.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
   <div class="box">
   <table class="table ">
     <tr>
-      <th>ID</th>
+      <th>Aulas</th>
       <th>Nombre</th>
       <th>Direccion</th>
       <th>Telefono</th>
@@ -19,7 +23,7 @@
     <tbody>
     {% for de in dependencia %}
     <tr>
-      <td><a href="{% url 'aulas' de.id %}">{{ de.id }}</a></td>
+      <td><a href="{% url 'aulas' de.id %}">Mostrar</a></td>
       <td> {{ de.nombre }} </td>
       <td> {{ de.direccion }} </td>
       <td> {{ de.telefono }} </td>
