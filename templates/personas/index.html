@@ -7,6 +7,10 @@
   <h1>Profesores</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
+    <form type="get" action=".">
+      <input type="text" placeholder="Buscar Profesor.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
   <div class="box">
     
@@ -32,7 +36,13 @@
   </div>
 {% else %}
   <h1>Alumnos</h1>
-  <a class="drop-btn" href="{% url 'personas-crear' tipo %}">Crear Alumno</a>
+  <div class="sub-nav">
+    <a href="{% url 'personas-crear' tipo %}">Crear Alumno</a>
+    <form type="get" action=".">
+      <input type="text" placeholder="Buscar Alumno.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
   <div class="box">
     <table class="table ">
       <tr>
