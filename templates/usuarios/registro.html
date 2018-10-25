@@ -1,14 +1,10 @@
 {% extends "master.html" %}
 
 {% block content %}
-	{% if user.is_staff %}
+	{% if user.is_staff or user.is_superuser %}
 		<div>
-			{% if user.is_superuser %}
-				<h1 class="LogTitle">Registrar Staff</h1>
-			{% else %}
-				<h1 class="LogTitle">Registrar Usuario Profesor</h1>
-			{% endif %}
-			<form class="UserForm" action="/Usuario/registrar/" method="POST">
+			<h1 class="LogTitle">Registrar</h1>
+			<form class="UserForm" method="POST">
 				{% csrf_token %}
 				{{ form }}
 				<button type="submit">Registrar</button>

@@ -6,18 +6,22 @@ from .forms import UsuarioForm
 def home(request):
     return render(request, 'home.html')
 
-def registrarUsuario(request):
+
+def registrarUsuario(request, tipo):
 	if request.method=='POST':
+		a=tipo
 		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
-			if request.user.is_superuser:
-				instance.is_staff = True
+			if a=='Staff':
+				if request.user.is_superuser:
+					instance.is_staff=True
 			instance.save()
-			return redirect('home')
+			return redirect('home', )
 	else:
 		form = UsuarioForm()
 	return render(request, 'usuarios/registro.html', {'form':form})
+
 
 def loginUsuario(request):
 	if request.method == "POST":
@@ -29,6 +33,7 @@ def loginUsuario(request):
 	else:
 		form = AuthenticationForm()
 	return render(request, 'usuarios/login.html', {'form':form}) 
+
 
 def logoutUsuario(request):
 	if request.method == "POST":
