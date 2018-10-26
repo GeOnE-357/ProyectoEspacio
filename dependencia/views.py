@@ -36,7 +36,6 @@ def crearAula(request):
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
 def detalleCrear(request):
-
 	
 	a=Aula.objects.latest('id')
 	for d in Dia.objects.all():

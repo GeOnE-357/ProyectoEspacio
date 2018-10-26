@@ -17,12 +17,8 @@
     {% for h in hora %}
     <tr>
       <td>{{h.hora}}</td>
-      {% for det in detalle%}
-        {% if detalle.estado != 'No Disponible' %}
-          <td><a href="#">Disponible</a></td>
-        {% else %}
-          <td>No Disponible</td>
-        {% endif %}
+      {% for det in detalleA%}
+          <td>{{ detalleA.id }}</td>
       {% endfor %}
     </tr>
     {% endfor %}
