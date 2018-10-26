@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from dependencia.models import *
 from .forms import *
+from cursos.models import Curso
 # Create your views here.
 
 
@@ -34,25 +35,25 @@ def crearAula(request):
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear():
-	aula=DetalleAula.objects.latest(id)
-	form=DetalleAulaForm()
+def detalleCrear(request):
 	d=0
 	i=0
 	while i<8:
 		dia=i+1
 		while d<15:
-			hora=d+1
-			instacia=form.save(commit=False)
-			instacia.aulaid=Aula.objects.get(aula)
-			instacia.diaId=Dia.objects.get(id=dia)
-			instacia.estado="disponible"
-			instacia.horaId=Horario.objects.get(id=hora)
-			instacia.save()
-			d=d+1
-		d=0
-		i=i+1
-	return render('dependencia')
+			horaD=d+1
+			dia=Dia.objects.get(id=dia)
+			hora=Horario.objects.get(id=horaD)
+			curso=Curso()
+			curso.save()
+			detallaA= DetalleAula()
+			detalleA.aulaId=aulaD
+			detalleA.diaId=dia
+			detalleA.horaId=hora
+			detalleA.estado="Disponible"
+			detalleA.cursoID=curso
+			detalleA.save()
+	return redirect('dependencia')
 
 def dependenciaCrear(request):
 	if request.method=="POST":

@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}Listar Materia{% endblock %}
+
+{% block content %}
+<h1>Materia</h1>
+  <div class="sub-nav">
+    <a class="sub-btn" href="">Crear Materia</a>
+    <form type="get" action=".">
+      <input type="text" placeholder="Buscar Materia.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="box">
+    <table class="table ">
+      <tr>
+        <th>#ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+      </tr>
+  		<tbody>
+        {% for Materia in materias %}
+        <tr>
+            <td><a {% if user.is_staff %} href="" {% endif %}>{{ Materia.id }}</a></td>
+            <td> {{ Materia.nombre }} </td>
+            <td> {{ Materia.tipo }} </td>
+	        </tr>
+	        {% endfor %}
+      	</tbody>
+    </table>
+  </div>
+{% endblock %}
