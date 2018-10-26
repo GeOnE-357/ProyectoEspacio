@@ -22,7 +22,7 @@ class DetalleAula(models.Model):
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
 	estado=models.CharField(max_length=20)
-	cursoID=models.ForeignKey('cursos.Curso', blank=True, default="", on_delete=models.PROTECT)
+	cursoID=models.ForeignKey('cursos.Curso',null=True, blank=True, default="", on_delete=models.PROTECT)
 	def __str__(self):
 		return self.estado
 		

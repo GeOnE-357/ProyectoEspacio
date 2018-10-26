@@ -36,23 +36,16 @@ def crearAula(request):
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
 def detalleCrear(request):
-	d=0
-	i=0
-	while i<8:
-		dia=i+1
-		while d<15:
-			horaD=d+1
-			dia=Dia.objects.get(id=dia)
-			hora=Horario.objects.get(id=horaD)
-			curso=Curso()
-			curso.save()
-			detallaA= DetalleAula()
-			detalleA.aulaId=aulaD
-			detalleA.diaId=dia
-			detalleA.horaId=hora
-			detalleA.estado="Disponible"
-			detalleA.cursoID=curso
-			detalleA.save()
+
+	det=DetalleAula()
+	a=Aula.objects.latest('id')
+	for d in Dia.objects.all():
+		for h in Horario.objects.all():
+			det.aulaId=a
+			det.diaId=d
+			det.estado="disponible"
+			det.horaId=h
+			det.save()
 	return redirect('dependencia')
 
 def dependenciaCrear(request):
