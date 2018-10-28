@@ -18,7 +18,9 @@
     <tr>
       <td>{{h.hora}}</td>
       {% for det in detalleA%}
-          <td>{{ detalleA.id }}</td>
+        {% if det.horaId == h.id %}
+          <td>{{ det.estado }}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}

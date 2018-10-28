@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}Crear Curso{% endblock %}
+
+{% block content %}
+	{% if user.is_staff %}
+    <h1>Crear</h1>
+	<form method="POST" class="UserForm">
+    	{% csrf_token %}
+      	{{ form }}
+        <button type="submit">Registrar</button>
+    </form>
+    {% else %}
+        {% include  "denegado.html" %}
+    {% endif %}
+{% endblock %}
