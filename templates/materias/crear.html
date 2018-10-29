@@ -4,7 +4,7 @@
 
 {% block content %}
 	{% if user.is_staff %}
-    <h1>Crear</h1>
+    <h1>Crear Materia</h1>
 	<form method="POST" class="UserForm">
     	{% csrf_token %}
       	{{ form }}

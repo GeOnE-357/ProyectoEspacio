@@ -1,0 +1,6 @@
+Python==3.6.5
+Pip==18.0
+Django==2.1.1
+Xampp==3.2.2
+MySQL Connector/Python==8.0
+filter==(Posiblemente???)
