@@ -7,3 +7,8 @@ class CursoForm(forms.ModelForm):
 	class Meta:
 		model = Curso
 		fields = ('materiaID', 'modulo', 'profesorID', 'mes', 'anio', 'estado')
+
+class MateriaForm(forms.ModelForm):
+	class Meta:
+		model = Materia
+		fields = ('nombre', 'tipo')

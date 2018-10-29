@@ -5,7 +5,7 @@
 {% block content %}
 <h1>Materia</h1>
   <div class="sub-nav">
-    <a class="sub-btn" href="">Crear Materia</a>
+    <a class="sub-btn" href="{% url 'materias-crear' %}">Crear Materia</a>
     <form type="get" action=".">
       <input type="text" placeholder="Buscar Materia.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>

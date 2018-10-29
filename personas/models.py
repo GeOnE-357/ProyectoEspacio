@@ -16,10 +16,14 @@ class Persona(models.Model):
 
 class Profesor(Persona):
 	expediente=models.IntegerField(blank=True)
+	def __str__(self):
+		return self.nombre +" "+ self.apellido
 
 class Alumno(Persona):	
 	trabajo=models.BooleanField(default=True)
 	dispHoraria=models.CharField(max_length=30)
+	def __str__(self):
+		return self.nombre +" "+ self.apellido
 
 class Estudio(models.Model):
 	nivel=models.CharField(max_length=30)
