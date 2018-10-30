@@ -7,8 +7,8 @@
   <h1>Profesores</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Profesor.." name="search">
+    <form type="GET" class="BuscarForm">
+      {{ filtro.form.as_p }}
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -22,7 +22,7 @@
         <th>Expediente</th>
       </tr>
       <tbody>
-        {% for Profesor in personas %}
+        {% for Profesor in filtro.qs %}
         <tr>
           
           <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Profesor.id %}" {% endif %}>{{ Profesor.id }}</a></td>
@@ -38,8 +38,8 @@
   <h1>Alumnos</h1>
   <div class="sub-nav">
     <a href="{% url 'personas-crear' tipo %}">Crear Alumno</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Alumno.." name="search">
+    <form type="GET" class="BuscarForm">
+      {{ filtro.form.as_p }}
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -53,7 +53,7 @@
         <th>Tel.</th>
       </tr>
       <tbody>
-        {% for Alumno in personas %}
+        {% for Alumno in filtro.qs %}
         <tr>
           
           <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Alumno.id %}" {% endif %}>{{ Alumno.id }}</a></td>

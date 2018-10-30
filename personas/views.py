@@ -2,15 +2,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from personas.models import *
 from espacio.forms import UsuarioForm
 from .forms import profesorForm, alumnoForm
+from .filters import ProfesorFilter, AlumnoFilter
 
 def personasListar(request, tipo):
 	a=tipo
 	if a == 'Profesor':
+		personas = Profesor.objects.all()
+		filtro = ProfesorFilter(request.GET, queryset=personas)
 		return render(request, 'personas/index.html', {
-			'personas': Profesor.objects.all(), 'tipo':a})
+			'personas':personas, 'filtro':filtro, 'tipo':a})
 	else:
+		personas = Alumno.objects.all()
+		filtro = AlumnoFilter(request.GET, queryset=personas)
 		return render(request, 'personas/index.html', {
-			'personas': Alumno.objects.all(), 'tipo':a})
+			'personas':personas, 'filtro':filtro, 'tipo':a})
 
 
 def personaNuevo(request, tipo):

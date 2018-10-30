@@ -151,6 +151,22 @@ li a:hover, .drop:hover .drop-btn:hover
 
 /* ---------- Formularios ---------- */
 
+.BuscarForm p
+	{
+		margin: 0;
+		display: inline-block;
+	}
+
+.BuscarForm p label
+	{
+		display: none;
+	}
+.BuscarForm p input
+	{
+		
+		background-color: lightgrey;
+		margin: 0;
+	}
 
 .none
 	{

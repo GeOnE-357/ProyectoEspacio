@@ -5,7 +5,7 @@
 + **Xampp 3.2.2** 
 + **MySQL Connector/Python==8.0**
 + **Django 2.1.1**
-+ **Filter (Posiblemente)**
++ **Filter**
 
 > sudo pip3 install
 > sudo pip3 install django==2.1.1
