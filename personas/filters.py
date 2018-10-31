@@ -4,9 +4,9 @@ import django_filters
 class ProfesorFilter(django_filters.FilterSet):
     class Meta:
         model = Profesor
-        fields = ['nombre']
+        fields = ['nombre', 'apellido', 'dni']
 
 class AlumnoFilter(django_filters.FilterSet):
     class Meta:
         model = Alumno
-        fields = ['nombre']
+        fields = ['nombre', 'apellido', 'dni']

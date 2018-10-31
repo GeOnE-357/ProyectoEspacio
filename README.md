@@ -7,6 +7,6 @@
 + **Django 2.1.1**
 + **Filter**
 
-> sudo pip3 install
-> sudo pip3 install django==2.1.1
-> sudo pip3 install django-filter
+> sudo pip install
+> sudo pip install django==2.1.1
+> sudo pip install django-filter

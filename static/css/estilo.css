@@ -155,16 +155,17 @@ li a:hover, .drop:hover .drop-btn:hover
 	{
 		margin: 0;
 		display: inline-block;
+		width: 30%;
 	}
 
 .BuscarForm p label
 	{
 		display: none;
 	}
+
 .BuscarForm p input
 	{
-		
-		background-color: lightgrey;
+		background-color: rgba(251, 145, 23, 0.5);
 		margin: 0;
 	}
 
