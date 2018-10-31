@@ -8,7 +8,15 @@
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'personas-crear' tipo %}">Crear Profesores</a>
     <form type="GET" class="BuscarForm">
-      {{ filtro.form.as_p }}
+      <div>
+        <input type="text" name="nombre" placeholder="Nombre..." id="id_nombre">
+      </div>
+      <div>
+        <input type="text" name="apellido" placeholder="Apellido..." id="id_apellido">
+      </div>
+      <div>
+        <input type="text" name="dni" placeholder="DNI" id="id_dni">
+      </div>
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -39,7 +47,15 @@
   <div class="sub-nav">
     <a href="{% url 'personas-crear' tipo %}">Crear Alumno</a>
     <form type="GET" class="BuscarForm">
-      {{ filtro.form.as_p }}
+      <div>
+        <input type="text" name="nombre" placeholder="Nombre..." id="id_nombre">
+      </div>
+      <div>
+        <input type="text" name="apellido" placeholder="Apellido..." id="id_apellido">
+      </div>
+      <div>
+        <input type="text" name="dni" placeholder="DNI" id="id_dni">
+      </div>
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
