@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dependencia',
     'personas',
     'cursos',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
