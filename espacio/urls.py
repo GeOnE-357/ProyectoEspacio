@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^(?P<tipo>\w+)/Registrar/$', views.registrarUsuario, name="usuario-crear"),
     url(r'^Usuario/Login/$', views.loginUsuario, name="login"),
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),
+    url(r'^Usuario/Password/$', views.passwordUsuario, name="password"),
     url(r'^Curso/', include('cursos.urls')),
 ]
