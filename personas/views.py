@@ -9,13 +9,11 @@ def personasListar(request, tipo):
 	if a == 'Profesor':
 		personas = Profesor.objects.all()
 		filtro = ProfesorFilter(request.GET, queryset=personas)
-		return render(request, 'personas/index.html', {
-			'personas':personas, 'filtro':filtro, 'tipo':a})
+		return render(request, 'personas/index.html', {'filtro':filtro, 'tipo':a})
 	else:
 		personas = Alumno.objects.all()
 		filtro = AlumnoFilter(request.GET, queryset=personas)
-		return render(request, 'personas/index.html', {
-			'personas':personas, 'filtro':filtro, 'tipo':a})
+		return render(request, 'personas/index.html', {'filtro':filtro, 'tipo':a})
 
 
 def personaNuevo(request, tipo):

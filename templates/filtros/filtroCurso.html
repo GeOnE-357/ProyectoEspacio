@@ -1,0 +1,22 @@
+<form type="GET" class="BuscarForm">
+  <div>
+    <select name="materiaID" id="id_materiaID">
+        <option value=0> --------- </option>
+      {% for Mat in materias  %}
+        <option value="{{ Mat.id }}">{{ Mat.nombre }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
+    <select name="profesorID" id="id_profesorID">
+        <option value=0> --------- </option>
+      {% for Pro in profes  %}
+        <option value="{{ Pro.id }}">{{ Pro.nombre }} {{ Pro.apellido }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
+    <input type="number" name="anio" placeholder="Año..." id="id_anio">
+  </div>
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>

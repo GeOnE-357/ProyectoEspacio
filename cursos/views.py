@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Curso, Materia, Mes, Asistencia
+from personas.models import Profesor
 from .forms import CursoForm, MateriaForm
+from .filters import CursoFilter
 
 def cursosListar(request):
-	return render(request, 'cursos/index.html', {'cursos': Curso.objects.all()})
+	cursos= Curso.objects.all()
+	materias = Materia.objects.all()
+	profes = Profesor.objects.all()
+	filtro = CursoFilter(request.GET, queryset=cursos)
+	return render(request, 'cursos/index.html', {'filtro':filtro, 'materias':materias, 'profes':profes} )
 
 
 def cursosCrear(request):
