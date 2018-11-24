@@ -18,21 +18,7 @@ def aulas(request, id):
 
 def detalleAula(request,id):
 	return render(request,'dependencia/detalleAula.html',{
-		'nueve':DetalleAula.objects.filter(aulaId=id, horaId=1),
-		'diez':DetalleAula.objects.filter(aulaId=id, horaId=2),
-		'once':DetalleAula.objects.filter(aulaId=id, horaId=3),
-		'doce':DetalleAula.objects.filter(aulaId=id, horaId=4),
-		'trece':DetalleAula.objects.filter(aulaId=id, horaId=5),
-		'catorce':DetalleAula.objects.filter(aulaId=id, horaId=6),
-		'quince':DetalleAula.objects.filter(aulaId=id, horaId=7),
-		'dieciseis':DetalleAula.objects.filter(aulaId=id, horaId=8),
-		'diecisiete':DetalleAula.objects.filter(aulaId=id, horaId=9),
-		'dieciocho':DetalleAula.objects.filter(aulaId=id, horaId=10),
-		'diecinueve':DetalleAula.objects.filter(aulaId=id, horaId=11),
-		'veinte':DetalleAula.objects.filter(aulaId=id, horaId=12),
-		'veintiuno':DetalleAula.objects.filter(aulaId=id, horaId=13),
-		'veintidos':DetalleAula.objects.filter(aulaId=id, horaId=14),
-		'veintitres':DetalleAula.objects.filter(aulaId=id, horaId=15),
+		'detalleA':DetalleAula.objects.filter(aulaId=id),
 		'aula':Aula.objects.filter(id=id),
 		'dia':Dia.objects.all(),
 		'hora':Horario.objects.all(),

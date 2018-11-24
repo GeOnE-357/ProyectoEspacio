@@ -35,4 +35,3 @@ class Dia(models.Model):
 
 class Horario(models.Model):
 	hora = models.IntegerField(blank=True)
-		

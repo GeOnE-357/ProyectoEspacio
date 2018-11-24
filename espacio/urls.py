@@ -12,6 +12,5 @@ urlpatterns = [
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),
     url(r'^Usuario/Password/$', views.passwordUsuario, name="password"),
     url(r'^Curso/', include('cursos.urls')),
-    url(r'^Asistencia',include('asistencia.urls')),
-    
+    url(r'^Asistencia/', include('asistencia.urls')),
 ]

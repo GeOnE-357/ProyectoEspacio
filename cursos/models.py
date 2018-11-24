@@ -25,7 +25,6 @@ class Mes(models.Model):
 		return self.mes
 
 class Inscripcion(models.Model):
-	"""docstring for Asistencia"""
 	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.PROTECT)
 	alumnoID=models.ForeignKey('personas.Alumno',blank=True,default="",on_delete=models.PROTECT)
 	fecha=models.DateTimeField(auto_now_add=True)

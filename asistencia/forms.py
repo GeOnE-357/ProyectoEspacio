@@ -3,5 +3,5 @@ from .models import Asistencia
 
 class AsistenciaForm(forms.ModelForm):
 	class Meta:
-		model=Asistencia
-		fields=('presente','inscripcionId')
+		model = Asistencia
+		fields = ('presente', 'inscripcionID')
