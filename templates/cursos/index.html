@@ -4,27 +4,29 @@
 
 {% block content %}
 <h1>Cursos</h1>
+
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'cursos-crear' %}">Crear Curso</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Curso.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    {% include '../filtros/filtroCurso.html' %}
   </div>
   <div class="box">
     <table class="table ">
       <tr>
         <th>#ID</th>
+        <th>Materia</th>
         <th>Modulo</th>
         <th>Profesor</th>
+        <th>Año</th>
         <th>Estado</th>
       </tr>
   		<tbody>
-        {% for Curso in cursos %}
+        {% for Curso in filtro.qs %}
         <tr>
             <td><a {% if user.is_staff %} href="" {% endif %}>{{ Curso.id }}</a></td>
+            <td> {{ Curso.materiaID }} </td>
             <td> {{ Curso.modulo }} </td>
             <td> {{ Curso.profesorID }} </td>
+            <td> {{ Curso.anio }} </td>
             <td> {{ Curso.estado }} </td>
 	       </tr>
         {% endfor %}
