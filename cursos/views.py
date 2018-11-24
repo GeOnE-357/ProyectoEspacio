@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Curso, Materia, Mes, Asistencia
+from .models import Curso, Materia, Mes, Inscripcion
 from personas.models import Profesor
 from .forms import CursoForm, MateriaForm
 from .filters import CursoFilter

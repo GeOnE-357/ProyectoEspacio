@@ -24,7 +24,7 @@ class Mes(models.Model):
 	def __str__(self):
 		return self.mes
 
-class Asistencia(models.Model):
+class Inscripcion(models.Model):
 	"""docstring for Asistencia"""
 	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.PROTECT)
 	alumnoID=models.ForeignKey('personas.Alumno',blank=True,default="",on_delete=models.PROTECT)

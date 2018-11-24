@@ -1,5 +1,5 @@
 from django import forms
-from .models import Curso, Materia, Mes
+from .models import Curso, Materia, Mes,Inscripcion
 from personas.models import Profesor
 
 class CursoForm(forms.ModelForm):
@@ -12,3 +12,8 @@ class MateriaForm(forms.ModelForm):
 	class Meta:
 		model = Materia
 		fields = ('nombre', 'tipo')
+
+class InscripcionForm(forms.ModelForm):
+	class Meta:
+		model = Inscripcion
+		fields = ('cursoID', 'alumnoID')

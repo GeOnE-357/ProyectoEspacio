@@ -2923,13 +2923,30 @@
 											"height": 13,
 											"text": "-alumnoID",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFnRgHPNi4vk8o=",
+											"_parent": {
+												"$ref": "AAAAAAFl6g1P5mAC0m0="
+											},
+											"model": {
+												"$ref": "AAAAAAFnRgHPGS4g5Cc="
+											},
+											"font": "Arial;13;0",
+											"left": 243,
+											"top": 404,
+											"width": 95,
+											"height": 13,
+											"text": "-fecha",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 238,
 									"top": 369,
 									"width": 105,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2942,7 +2959,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 238,
-									"top": 407,
+									"top": 422,
 									"width": 105,
 									"height": 10
 								},
@@ -6391,7 +6408,7 @@
 											"top": 379,
 											"width": 79.8408203125,
 											"height": 13,
-											"text": "-AsistenciaID",
+											"text": "-inscripcionID",
 											"horizontalAlignment": 0
 										}
 									],
@@ -6596,9 +6613,9 @@
 										"$ref": "AAAAAAFnRfKPtaZ8WIk="
 									},
 									"font": "Arial;13;0",
-									"left": 156,
+									"left": 155,
 									"top": 372,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -7667,6 +7684,16 @@
 							"name": "alumnoID",
 							"visibility": "private",
 							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFnRgHPGS4g5Cc=",
+							"_parent": {
+								"$ref": "AAAAAAFl6g1P5V/6RU8="
+							},
+							"name": "fecha",
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -8310,7 +8337,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnPkBfEkk51Ic="
 							},
-							"name": "AsistenciaID",
+							"name": "inscripcionID",
 							"visibility": "private"
 						}
 					]
