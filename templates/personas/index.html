@@ -45,6 +45,7 @@
         <th>Apellido</th>
         <th>Mail</th>
         <th>Tel.</th>
+        <th>Curso</th>
       </tr>
       <tbody>
         {% for Alumno in filtro.qs %}
@@ -56,6 +57,7 @@
           <td> {{ Alumno.apellido }} </td>
           <td> {{ Alumno.mail }} </td>
           <td> {{ Alumno.telefono }} </td>
+          <td><a class="Insc" href="{% url 'inscribir-crear' Alumno.id %}">INSCRIBIR</a></td>
         </tr>
         {% endfor %}
       </tbody>

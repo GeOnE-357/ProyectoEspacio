@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Curso, Materia, Mes, Inscripcion
 from personas.models import Profesor
-from .forms import CursoForm, MateriaForm
+from .forms import CursoForm, MateriaForm, InscripcionForm
 from .filters import CursoFilter
 
 def cursosListar(request):
@@ -38,3 +38,14 @@ def materiasCrear(request):
 	else:
 		form=MateriaForm()
 	return render(request, 'materias/crear.html', {'form':form})
+
+
+def inscripcionCrear(request, id):
+	if request.method=="POST":
+		form=InscripcionForm(request.POST or none)
+		if form.is_valid():
+			instancia= form.save(commit=False)
+			instancia.save()
+	else:
+		form=InscripcionForm()
+	return render(request, 'cursos/inscripcion.html', {'form':form})

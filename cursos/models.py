@@ -9,8 +9,8 @@ class Curso(models.Model):
 	mes=models.ForeignKey('cursos.Mes', blank=True, default="", on_delete=models.PROTECT)
 	anio=models.IntegerField(blank=True)
 	estado=models.CharField(max_length=15)
-	def __str__(self):
-		return self.anio + self.estado
+	def __unicode__(self):
+		return self.materiaID
 
 class Materia(models.Model):
 	nombre=models.CharField(max_length=50)
@@ -28,6 +28,3 @@ class Inscripcion(models.Model):
 	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.PROTECT)
 	alumnoID=models.ForeignKey('personas.Alumno',blank=True,default="",on_delete=models.PROTECT)
 	fecha=models.DateTimeField(auto_now_add=True)
-	
-		
-

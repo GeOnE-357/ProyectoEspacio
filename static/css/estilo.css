@@ -112,6 +112,31 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #8A0808;
 	}
 
+/* ---------- Botones Tabla ---------- */
+
+td a.Insc, td a.Edit
+	{
+		background-color: rgba(0,0,0,0.4);
+		color: white;
+		text-decoration:none;
+		padding: 2.5%;
+	}
+
+td a.Insc:hover
+	{
+		padding: 2.5%;
+		background-color: rgba(50,160,0,1);
+		font-weight: bold;
+	}
+
+td a.Edit:hover
+	{
+		padding: 2.5%;
+		background-color: rgba(0,0,180,1);
+		font-weight: bold;
+	}
+
+	
 /* ---------- Acceso Denegado ---------- */
 
 .neg
