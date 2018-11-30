@@ -4,5 +4,9 @@ from .forms import AsistenciaForm
 
 def index(request):
     return render(request, 'asistencia/index.html', {
-        'asist': Asistencia.objects.all(),
+        'cursos': cursos.objects.filter(profesorId=id),
     })
+#deberia recibir el id del profesor que 
+#loguee y traer las inscripciones de sus cursos
+def listar_asist(request):
+	pass

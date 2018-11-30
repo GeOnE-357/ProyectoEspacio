@@ -2,6 +2,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-url(r'^$', views.index, name="asistencia-index"),
+url(r'^$', views.index, name="Asistencia-index"),
 
 ]

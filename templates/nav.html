@@ -24,6 +24,13 @@
       
     </div>
   </li>
+  <li class="drop">
+    <a class="drop-btn">Asistencia</a>
+    <div class="drop-cont">
+      <a class="drop-btn" href="{% url 'Asistencia-index' %}">Listar Asistencia</a>
+      
+    </div>
+  </li>
   {% if user.is_staff %}
   <li class="drop">
     <a class="drop-btn">Usuarios</a>
