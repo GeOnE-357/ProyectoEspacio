@@ -3,10 +3,9 @@ from .models import Asistencia
 from .forms import AsistenciaForm
 
 def index(request,usuario):
-	'profe': profesor.objects.filter(dni=usuario)
-	'cur':cursos.objects.filter(profesorId=profe.id,estado='vigente')
-    return render(request, 'asistencia/index.html',
-    })
+	profe: profesor.objects.filter(dni=usuario)
+	cur:cursos.objects.filter(profesorId=profe.id,estado='vigente')
+	return render(request, 'asistencia/index.html')
 #deberia recibir el user del profesor que 
 #loguee y traer las inscripciones de sus cursos
 def listarCurso(request):
