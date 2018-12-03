@@ -3,6 +3,7 @@
 	<a href="{% url 'home' %}"><img class="logo" src="{% static "/img/logo.png" %}"></a>
 </header>
 <ul>
+  {% if user.is_staff %}
   <li class="drop">
     <a class="drop-btn">Personas</a>
     <div class="drop-cont">
@@ -24,13 +25,15 @@
       
     </div>
   </li>
+  {% endif %}
+  {% if user.is_authenticated %}
   <li class="drop">
     <a class="drop-btn">Asistencia</a>
     <div class="drop-cont">
-      <a class="drop-btn" href="{% url 'Asistencia-index' %}">Listar Asistencia</a>
-      
+      <a class="drop-btn" href="{% url 'Asistencia-index' usuario=user.get_username %}">Listar Mis Cursos</a>
     </div>
   </li>
+  {% endif %}
   {% if user.is_staff %}
   <li class="drop">
     <a class="drop-btn">Usuarios</a>
