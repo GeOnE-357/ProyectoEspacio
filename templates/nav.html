@@ -2,8 +2,8 @@
 <header>
 	<a href="{% url 'home' %}"><img class="logo" src="{% static "/img/logo.png" %}"></a>
 </header>
+{% if user.is_superuser %}
 <ul>
-  {% if user.is_staff %}
   <li class="drop">
     <a class="drop-btn">Personas</a>
     <div class="drop-cont">
@@ -22,32 +22,64 @@
     <a href="" class="drop-btn">Dependencias</a>
     <div class="drop-cont">
       <a href="{% url 'dependencia'%}" class="drop-btn">Listar Dependencia</a>
-      
     </div>
   </li>
-  {% endif %}
-  {% if user.is_authenticated %}
-  <li class="drop">
-    <a class="drop-btn">Asistencia</a>
-    <div class="drop-cont">
-      <a class="drop-btn" href="{% url 'Asistencia-index' usuario=user.get_username %}">Listar Mis Cursos</a>
-    </div>
-  </li>
-  {% endif %}
-  {% if user.is_staff %}
   <li class="drop">
     <a class="drop-btn">Usuarios</a>
     <div class="drop-cont">
       <a class="drop-btn" href="{% url 'usuario-crear' tipo='Usuario'%}">Crear Usuario</a>
-    {% if user.is_superuser %}
       <a class="drop-btn" href="{% url 'usuario-crear' tipo='Staff'%}">Crear Staff</a>  
-    {% endif %}
     </div>
-  {% endif %}
   </li>
-  {% if user.is_authenticated %}
-    <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
-  {% else %}
-    <li class="right"><a class="drop-btn" href="{% url 'login'%}">Login</a></li>
-  {% endif %}
+    {% if user.is_authenticated %}
+      <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
+    {% else %}
+      <li class="right"><a class="drop-btn" href="{% url 'login'%}">Login</a></li>
+    {% endif %}
 </ul>
+{% else %}
+  {% if user.is_staff %}
+    <ul>
+      <li class="drop">
+        <a class="drop-btn">Personas</a>
+        <div class="drop-cont">
+          <a class="drop-btn" href="{% url 'personas-index' tipo='Profesor' %}">Listar Profesores</a>
+          <a class="drop-btn" href="{% url 'personas-index' tipo='Alumno' %}">Listar Alumnos</a>
+        </div>
+      </li>
+      <li class="drop">
+        <a class="drop-btn">Cursos</a>
+        <div class="drop-cont">
+          <a class="drop-btn" href="{% url 'cursos-index' %}">Listar Cursos</a>
+          <a class="drop-btn" href="{% url 'materias-index' %}">Listar Materias</a>
+        </div>
+      </li>
+      <li class="drop">
+        <a class="drop-btn">Usuarios</a>
+        <div class="drop-cont">
+          <a class="drop-btn" href="{% url 'usuario-crear' tipo='Usuario'%}">Crear Usuario</a>
+        </div>
+      </li>
+        {% if user.is_authenticated %}
+          <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
+        {% else %}
+          <li class="right"><a class="drop-btn" href="{% url 'login'%}">Login</a></li>
+        {% endif %}
+    </ul>
+  {% else %}
+
+    <ul>
+      {% if user.is_authenticated %}
+      <li class="drop">
+        <a class="drop-btn">Asistencia</a>
+        <div class="drop-cont">
+          <a class="drop-btn" href="{% url 'Asistencia-index' %}">Listar Mis Cursos</a>
+        </div>
+      </li>
+      <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
+      {% else %}
+        <li class="right"><a class="drop-btn" href="{% url 'login'%}">Login</a></li>
+      {% endif %}
+    </ul>
+  {% endif %}
+{% endif %}
