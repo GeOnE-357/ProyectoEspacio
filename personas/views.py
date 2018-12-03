@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from personas.models import *
 from espacio.forms import UsuarioForm
 from .forms import profesorForm, alumnoForm

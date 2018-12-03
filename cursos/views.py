@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from .models import Curso, Materia, Inscripcion
 from personas.models import Profesor
 from .forms import CursoForm, MateriaForm, InscripcionForm
