@@ -4,9 +4,9 @@ from django.contrib.auth.models import AbstractUser
 class Persona(models.Model):
 	nombre=models.CharField(max_length=20)
 	apellido=models.CharField(max_length=20)
-	dni=models.IntegerField(blank=True)
+	dni=models.BigIntegerField(blank=True)
 	mail=models.EmailField(max_length=30)
-	telefono=models.IntegerField(blank=True)
+	telefono=models.BigIntegerField(blank=True)
 	nacimiento=models.DateField(auto_now=False, auto_now_add=False)
 	titulo=models.CharField(max_length=30)
 	estudiosId=models.ForeignKey('personas.Estudio', blank=True, default="", on_delete=models.PROTECT)

@@ -6,9 +6,11 @@ class Curso(models.Model):
 	materiaID=models.ForeignKey('cursos.Materia',blank=True,default="",on_delete=models.PROTECT)
 	modulo=models.IntegerField(blank=True)
 	profesorID=models.ForeignKey('personas.Profesor', blank=True, default="", on_delete=models.PROTECT)
-	mes=models.ForeignKey('cursos.Mes', blank=True, default="", on_delete=models.PROTECT)
+	fInicio=models.DateField(auto_now=False, auto_now_add=False)
+	fFin=models.DateField(auto_now=False, auto_now_add=False)
 	anio=models.IntegerField(blank=True)
 	estado=models.CharField(max_length=15)
+	cantClases=models.IntegerField(blank=True)
 	def __unicode__(self):
 		return self.materiaID
 
@@ -17,12 +19,6 @@ class Materia(models.Model):
 	tipo=models.CharField(max_length=20)
 	def __str__(self):
 		return self.nombre
-
-class Mes(models.Model):
-	mes=models.CharField(max_length=15)
-
-	def __str__(self):
-		return self.mes
 
 class Inscripcion(models.Model):
 	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.PROTECT)
