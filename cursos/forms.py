@@ -4,6 +4,8 @@ from personas.models import Profesor
 
 class CursoForm(forms.ModelForm):
 	anio = forms.IntegerField(required=True, label='Año:')
+	fInicio=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Inicio:')
+	fFin=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Finalizacion:')
 	class Meta:
 		model = Curso
 		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'anio', 'estado')

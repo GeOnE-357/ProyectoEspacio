@@ -42,10 +42,10 @@ def personaNuevo(request, tipo):
 def personaDetalle(request, tipo, id):
 	a=tipo
 	if a == 'Profesor':
-		persona = Profesor.objects.get(id=id)
+		persona = get_object_or_404(Profesor, id=id)
 		return render(request, 'personas/detalle.html', {'Profesor':persona, 'tipo':a})
 	else:
-		persona = Alumno.objects.get(id=id)
+		persona = get_object_or_404(Alumno, id=id)
 		return render(request, 'personas/detalle.html', {'Alumno':persona, 'tipo':a})
 
 
@@ -53,14 +53,14 @@ def personaEditar(request, tipo, id):
 	a=tipo
 	if request.method=="POST":
 		if a == 'Profesor':
-			persona = Profesor.objects.get(id=id)
+			persona = get_object_or_404(Profesor, id=id)
 			form = profesorForm(request.POST, instance=persona)
 			if form.is_valid():
 					form.save(commit=False)
 					form.save()
 					return redirect('personas-index', a)
 		else:
-			persona = Alumno.objects.get(id=id)
+			persona = get_object_or_404(Alumno, id=id)
 			form = alumnoForm(request.POST, instance=persona)
 			if form.is_valid():
 					form.save(commit=False)
@@ -68,9 +68,9 @@ def personaEditar(request, tipo, id):
 					return redirect('personas-index', a)			
 	else:
 		if a == 'Profesor':
-			persona = Profesor.objects.get(id=id)
+			persona = get_object_or_404(Profesor, id=id)
 			form = profesorForm(instance=persona)
 		else:
-			persona = Alumno.objects.get(id=id)
+			persona = get_object_or_404(Alumno, id=id)
 			form = alumnoForm(instance=persona)					
 	return render(request, 'personas/modificar.html', {'form':form})

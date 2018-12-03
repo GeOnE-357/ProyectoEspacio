@@ -18,10 +18,10 @@ def aulas(request, id):
 
 def detalleAula(request,id):
 	return render(request,'dependencia/detalleAula.html',{
-		'detalleA':DetalleAula.objects.filter(aulaId=id),
-		'aula':Aula.objects.filter(id=id),
-		'dia':Dia.objects.all(),
-		'hora':Horario.objects.all(),
+		'detalleA':get_list_or_404(DetalleAula, aulaId=id),
+		'aula':get_list_or_404(Aula, id=id),
+		'dia':get_list_or_404(Dia),
+		'hora':get_list_or_404(Horario),
 		})
 
 def crearAula(request):
@@ -35,8 +35,7 @@ def crearAula(request):
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request):
-	
+def detalleCrear(request):	
 	a=Aula.objects.latest('id')
 	for d in Dia.objects.all():
 		for h in Horario.objects.all():

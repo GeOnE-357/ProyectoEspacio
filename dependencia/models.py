@@ -3,8 +3,8 @@ from django.db import models
 class Dependencia(models.Model):
 	nombre = models.CharField(max_length=50)
 	direccion = models.CharField(max_length=50)
-	telefono = models.IntegerField(blank=True)
-	whatsapp = models.IntegerField(blank=True)
+	telefono = models.BigIntegerField(blank=True)
+	whatsapp = models.BigIntegerField(blank=True)
 
 	def __str__(self):
 		return self.nombre+" "+self.direccion
