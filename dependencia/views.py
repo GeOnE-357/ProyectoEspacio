@@ -18,7 +18,7 @@ def aulas(request, id):
 
 def detalleAula(request,id):
 	return render(request,'dependencia/detalleAula.html',{
-		'detalleA':get_list_or_404(DetalleAula, aulaId=id),
+		'detalleA':DetalleAula.objects.filter(aulaId=id).order_by('horaId'),
 		'aula':get_list_or_404(Aula, id=id),
 		'dia':get_list_or_404(Dia),
 		'hora':get_list_or_404(Horario),
