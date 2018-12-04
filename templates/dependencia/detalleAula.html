@@ -17,7 +17,7 @@
     <tr>
       <td>09:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 1 or forloop.counter == 16 or forloop.counter == 31 or forloop.counter == 46 or forloop.counter == 61 or forloop.counter == 76 or forloop.counter == 91 %}
+              {% if forloop.counter < 8 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -25,7 +25,7 @@
     <tr>
       <td>10:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 2 or forloop.counter == 17 or forloop.counter == 32 or forloop.counter == 47 or forloop.counter == 62 or forloop.counter == 77 or forloop.counter == 92 %}
+              {% if forloop.counter > 7 and forloop.counter < 15 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -33,7 +33,7 @@
     <tr>
       <td>11:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 3 or forloop.counter == 18 or forloop.counter == 33 or forloop.counter == 48 or forloop.counter == 63 or forloop.counter == 78 or forloop.counter == 93 %}
+              {% if forloop.counter > 14 and forloop.counter < 22 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -41,7 +41,7 @@
     <tr>
       <td>12:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 4 or forloop.counter == 19 or forloop.counter == 34 or forloop.counter == 49 or forloop.counter == 64 or forloop.counter == 79 or forloop.counter == 94 %}
+              {% if forloop.counter > 21 and forloop.counter < 29 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -49,7 +49,7 @@
     <tr>
       <td>13:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 5 or forloop.counter == 20 or forloop.counter == 35 or forloop.counter == 50 or forloop.counter == 65 or forloop.counter == 80 or forloop.counter == 95 %}
+              {% if forloop.counter > 28 and forloop.counter < 36 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -57,7 +57,7 @@
     <tr>
       <td>14:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 6 or forloop.counter == 21 or forloop.counter == 36 or forloop.counter == 51 or forloop.counter == 66 or forloop.counter == 81 or forloop.counter == 96 %}
+              {% if forloop.counter > 35 and forloop.counter < 43 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -65,7 +65,7 @@
     <tr>
       <td>15:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 7 or forloop.counter == 22 or forloop.counter == 37 or forloop.counter == 52 or forloop.counter == 67 or forloop.counter == 82 or forloop.counter == 97 %}
+              {% if forloop.counter > 42 and forloop.counter < 50 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -73,7 +73,7 @@
     <tr>
       <td>16:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 8 or forloop.counter == 23 or forloop.counter == 38 or forloop.counter == 53 or forloop.counter == 68 or forloop.counter == 83 or forloop.counter == 98 %}
+              {% if forloop.counter > 49 and forloop.counter < 57 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -81,7 +81,7 @@
     <tr>
       <td>17:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 9 or forloop.counter == 24 or forloop.counter == 39 or forloop.counter == 54 or forloop.counter == 69 or forloop.counter == 84 or forloop.counter == 99 %}
+              {% if forloop.counter > 56 and forloop.counter < 64 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -89,7 +89,7 @@
     <tr>
       <td>18:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 10 or forloop.counter == 25 or forloop.counter == 40 or forloop.counter == 55 or forloop.counter == 70 or forloop.counter == 85 or forloop.counter == 100 %}
+              {% if forloop.counter > 63 and forloop.counter < 71 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -97,7 +97,7 @@
     <tr>
       <td>19:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 11 or forloop.counter == 26 or forloop.counter == 41 or forloop.counter == 56 or forloop.counter == 71 or forloop.counter == 86 or forloop.counter == 101 %}
+              {% if forloop.counter > 70 and forloop.counter < 78 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -105,7 +105,7 @@
     <tr>
       <td>20:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 12 or forloop.counter == 27 or forloop.counter == 42 or forloop.counter == 57 or forloop.counter == 72 or forloop.counter == 87 or forloop.counter == 102 %}
+              {% if forloop.counter > 77 and forloop.counter < 85 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -113,7 +113,7 @@
     <tr>
       <td>21:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 13 or forloop.counter == 28 or forloop.counter == 43 or forloop.counter == 58 or forloop.counter == 73 or forloop.counter == 88 or forloop.counter == 103 %}
+              {% if forloop.counter > 84 and forloop.counter < 92 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -121,7 +121,7 @@
     <tr>
       <td>22:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 14 or forloop.counter == 29 or forloop.counter == 44 or forloop.counter == 59 or forloop.counter == 74 or forloop.counter == 89 or forloop.counter == 104 %}
+              {% if forloop.counter > 91 and forloop.counter < 99 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}
@@ -129,7 +129,7 @@
     <tr>
       <td>23:00</td>
           {% for det in detalleA%}
-              {% if forloop.counter == 15 or forloop.counter == 30 or forloop.counter == 45 or forloop.counter == 60 or forloop.counter == 75 or forloop.counter == 90 or forloop.counter == 105 %}
+              {% if forloop.counter > 98 and forloop.counter < 106 %}
                 <td>{{ forloop.counter}} {{det.horaId}}</td>
               {% endif %}
           {% endfor %}

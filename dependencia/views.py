@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.http import HttpResponse
 from dependencia.models import *
 from .forms import *
@@ -18,10 +18,10 @@ def aulas(request, id):
 
 def detalleAula(request,id):
 	return render(request,'dependencia/detalleAula.html',{
-		'detalleA':DetalleAula.objects.filter(aulaId=id),
-		'aula':Aula.objects.filter(id=id),
-		'dia':Dia.objects.all(),
-		'hora':Horario.objects.all(),
+		'detalleA':DetalleAula.objects.filter(aulaId=id).order_by('horaId'),
+		'aula':get_list_or_404(Aula, id=id),
+		'dia':get_list_or_404(Dia),
+		'hora':get_list_or_404(Horario),
 		})
 
 def crearAula(request):
@@ -35,8 +35,7 @@ def crearAula(request):
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request):
-	
+def detalleCrear(request):	
 	a=Aula.objects.latest('id')
 	for d in Dia.objects.all():
 		for h in Horario.objects.all():
