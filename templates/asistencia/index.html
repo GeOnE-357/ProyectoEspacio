@@ -1,9 +1,9 @@
-% extends "master.html" %}
+{% extends "master.html" %}
 
-{% block title %}Asistencia{% endblock %}
+{% block title %}Mis Cursos{% endblock %}
 
 {% block content %}
-  <h1>Asistencia</h1>
+  <h1>Mis Cursos</h1>
   <div class="sub-nav">
     <form type="get" action=".">
     </form>
@@ -11,16 +11,14 @@
   <div class="box">
   <table class="table ">
     <tr>
-      <th>Alumno</th>
-      <th>Presente</th>
+      <th>Nombre</th>
+      <th>Modulo</th>
     </tr>
     <tbody>
-    {% for a in asist %}
+    {% for curso in cursos %}
     <tr>
-      <td> {{ }} </td>
-      <td> {{  }} </td>
-      <td> {{ }} </td>
-      <td> {{}} </td>
+      <td> {{ curso.materiaID }} </td>
+      <td> {{ curso.modulo }} </td>
     </tr>
     {% endfor %}
   </tbody>

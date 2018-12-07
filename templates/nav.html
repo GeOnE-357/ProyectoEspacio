@@ -73,7 +73,7 @@
       <li class="drop">
         <a class="drop-btn">Asistencia</a>
         <div class="drop-cont">
-          <a class="drop-btn" href="{% url 'Asistencia-index' %}">Listar Mis Cursos</a>
+          <a class="drop-btn" href="{% url 'Asistencia-index' user.get_username %}">Listar Mis Cursos</a>
         </div>
       </li>
       <li class="right"><form class="none" action="{% url 'logout'%}" method="POST">  {% csrf_token %}<button class="logout-btn" type="submit">Logout</button></form></li>
