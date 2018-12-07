@@ -4,21 +4,21 @@
 
 {% block content %}
   <h1>Mis Cursos</h1>
-  <div class="sub-nav">
-    <form type="get" action=".">
-    </form>
-  </div>
   <div class="box">
   <table class="table ">
     <tr>
       <th>Nombre</th>
       <th>Modulo</th>
+      <th>Listar Alumnos</th>
+      <th>Asistencia</th>
     </tr>
     <tbody>
     {% for curso in cursos %}
     <tr>
       <td> {{ curso.materiaID }} </td>
       <td> {{ curso.modulo }} </td>
+      <td><a class="Insc" href="">ALUMNOS</a></td>
+      <td><a class="Edit" href="">ASITENCIA</a></td>
     </tr>
     {% endfor %}
   </tbody>

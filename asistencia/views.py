@@ -5,8 +5,8 @@ from cursos.models import Curso
 from .forms import AsistenciaForm
 
 def index(request,usuario):
-	dni=int(usuario)
-	persona = get_object_or_404(Profesor, dni=dni)
+	"""dni=int(usuario)"""
+	persona = get_object_or_404(Profesor, dni=usuario)
 	curso=Curso.objects.filter(profesorID=persona.id)
 	return render(request, 'asistencia/index.html',{'cursos':curso})
 

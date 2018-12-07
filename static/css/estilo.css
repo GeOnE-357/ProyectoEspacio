@@ -119,21 +119,17 @@ td a.Insc, td a.Edit
 		background-color: rgba(0,0,0,0.4);
 		color: white;
 		text-decoration:none;
-		padding: 2.5%;
+		padding: 10px;
 	}
 
 td a.Insc:hover
 	{
-		padding: 2.5%;
 		background-color: rgba(50,160,0,1);
-		font-weight: bold;
 	}
 
 td a.Edit:hover
 	{
-		padding: 2.5%;
 		background-color: rgba(0,0,180,1);
-		font-weight: bold;
 	}
 
 	
@@ -349,5 +345,4 @@ td
 td:hover
 	{
 		background:rgba(255,255,255,0.2);
-		border-width: 3px;
 	}
