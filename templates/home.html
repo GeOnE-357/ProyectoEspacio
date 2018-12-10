@@ -6,5 +6,6 @@
 	<h1>Pagina principal!!!</h1>
 	{% if user.is_authenticated %}
 		<h1>Bienvenido: {{ user.get_full_name }}!</h1>
+		<a href="{% url 'password' %}">Cambiar Password</a>
 	{% endif %}
 {% endblock %}

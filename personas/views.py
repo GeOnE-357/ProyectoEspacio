@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from personas.models import *
+from django.contrib.auth.models import User
 from espacio.forms import UsuarioForm
 from .forms import profesorForm, alumnoForm
 from .filters import ProfesorFilter, AlumnoFilter
@@ -24,7 +25,7 @@ def personaNuevo(request, tipo):
 			if form.is_valid():
 				instance = form.save(commit=False)
 				instance.save()
-				return redirect('personas-index', a)
+				return redirect('persona-usuario', a)
 		else:
 			form = alumnoForm(request.POST or None)
 			if form.is_valid():
@@ -38,6 +39,18 @@ def personaNuevo(request, tipo):
 			form = alumnoForm()
 	return render(request, 'personas/crear.html', {'form':form})
 
+
+def personaUsuario(request, tipo):
+	a=tipo
+	if request.user.is_staff:
+		profe=Profesor.objects.latest('id')
+		nombre=profe.nombre
+		apellido=profe.apellido
+		mail=profe.mail
+		dni=profe.dni
+		usuario=User.objects.create_user(username=dni, first_name=nombre, last_name=apellido ,email=mail, password='EDLT1234')
+		usuario.save()
+		return redirect('personas-index', a)
 
 def personaDetalle(request, tipo, id):
 	a=tipo

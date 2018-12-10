@@ -14,11 +14,14 @@ def registrarUsuario(request, tipo):
 		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
-			if a=='Staff':
+			if a=='Super':
 				if request.user.is_superuser:
+					instance.is_superuser=True
+			if a=='Staff':
+				if request.user.is_staff:
 					instance.is_staff=True
 			instance.save()
-			return redirect('home', )
+			return redirect('home')
 	else:
 		form = UsuarioForm()
 	return render(request, 'usuarios/registro.html', {'form':form})
