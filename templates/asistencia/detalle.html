@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block title %}Alumno.nombre{% endblock %}
+
+{% block content %}
+<h1>Detalle - Alumno</h1>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>#ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Dni</th>
+      <th>Mail</th>
+      <th>Tel.</th>
+      <th>Editar</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td> {{ Alumno.id }} </td>
+      <td> {{ Alumno.nombre }} </td>
+      <td> {{ Alumno.apellido }} </td>
+      <td> {{ Alumno.dni }} </td>
+      <td> {{ Alumno.mail }} </td>
+      <td> {{ Alumno.telefono }} </td>
+      <td><a class="Edit" href="{% url 'persona-editar' tipo Alumno.id %}">EDITAR</a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+{% endblock %}

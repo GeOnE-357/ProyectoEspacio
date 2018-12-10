@@ -17,7 +17,7 @@
     <tr>
       <td> {{ curso.materiaID }} </td>
       <td> {{ curso.modulo }} </td>
-      <td><a class="Insc" href="">ALUMNOS</a></td>
+      <td><a class="Insc" href="{% url 'alumno-index' curso.id %}">ALUMNOS</a></td>
       <td><a class="Edit" href="">ASITENCIA</a></td>
     </tr>
     {% endfor %}
