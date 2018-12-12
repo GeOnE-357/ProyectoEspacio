@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
-from django.http import HttpResponse
 from dependencia.models import *
-from .forms import *
+from .forms import DetalleAulaForm, AulaForm, DependenciaForm
 from cursos.models import Curso
 # Create your views here.
 
@@ -21,7 +20,7 @@ def detalleAula(request,id):
 		'detalleA':DetalleAula.objects.filter(aulaId=id).order_by('horaId'),
 		'aula':get_list_or_404(Aula, id=id),
 		'dia':get_list_or_404(Dia),
-		'hora':get_list_or_404(Horario),
+		'hora':get_list_or_404(Horario)
 		})
 
 def crearAula(request):
@@ -46,6 +45,19 @@ def detalleCrear(request):
 			det.horaId=h
 			det.save()
 	return redirect('dependencia')
+
+def detalleEditar(request, id):
+	if request.method=="POST":
+		detalle=get_object_or_404(DetalleAula, id=id)
+		form = DetalleAulaForm(request.POST, instance=detalle)
+		if form.is_valid():
+			form.save(commit=False)
+			form.save()
+			return redirect('dependencia')
+	else:
+		detalle=get_object_or_404(DetalleAula, id=id)
+		form = DetalleAulaForm(request.POST, instance=detalle)
+	return render(request, 'dependencia/detalleEditar.html', {'form':form})
 
 def dependenciaCrear(request):
 	if request.method=="POST":
