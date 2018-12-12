@@ -25,7 +25,11 @@
             <td> {{ Materia.nombre }} </td>
             <td> {{ Materia.tipo }} </td>
 	        </tr>
-	        {% endfor %}
+        {% empty %}
+        <tr>
+            <td colspan="3">No se encontraron Materias o no fueron creadas.</td>
+        </tr>
+        {% endfor %}
       	</tbody>
     </table>
   </div>

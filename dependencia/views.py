@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from dependencia.models import *
 from .forms import DetalleAulaForm, AulaForm, DependenciaForm
-from cursos.models import Curso
+from cursos.models import Curso, Materia
 # Create your views here.
 
 
@@ -20,6 +20,8 @@ def detalleAula(request,id):
 		'detalleA':DetalleAula.objects.filter(aulaId=id).order_by('horaId'),
 		'aula':get_list_or_404(Aula, id=id),
 		'dia':get_list_or_404(Dia),
+		'curso':get_list_or_404(Curso),
+		'materia':get_list_or_404(Materia),
 		'hora':get_list_or_404(Horario)
 		})
 

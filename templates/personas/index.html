@@ -27,6 +27,10 @@
           <td> {{ Profesor.apellido }} </td>
           <td> {{ Profesor.expediente }} </td>
         </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No se encontraron Profesores o no fueron creados.</td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>
@@ -58,6 +62,10 @@
           <td> {{ Alumno.mail }} </td>
           <td> {{ Alumno.telefono }} </td>
           <td><a class="Insc" href="{% url 'inscribir-crear' Alumno.id %}">INSCRIBIR</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No se encontraron Alumnos o no fueron creados.</td>
         </tr>
         {% endfor %}
       </tbody>
