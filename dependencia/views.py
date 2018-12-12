@@ -58,7 +58,7 @@ def detalleEditar(request, id):
 			return redirect('dependencia')
 	else:
 		detalle=get_object_or_404(DetalleAula, id=id)
-		form = DetalleAulaForm(request.POST, instance=detalle)
+		form = DetalleAulaForm(instance=detalle)
 	return render(request, 'dependencia/detalleEditar.html', {'form':form})
 
 def dependenciaCrear(request):

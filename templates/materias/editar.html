@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}Editar Materias{% endblock %}
+
+{% block content %}
+	{% if user.is_staff %}
+    <h1>Editar Materia</h1>
+	<form method="POST" class="UserForm">
+    	{% csrf_token %}
+      	{{ form }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    {% else %}
+        {% include  "denegado.html" %}
+    {% endif %}
+{% endblock %}

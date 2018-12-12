@@ -22,7 +22,7 @@
   		<tbody>
         {% for Curso in filtro.qs %}
         <tr>
-            <td><a {% if user.is_staff %} href="" {% endif %}>{{ Curso.id }}</a></td>
+            <td><a {% if user.is_staff %} href="{% url 'cursos-editar' Curso.id %}" {% endif %}>{{ Curso.id }}</a></td>
             <td> {{ Curso.materiaID }} </td>
             <td> {{ Curso.modulo }} </td>
             <td> {{ Curso.profesorID }} </td>
