@@ -18,7 +18,7 @@
       <td>09:00</td>
           {% for det in detalleA%}
               {% if forloop.counter < 8 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{ forloop.counter}} {{det.estado}}</td>
               {% endif %}
           {% endfor %}
     </tr>
