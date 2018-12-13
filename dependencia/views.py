@@ -47,6 +47,20 @@ def detalleCrear(request):
 			det.save()
 	return redirect('dependencia')
 
+def detalleEditar(request, id):
+	if request.method=="POST":
+		detalle=get_object_or_404(DetalleAula, id=id)
+		form = DetalleAulaForm(request.POST, instance=detalle)
+		if form.is_valid():
+			form.save(commit=False)
+			form.save()
+			return redirect('dependencia')
+	else:
+		detalle=get_object_or_404(DetalleAula, id=id)
+		form = DetalleAulaForm(instance=detalle)
+	return render(request, 'dependencia/detalleEditar.html', {'form':form})
+
+
 def dependenciaCrear(request):
 	if request.method=="POST":
 		form=DependenciaForm(request.POST or none)

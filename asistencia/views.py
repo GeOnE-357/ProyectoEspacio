@@ -11,9 +11,9 @@ def index(request,usuario):
 	return render(request, 'asistencia/index.html',{'cursos':curso})
 
 def listarAlumnoCurso(request, curso):
-	inscriptos=get_list_or_404(Inscripcion, cursoID=curso)
+	inscripcion=Inscripcion.objects.filter(cursoID=curso)
 	lista=[]
-	for a in inscriptos:
-		alumno=get_object_or_404(Alumno, id=a.alumnoID)
+	for ins in inscripcion:
+		alumno=ins.alumnoID
 		lista.append(alumno)
 	return render (request, 'asistencia/detalle.html', {'lista':lista})
