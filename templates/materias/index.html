@@ -21,11 +21,15 @@
   		<tbody>
         {% for Materia in materias %}
         <tr>
-            <td><a {% if user.is_staff %} href="" {% endif %}>{{ Materia.id }}</a></td>
+            <td><a {% if user.is_staff %} href="{% url 'materias-editar' Materia.id %}" {% endif %}>{{ Materia.id }}</a></td>
             <td> {{ Materia.nombre }} </td>
             <td> {{ Materia.tipo }} </td>
 	        </tr>
-	        {% endfor %}
+        {% empty %}
+        <tr>
+            <td colspan="3">No se encontraron Materias o no fueron creadas.</td>
+        </tr>
+        {% endfor %}
       	</tbody>
     </table>
   </div>

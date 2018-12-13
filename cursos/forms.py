@@ -1,6 +1,6 @@
 from django import forms
 from .models import Curso, Materia,Inscripcion
-from personas.models import Profesor
+from personas.models import Profesor, Alumno
 
 class CursoForm(forms.ModelForm):
 	anio = forms.IntegerField(required=True, label='Año:')
@@ -18,4 +18,4 @@ class MateriaForm(forms.ModelForm):
 class InscripcionForm(forms.ModelForm):
 	class Meta:
 		model = Inscripcion
-		fields = ('cursoID', 'alumnoID')
+		fields = ('cursoID',)

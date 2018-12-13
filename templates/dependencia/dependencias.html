@@ -29,6 +29,10 @@
       <td> {{ de.telefono }} </td>
       <td> {{ de.whatsapp }} </td>
     </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5">No se encontraron Dependencias o no fueron creadas.</td>
+    </tr>
     {% endfor %}
   </tbody>
   </table>
