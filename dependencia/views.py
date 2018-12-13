@@ -17,12 +17,19 @@ def aulas(request, id):
 		})
 
 def detalleAula(request,id):
-	return render(request,'dependencia/detalleAula.html',{
-		'detalleA':DetalleAula.objects.filter(aulaId=id).order_by('horaId'),
-		'aula':get_list_or_404(Aula, id=id),
-		'dia':get_list_or_404(Dia),
-		'hora':get_list_or_404(Horario),
-		})
+	detalle=DetalleAula.objects.filter(aulaId=id)
+	detalle.order_by('HoraId')
+	aula=get_object_or_404(Aula, id=id)
+	dia=get_list_or_404(Dia)
+	lista=[]
+	for det in detalle:
+		if det.estado == "disponible":
+			lista.append("disponible")
+		else:
+			curso=det.cursoID
+			materia=curso.materiaID
+			lista.append(materia)
+	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia})
 
 def crearAula(request):
 	if request.method=="POST":

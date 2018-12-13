@@ -63,6 +63,7 @@ def materiasEditar(request, id):
 		if form.is_valid:
 			form.save(commit=False)
 			form.save()
+			return redirect('materias-index')
 	else:
 		materia=get_object_or_404(Materia, id=id)
 		form=MateriaForm(instance=materia)

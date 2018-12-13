@@ -3,9 +3,7 @@
 {% block title %}Detalle de Aula{% endblock %}
 
 {% block content %}
-  {% for a in aula %}
-  <h1>Aula {{ a.nombre }}</h1>
-  {% endfor %}
+  <h1>Aula {{ aula.nombre }}</h1>
   <div class="box">
   <table class="table ">
     <tr>
@@ -16,121 +14,121 @@
     </tr>
     <tr>
       <td>09:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter < 8 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>10:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 7 and forloop.counter < 15 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>11:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 14 and forloop.counter < 22 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>12:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 21 and forloop.counter < 29 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>13:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 28 and forloop.counter < 36 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>14:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 35 and forloop.counter < 43 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>15:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 42 and forloop.counter < 50 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>16:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 49 and forloop.counter < 57 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>17:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 56 and forloop.counter < 64 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>18:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 63 and forloop.counter < 71 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>19:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 70 and forloop.counter < 78 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>20:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 77 and forloop.counter < 85 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>21:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 84 and forloop.counter < 92 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>22:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 91 and forloop.counter < 99 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
     <tr>
       <td>23:00</td>
-          {% for det in detalleA%}
+          {% for det in lista%}
               {% if forloop.counter > 98 and forloop.counter < 106 %}
-                <td>{{ forloop.counter}} {{det.horaId}}</td>
+                <td>{{det}}</td>
               {% endif %}
           {% endfor %}
     </tr>
