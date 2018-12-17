@@ -24,11 +24,22 @@ def detalleAula(request,id):
 	lista=[]
 	for det in detalle:
 		if det.estado == "disponible":
-			lista.append("disponible")
+			detalle=[]
+			modif=det.id
+			esta=det.estado
+			detalle.append(esta)
+			detalle.append(modif)
+			lista.append(detalle)
 		else:
+			detalle=[]
 			curso=det.cursoID
 			materia=curso.materiaID
-			lista.append(materia)
+			modulo=curso.modulo
+			modif=det.id
+			detalle.append(materia)
+			detalle.append(modulo)
+			detalle.append(modif)
+			lista.append(detalle)
 	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia})
 
 def crearAula(request):
