@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}Alumno.nombre{% endblock %}
+
+{% block content %}
+<h1>Asistencia Curso</h1>
+  <div class="box">
+  <table class="table ">
+    <form method="POST" class="UserForm">
+    <tbody>
+      <tr>
+        <th>#ID</th>
+        <th>Alumno</th>
+        <th>Presente</th>
+        <th>Ausente</th>
+      </tr>
+        {% for li in lista %}
+          {% csrf_token %}
+          <tr>
+            <td><input type="number" name="form{{ forloop.counter }}" value="{{ li.0 }}" readonly></td>
+            <td><input type="text" name="form{{ forloop.counter }}" value="{{ li.1 }}" readonly></td>
+            <td><input type="radio" name="form{{ forloop.counter }}" value="True" required></td>
+            <td><input type="radio" name="form{{ forloop.counter }}" value="False" required></td>
+        {% endfor %}
+      <tr>
+        <td colspan="4"><button type="submit">Registrar</button></td>
+      </tr>   
+    </tbody>
+  </form>
+  </table>
+</div>
+{% endblock %}

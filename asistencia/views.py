@@ -17,3 +17,23 @@ def listarAlumnoCurso(request, curso):
 		alumno=ins.alumnoID
 		lista.append(alumno)
 	return render (request, 'asistencia/detalle.html', {'lista':lista})
+
+
+def listarAsistenciaCurso(request, curso):
+	if request.method=="POST":
+		print ('*'*50)
+		print (request.POST)
+		print ('*'*50)
+	else:
+		inscripcion=Inscripcion.objects.filter(cursoID=curso)
+		lista=[]
+		for ins in inscripcion:
+			present=[]
+			asist=ins.id
+			alumno=ins.alumnoID
+			pres=False
+			present.append(asist)
+			present.append(alumno)
+			present.append(pres)
+			lista.append(present)
+		return render (request, 'asistencia/asistencia.html', {'lista':lista})
