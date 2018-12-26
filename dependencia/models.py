@@ -24,14 +24,17 @@ class DetalleAula(models.Model):
 	estado=models.CharField(max_length=20)
 	cursoID=models.ForeignKey('cursos.Curso',null=True, blank=True, default="", on_delete=models.PROTECT)
 	def __str__(self):
-		return self.estado
+		nombre=str(self.aulaId)+" - "+str(self.diaId)+" a las "+str(self.horaId)+" - "+str(self.cursoID)
+		return nombre
 		
 	
 class Dia(models.Model):
 	dia = models.CharField(max_length=15) 
-
 	def __str__(self):
 		return self.dia
 
 class Horario(models.Model):
 	hora = models.IntegerField(blank=True)
+	def __str__(self):
+		hora=str(self.hora)
+		return hora

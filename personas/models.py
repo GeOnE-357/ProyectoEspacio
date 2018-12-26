@@ -17,7 +17,7 @@ class Persona(models.Model):
 class Profesor(Persona):
 	expediente=models.IntegerField(blank=True)
 	def __str__(self):
-		return self.nombre +" "+ self.apellido
+		return "Prof. "+self.nombre +" "+ self.apellido
 
 class Alumno(Persona):	
 	trabajo=models.BooleanField(default=True)

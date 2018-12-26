@@ -9,11 +9,10 @@ from .filters import CursoFilter
 
 def cursosListar(request):
 	cursos= Curso.objects.all()
-	materias = Materia.objects.all()
-	profes = Profesor.objects.all()
-	detalles=DetalleAula.objects.all()
+	materias=Materia.objects.all()
+	profes=Profesor.objects.all()
 	filtro = CursoFilter(request.GET, queryset=cursos)
-	return render(request, 'cursos/index.html', {'filtro':filtro, 'materias':materias, 'profes':profes, 'detalles':detalles} )
+	return render(request, 'cursos/index.html', {'filtro':filtro, 'materias':materias, 'profes':profes,} )
 
 
 def cursosCrear(request):
