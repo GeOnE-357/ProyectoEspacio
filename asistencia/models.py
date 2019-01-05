@@ -5,5 +5,5 @@ class Asistencia(models.Model):
 	inscripcionID=models.ForeignKey('cursos.Inscripcion',blank=True, default="", on_delete=models.PROTECT)
 	fecha=models.DateTimeField(auto_now_add=True)
 	def __str__(self):
-		nombre=str(self.inscripcionID)
+		nombre=str(self.inscripcionID)+" - "+str(self.fecha)
 		return nombre

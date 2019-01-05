@@ -6,6 +6,7 @@ class CursoForm(forms.ModelForm):
 	anio = forms.IntegerField(required=True, label='Año:')
 	fInicio=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Inicio:')
 	fFin=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Finalizacion:')
+	cantClases=forms.IntegerField(required=True, label='Cantidad de Clases:')
 	class Meta:
 		model = Curso
 		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'anio', 'estado')
