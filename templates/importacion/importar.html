@@ -4,18 +4,19 @@
 
 {% block content %}
 	{% if user.is_staff %}
-    <h1>Importar Inscripciones</h1>
+        <h1>Importar Inscripciones</h1>
         {% if messages %}
             {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                    <strong class="btn">{{ message|safe }}</strong>
-                </div>
+            <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                <strong>{{ message|safe }}</strong>
+            </div>
             {% endfor %}
         {% else %}
             {{order}}
+            <br><br>
             <form method="post" enctype="multipart/form-data" class="UserForm">
                 {% csrf_token %}
-                <label>Subir Archivo</label>
+                <p>Subir Archivo</p>
                 <input type="file" name="archivo">
                 <p>Solo Acepta CSV Files</p>
                 <button type="save">Subir</button>

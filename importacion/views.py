@@ -1,15 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.contrib import messages
 import csv,io
 from personas.models import Alumno,Estudio
-from cursos.models import Inscripcion
+from cursos.models import Inscripcion,Curso
 
 def importar(request):
 	prompt={
 		'datos':"El orden debe ser nombre,apellido,dni,mail,telefono,nacimiento,titulo,trabajo,disponibilidad, estudios, curso"
 	}
 	if request.method== "GET":
-		return render(request,"importacion/importar.html",prompt)
+		return render(request, "importacion/importar.html", prompt)
 
 	csv_file=request.FILES['archivo']
 
@@ -18,10 +18,10 @@ def importar(request):
 
 	datos=csv_file.read().decode('UTF-8')
 	io_string=io.StringIO(datos)
-	alu=Alumno.objects.all()
 	ban=0
 
 	for fila in csv.reader(io_string, delimiter=';', quotechar="|"):
+		alu=Alumno.objects.all()
 		for a in alu:
 			if fila[2] == a.dni:
 				ban=1
@@ -37,17 +37,17 @@ def importar(request):
 			alu.titulo=fila[6]
 			alu.trabajo=fila[7]
 			alu.dispHoraria=fila[8]
-			alu.estudiosId=fila[9]
+			alu.estudiosId=get_object_or_404(Estudio,id=fila[9])
 			alu.save()
 			a=Alumno.objects.latest('id')
 			inscribir=Inscripcion()
-			inscribir.cursoID=fila[10]
+			inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
 			inscribir.alumnoID=a
 			inscribir.save()
 		else:
 			inscribir=Inscripcion()
-			inscribir.cursoID=fila[10]
-			inscribir.alumnoID=fila[0]
+			inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
+			inscribir.alumnoID=get_object_or_404(Alumno,id=fila[0])
 			inscribir.save()
 	context={'RESULTADO':'NO SE XD'}
 	return render(request,'importacion/importar.html',context)
