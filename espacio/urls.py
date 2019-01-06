@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^Usuario/Password/$', views.passwordUsuario, name="password"),
     url(r'^Curso/', include('cursos.urls')),
     url(r'^Asistencia/', include('asistencia.urls')),
+    url(r'^Importacion/',include('importacion.urls'))
 ]
