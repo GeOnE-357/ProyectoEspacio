@@ -17,3 +17,45 @@ def listarAlumnoCurso(request, curso):
 		alumno=ins.alumnoID
 		lista.append(alumno)
 	return render (request, 'asistencia/detalle.html', {'lista':lista})
+
+
+def listarAsistenciaCurso(request, curso):
+	inscripcion=Inscripcion.objects.filter(cursoID=curso)
+	lista=[]
+	for ins in inscripcion:
+		present=[]
+		asist=ins.id
+		alumno=ins.alumnoID
+		pres=False
+		present.append(asist)
+		present.append(alumno)
+		present.append(pres)
+		lista.append(present)
+	return render (request, 'asistencia/asistencia.html', {'lista':lista})
+
+
+def asistenciaCrear(request):
+	if request.method=="POST":
+		diccionario=request.POST.copy()
+		del diccionario['csrfmiddlewaretoken']
+		diccionario=diccionario.items()
+		lista=list(diccionario)
+		asis=[]
+		for li in lista:
+			if li[1] != 'True' and li[1] != 'False':
+				temp=[]
+				temp.append(int(li[1]))
+			elif li[1] == 'True':
+				temp.append(True)
+				asis.append(temp)
+			else:
+				temp.append(False)
+				asis.append(temp)	
+
+		for a in asis:
+			asistencia=Asistencia()
+			asistencia.presente=a[1]
+			insc=get_object_or_404(Inscripcion,id=a[0])
+			asistencia.inscripcionID=insc
+			asistencia.save()
+		return redirect('home')
