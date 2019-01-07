@@ -26,7 +26,7 @@ def importar(request):
 			if fila[2] == a.dni:
 				ban=1
 
-		if ban==0:
+		if ban == 0:
 			alu=Alumno()
 			alu.nombre=fila[0]
 			alu.apellido=fila[1]
