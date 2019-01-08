@@ -21,14 +21,6 @@ def importar(request):
 	ban=0
 
 	for fila in csv.reader(io_string, delimiter=';', quotechar="|"):
-		try:
-			pass
-		except Exception as e:
-			raise
-		else:
-			pass
-		finally:
-			pass
 		_, alu = Alumno.objects.update_or_create(
 			nombre=fila[0],
 			apellido=fila[1],
@@ -47,5 +39,5 @@ def importar(request):
 			alumnoID=a
 		)
 
-	context={}
+	context={"aviso":"Los Datos Se importaron"}
 	return render(request,'importacion/importar.html',context)

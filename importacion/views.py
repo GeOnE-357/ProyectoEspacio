@@ -49,5 +49,5 @@ def importar(request):
 			inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
 			inscribir.alumnoID=get_object_or_404(Alumno,id=fila[0])
 			inscribir.save()
-	context={'RESULTADO':'NO SE XD'}
+	context={"RESULTADO":"NO SE XD"}
 	return render(request,'importacion/importar.html',context)
