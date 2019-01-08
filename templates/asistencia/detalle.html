@@ -6,6 +6,7 @@
 <h1>Detalle - li</h1>
   <div class="box">
   <table class="table ">
+  <tbody>
     <tr>
       <th>#ID</th>
       <th>Nombre</th>
@@ -15,18 +16,17 @@
       <th>Tel.</th>
       <th>Editar</th>
     </tr>
-    <tbody>
-    <tr>
       {% for li in lista %}
-      <td> {{ li.id }} </td>
-      <td> {{ li.nombre }} </td>
-      <td> {{ li.apellido }} </td>
-      <td> {{ li.dni }} </td>
-      <td> {{ li.mail }} </td>
-      <td> {{ li.telefono }} </td>
-      <td><a class="Edit" href="{% url 'persona-editar' tipo li.id %}">EDITAR</a></td>
+      <tr>
+        <td> {{ li.id }} </td>
+        <td> {{ li.nombre }} </td>
+        <td> {{ li.apellido }} </td>
+        <td> {{ li.dni }} </td>
+        <td> {{ li.mail }} </td>
+        <td> {{ li.telefono }} </td>
+        <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.id %}">EDITAR</a></td>
+      </tr>
       {% endfor %}
-    </tr>
   </tbody>
   </table>
 </div>

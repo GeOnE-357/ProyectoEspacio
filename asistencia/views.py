@@ -34,7 +34,7 @@ def listarAsistenciaCurso(request, curso):
 	return render (request, 'asistencia/asistencia.html', {'lista':lista})
 
 
-def asistenciaCrear(request):
+def AsistenciaCrear(request):
 	if request.method=="POST":
 		diccionario=request.POST.copy()
 		del diccionario['csrfmiddlewaretoken']
