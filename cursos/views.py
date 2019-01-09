@@ -12,7 +12,22 @@ def cursosListar(request):
 	materias=Materia.objects.all()
 	profes=Profesor.objects.all()
 	filtro = CursoFilter(request.GET, queryset=cursos)
-	return render(request, 'cursos/index.html', {'filtro':filtro, 'materias':materias, 'profes':profes,} )
+	lista=[]
+	for fi in filtro.qs:
+		curso=[]
+		curso.append(fi.id)
+		curso.append(fi.materiaID)
+		curso.append(fi.modulo)
+		curso.append(fi.profesorID)
+		dias=[]
+		det=DetalleAula.objects.filter(estado='en curso', cursoID=fi.id)
+		for d in det:
+			dia=str(d.aulaId)+": "+str(d.diaId)+" "+str(d.horaId)+":00"
+			dias.append(dia)
+		curso.append(dias)
+		curso.append(fi.estado)
+		lista.append(curso)	
+	return render(request, 'cursos/index.html', {'filtro':lista, 'materias':materias, 'profes':profes,} )
 
 
 def cursosCrear(request):

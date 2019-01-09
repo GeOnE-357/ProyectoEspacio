@@ -17,8 +17,7 @@ def aulas(request, id):
 		})
 
 def detalleAula(request,id):
-	detalle=DetalleAula.objects.filter(aulaId=id)
-	detalle.order_by('HoraId')
+	detalle=DetalleAula.objects.filter(aulaId=id).order_by('horaId', 'diaId')
 	aula=get_object_or_404(Aula, id=id)
 	dia=get_list_or_404(Dia)
 	lista=[]

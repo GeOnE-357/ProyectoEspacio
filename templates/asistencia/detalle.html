@@ -17,15 +17,19 @@
       <th>Editar</th>
     </tr>
       {% for li in lista %}
-      <tr>
-        <td> {{ li.id }} </td>
-        <td> {{ li.nombre }} </td>
-        <td> {{ li.apellido }} </td>
-        <td> {{ li.dni }} </td>
-        <td> {{ li.mail }} </td>
-        <td> {{ li.telefono }} </td>
-        <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.id %}">EDITAR</a></td>
-      </tr>
+        <tr>
+          <td> {{ li.id }} </td>
+          <td> {{ li.nombre }} </td>
+          <td> {{ li.apellido }} </td>
+          <td> {{ li.dni }} </td>
+          <td> {{ li.mail }} </td>
+          <td> {{ li.telefono }} </td>
+          <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.id %}">EDITAR</a></td>
+        </tr>
+      {% empty %}
+        <tr>
+            <td colspan="6">No se encontraron Alumnos o no fueron inscriptos.</td>
+        </tr>
       {% endfor %}
   </tbody>
   </table>

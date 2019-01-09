@@ -11,6 +11,7 @@
   </div>
   <div class="box">
     <table class="table ">
+      <tbody>
       <tr>
         <th>#ID</th>
         <th>Materia</th>
@@ -18,17 +19,25 @@
         <th>Profesor</th>
         <th>Horario</th>
         <th>Estado</th>
+        <th>Alumnos</th>
+        <th>Editar</th>
       </tr>
-  		<tbody>
-        {% for Curso in filtro.qs %}
+        {% for Curso in filtro %}
         <tr>
-            <td><a {% if user.is_staff %} href="{% url 'cursos-editar' Curso.id %}" {% endif %}>{{ Curso.id }}</a></td>
-            <td> {{ Curso.materiaID }} </td>
-            <td> {{ Curso.modulo }} </td>
-            <td> {{ Curso.profesorID }} </td>
+            <td> {{ Curso.0 }} </td>
+            <td> {{ Curso.1 }} </td>
+            <td> {{ Curso.2 }} </td>
+            <td> {{ Curso.3 }} </td>
             <td>
+              {% for det in Curso.4 %}
+                {{ det }} </br>
+              {% empty %}
+                No se asignaron dias para este curso.
+              {% endfor %} 
             </td>
-            <td> {{ Curso.estado }} </td>
+            <td> {{ Curso.5 }} </td>
+            <td><a {% if user.is_staff %} class="Insc" href="{% url 'alumno-index' Curso.0 %}" {% endif %}>Listar</a></td>
+            <td><a {% if user.is_staff %} class="Edit" href="{% url 'cursos-editar' Curso.0 %}" {% endif %}>Editar</a></td>
 	       </tr>
         {% empty %}
         <tr>
