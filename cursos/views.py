@@ -5,7 +5,7 @@ from personas.models import Profesor, Alumno
 from cursos.models import Curso, Materia
 from dependencia.models import DetalleAula, Dia, Horario
 from .forms import CursoForm, MateriaForm, InscripcionForm
-from .filters import CursoFilter
+from .filters import CursoFilter, MateriaFilter
 
 def cursosListar(request):
 	cursos= Curso.objects.all()
@@ -41,6 +41,7 @@ def cursosCrear(request):
 		form=CursoForm()
 	return render(request, 'cursos/crear.html', {'form':form})
 
+
 def cursosEditar(request, id):
 	if request.method=="POST":
 		curso=get_object_or_404(Curso, id=id)
@@ -56,7 +57,9 @@ def cursosEditar(request, id):
 
 
 def materiasListar(request):
-	return render(request, 'materias/index.html', {'materias': Materia.objects.all()})
+	materias=Materia.objects.all()
+	filtro = MateriaFilter(request.GET, queryset=materias)
+	return render(request, 'materias/index.html', {'filtro':filtro})
 
 
 def materiasCrear(request):

@@ -1,10 +1,10 @@
 {% extends "master.html" %}
 
-{% block title %}Crear Curso{% endblock %}
+{% block title %}EDLT - Crear Inscripción{% endblock %}
 
 {% block content %}
 	{% if user.is_staff %}
-    <h1>Crear Curso</h1>
+    <h1>Crear Inscripción</h1>
 	<form method="POST" class="UserForm">
     	{% csrf_token %}
       	{{ form }}
