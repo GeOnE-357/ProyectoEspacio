@@ -30,9 +30,9 @@
             <td> {{ Curso.3 }} </td>
             <td>
               {% for det in Curso.4 %}
-                {{ det }} </br>
+                <strong>{{ det }}</strong></br>
               {% empty %}
-                No se asignaron dias para este curso.
+                <strong>No se asignaron dias para este curso.</strong>
               {% endfor %} 
             </td>
             <td> {{ Curso.5 }} </td>

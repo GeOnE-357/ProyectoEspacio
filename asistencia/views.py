@@ -12,11 +12,28 @@ def index(request,usuario):
 
 def listarAlumnoCurso(request, curso):
 	inscripcion=Inscripcion.objects.filter(cursoID=curso)
+	curs=get_object_or_404(Curso, id=curso)
 	lista=[]
 	for ins in inscripcion:
-		alumno=ins.alumnoID
+		alumno=[]
+		alum=ins.alumnoID
+		asis=Asistencia.objects.filter(inscripcionID=ins.id)
+		asist=0
+		for a in asis:
+			if a.presente == True:
+				asist += 1
+		cur=ins.cursoID	
+		clas=cur.cantClases
+		alumno.append(alum.id)
+		alumno.append(alum.nombre)
+		alumno.append(alum.apellido)
+		alumno.append(alum.dni)
+		alumno.append(alum.mail)
+		alumno.append(alum.telefono)
+		alumno.append(asist)
+		alumno.append(clas)
 		lista.append(alumno)
-	return render (request, 'asistencia/detalle.html', {'lista':lista})
+	return render (request, 'asistencia/detalle.html', {'lista':lista , 'curso':curs})
 
 
 def listarAsistenciaCurso(request, curso):

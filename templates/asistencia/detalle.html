@@ -1,9 +1,9 @@
 {% extends "master.html" %}
 
-{% block title %}li.nombre{% endblock %}
+{% block title %}Listado Alumnos{% endblock %}
 
 {% block content %}
-<h1>Detalle - li</h1>
+<h1>Alumnos de {{ curso }}</h1>
   <div class="box">
   <table class="table ">
   <tbody>
@@ -14,21 +14,23 @@
       <th>Dni</th>
       <th>Mail</th>
       <th>Tel.</th>
+      <th>Asistencia</th>
       <th>Editar</th>
     </tr>
       {% for li in lista %}
         <tr>
-          <td> {{ li.id }} </td>
-          <td> {{ li.nombre }} </td>
-          <td> {{ li.apellido }} </td>
-          <td> {{ li.dni }} </td>
-          <td> {{ li.mail }} </td>
-          <td> {{ li.telefono }} </td>
-          <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.id %}">EDITAR</a></td>
+          <td> {{ li.0 }} </td>
+          <td> {{ li.1 }} </td>
+          <td> {{ li.2 }} </td>
+          <td> {{ li.3 }} </td>
+          <td> {{ li.4 }} </td>
+          <td> {{ li.5 }} </td>
+          <td> {{li.6}} / <strong>{{li.7}}</strong></td>
+          <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.0 %}">EDITAR</a></td>
         </tr>
       {% empty %}
         <tr>
-            <td colspan="6">No se encontraron Alumnos o no fueron inscriptos.</td>
+            <td colspan="8"><strong>No se encontraron Alumnos o no fueron inscriptos.</strong></td>
         </tr>
       {% endfor %}
   </tbody>
