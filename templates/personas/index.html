@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 
-{% block title %}Listar Personas{% endblock %}
+{% block title %}EDLT - Listar Personas{% endblock %}
 
 {% block content %}
 {% if tipo == 'Profesor'%}
@@ -20,8 +20,7 @@
       </tr>
       <tbody>
         {% for Profesor in filtro.qs %}
-        <tr>
-          
+        <tr>  
           <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Profesor.id %}" {% endif %}>{{ Profesor.id }}</a></td>
           <td> {{ Profesor.nombre }} </td>
           <td> {{ Profesor.apellido }} </td>
@@ -29,7 +28,7 @@
         </tr>
         {% empty %}
         <tr>
-            <td colspan="4">No se encontraron Profesores o no fueron creados.</td>
+            <td colspan="4"><strong>No se encontraron Profesores o no fueron creados.</strong></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -54,9 +53,7 @@
       <tbody>
         {% for Alumno in filtro.qs %}
         <tr>
-          
           <td><a {% if user.is_staff %} href="{% url 'persona-detalle' tipo Alumno.id %}" {% endif %}>{{ Alumno.id }}</a></td>
-          
           <td> {{ Alumno.nombre }} </td>
           <td> {{ Alumno.apellido }} </td>
           <td> {{ Alumno.mail }} </td>
@@ -65,7 +62,7 @@
         </tr>
         {% empty %}
         <tr>
-            <td colspan="6">No se encontraron Alumnos o no fueron creados.</td>
+            <td colspan="6"><strong>No se encontraron Alumnos o no fueron creados.</strong></td>
         </tr>
         {% endfor %}
       </tbody>

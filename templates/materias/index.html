@@ -1,15 +1,12 @@
 {% extends "master.html" %}
 
-{% block title %}Listar Materia{% endblock %}
+{% block title %}EDLT - Listar Materias{% endblock %}
 
 {% block content %}
 <h1>Materia</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'materias-crear' %}">Crear Materia</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Materia.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    {% include '../filtros/filtroMateria.html' %}
   </div>
   <div class="box">
     <table class="table ">
@@ -19,7 +16,7 @@
         <th>Tipo</th>
       </tr>
   		<tbody>
-        {% for Materia in materias %}
+        {% for Materia in filtro.qs %}
         <tr>
             <td><a {% if user.is_staff %} href="{% url 'materias-editar' Materia.id %}" {% endif %}>{{ Materia.id }}</a></td>
             <td> {{ Materia.nombre }} </td>
@@ -27,7 +24,7 @@
 	        </tr>
         {% empty %}
         <tr>
-            <td colspan="3">No se encontraron Materias o no fueron creadas.</td>
+            <td colspan="3"><strong>No se encontraron Materias o no fueron creadas.</strong></td>
         </tr>
         {% endfor %}
       	</tbody>

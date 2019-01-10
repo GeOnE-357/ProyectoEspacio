@@ -12,6 +12,13 @@ class CursoForm(forms.ModelForm):
 		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'anio', 'estado')
 
 class MateriaForm(forms.ModelForm):
+	
+	TIPO_CHOICES = (
+    ("Tecnológico", "Tecnológico"),
+    ("Oficio Tradicional", "Oficio Tradicional"),)
+
+	tipo = forms.ChoiceField(choices = TIPO_CHOICES, label="Tipo:", widget=forms.Select(), required=True)
+	nombre = forms.CharField(required=True)
 	class Meta:
 		model = Materia
 		fields = ('nombre', 'tipo')

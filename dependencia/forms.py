@@ -12,7 +12,14 @@ class AulaForm(forms.ModelForm):
 		model = Aula 
 		fields = ('nombre', 'dependenciaId')
 
+
 class DetalleAulaForm(forms.ModelForm):
+	
+	ESTADO_CHOICES = (
+    ("disponible", "Disponible"),
+    ("en curso", "En curso"),)
+
+	estado = forms.ChoiceField(choices = ESTADO_CHOICES, label="Estado:", widget=forms.Select(), required=True)
 	class Meta:
 		model=DetalleAula 
 		fields=('estado','cursoID')            

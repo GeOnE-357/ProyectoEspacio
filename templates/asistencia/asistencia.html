@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 
-{% block title %}Alumno.nombre{% endblock %}
+{% block title %}EDLT - Crear Asistencia{% endblock %}
 
 {% block content %}
 <h1>Asistencia Curso</h1>
@@ -9,7 +9,7 @@
     <form method="POST" action="{% url 'asistencia-crear' %}" class="UserForm">
     <tbody>
       <tr>
-        <th>#ID</th>
+        <th></th>
         <th>Alumno</th>
         <th>Presente</th>
         <th>Ausente</th>
@@ -17,7 +17,7 @@
         {% for li in lista %}
           {% csrf_token %}
           <tr>
-            <td><input type="number" name="id{{ forloop.counter }}" value="{{ li.0 }}" readonly></td>
+            <td><input type="hidden" name="id{{ forloop.counter }}" value="{{ li.0 }}" readonly></td>
             <td style="text-align:center">{{ li.1 }}</td>
             <td><input type="radio" name="pres{{ forloop.counter }}" value="True" required></td>
             <td><input type="radio" name="pres{{ forloop.counter }}" value="False" required></td>

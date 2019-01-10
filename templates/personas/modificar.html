@@ -1,9 +1,9 @@
 {% extends "master.html" %}
 
-{% block title %}EDLT - Crear{% endblock %}
+{% block title %}EDLT - Editar Persona{% endblock %}
 
 {% block content %}
-    <h1>Modificar </h1>
+    <h1>Modificar Persona</h1>
 	<form method="POST" class="UserForm">
     	{% csrf_token %}
       	{{ form }}

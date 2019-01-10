@@ -1,10 +1,8 @@
 {% extends "master.html" %}
-
-{% block title %}Alumno.nombre{% endblock %}
-
+{% block title %}EDLT - Detalle Persona{% endblock %}
 {% block content %}
 {% if tipo == 'Profesor'%}
-  <h1>Detalle - Profesor</h1>
+  <h1>Detalle - {{ Profesor.nombre }} {{ Profesor.apellido }}</h1>
   <div class="box">
   <table class="table ">
     <tr>
@@ -36,7 +34,7 @@
   </table>
 </div>
 {% else %}
-  <h1>Detalle - Alumno</h1>
+  <h1>Detalle - {{ Alumno.nombre }} {{ Alumno.apellido }}</h1>
   <div class="box">
   <table class="table ">
     <tr>
