@@ -18,12 +18,13 @@ def importar(request):
 
 	datos=csv_file.read().decode('UTF-8')
 	io_string=io.StringIO(datos)
-	ban=0
+	
 
 	for fila in csv.reader(io_string, delimiter=';', quotechar="|"):
 		alu=Alumno.objects.all()
+		ban=0
 		for a in alu:
-			if fila[2] == a.dni:
+			if str(fila[2]) == str(a.dni):
 				ban=1
 
 		if ban == 0:
@@ -39,15 +40,15 @@ def importar(request):
 			alu.dispHoraria=fila[8]
 			alu.estudiosId=get_object_or_404(Estudio,id=fila[9])
 			alu.save()
-			a=Alumno.objects.latest('id')
+			al=Alumno.objects.latest('id')
 			inscribir=Inscripcion()
 			inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
-			inscribir.alumnoID=a
+			inscribir.alumnoID=al
 			inscribir.save()
 		else:
 			inscribir=Inscripcion()
 			inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
-			inscribir.alumnoID=get_object_or_404(Alumno,id=fila[0])
+			inscribir.alumnoID=get_object_or_404(Alumno,dni=fila[2])
 			inscribir.save()
-	context={"RESULTADO":"NO SE XD"}
+	context={"resul":"Todo Salio ok XD"}
 	return render(request,'importacion/importar.html',context)

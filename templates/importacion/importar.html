@@ -21,7 +21,11 @@
                 <p>Solo Acepta CSV Files</p>
                 <button type="save">Subir</button>
             </form>
-            
+            {% if resul %}
+            <script>
+                alert('{{resul}}');
+            </script>
+            {% endif %}
         {% endif %}
 
     {% else %}
