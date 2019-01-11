@@ -24,7 +24,7 @@ def importar(request):
 		alu=Alumno.objects.all()
 		ban=0
 		for a in alu:
-			if str(fila[2]) == str(a.dni):
+			if int(fila[2]) == int(a.dni):
 				ban=1
 
 		if ban == 0:
