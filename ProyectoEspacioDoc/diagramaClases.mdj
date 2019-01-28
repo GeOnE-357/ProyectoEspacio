@@ -2180,23 +2180,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAFl6lKZ7isZR7U=",
-											"_parent": {
-												"$ref": "AAAAAAFly9/VhwhxErI="
-											},
-											"model": {
-												"$ref": "AAAAAAFl6lKZvisHHLs="
-											},
-											"font": "Arial;13;0",
-											"left": 438,
-											"top": 339,
-											"width": 95.853515625,
-											"height": 13,
-											"text": "-año",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAFl6lK78SwHSQI=",
 											"_parent": {
 												"$ref": "AAAAAAFly9/VhwhxErI="
@@ -2206,7 +2189,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 438,
-											"top": 354,
+											"top": 339,
 											"width": 95.853515625,
 											"height": 13,
 											"text": "-fInicio",
@@ -2223,7 +2206,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 438,
-											"top": 369,
+											"top": 354,
 											"width": 95.853515625,
 											"height": 13,
 											"text": "-fFin",
@@ -2240,7 +2223,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 438,
-											"top": 384,
+											"top": 369,
 											"width": 95.853515625,
 											"height": 13,
 											"text": "-estado",
@@ -2257,7 +2240,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 438,
-											"top": 399,
+											"top": 384,
 											"width": 95.853515625,
 											"height": 13,
 											"text": "-cantClases",
@@ -2268,7 +2251,7 @@
 									"left": 433,
 									"top": 289,
 									"width": 105.853515625,
-									"height": 128
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2281,7 +2264,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 433,
-									"top": 417,
+									"top": 402,
 									"width": 105.853515625,
 									"height": 10
 								},
@@ -7039,16 +7022,6 @@
 								"$ref": "AAAAAAFly9/VhghpwDU="
 							},
 							"name": "profeID",
-							"visibility": "private",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFl6lKZvisHHLs=",
-							"_parent": {
-								"$ref": "AAAAAAFly9/VhghpwDU="
-							},
-							"name": "año",
 							"visibility": "private",
 							"type": ""
 						},

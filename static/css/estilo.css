@@ -133,41 +133,59 @@ td a.Edit:hover
 	}
 
 	
-/* ---------- Acceso Denegado ---------- */
+/* ---------- Mensaje ---------- */
 
-.neg
+.neg, .pos
 	{
 		width: 50%;
-		margin: 8% 22.5%;
+		margin: 6% auto;
 		padding: 2%;
+		max-height:290px;
 		border-radius: 5px;
-		border-color: white;
-		border: solid;	  
+		border-color: white;	  
 		color: white;
 		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	}
 
-.neg h2 
+.neg
 	{
-		font-size: 300%;
+		background-color: rgba(223, 1, 1, 0.7);
+	}
+
+.pos
+	{
+		background-color: rgba(50,160,0,0.7);
+	}
+
+.neg span, .pos span
+	{
+		font-size: 8vw;
+		display: block;
+		text-align: center;
+		margin-top: 2%;
+	}
+
+.neg h2, .pos h2 
+	{
+		font-size: 3vw;
 		display: block;
 		text-align: center;
 		margin-top: 1%;
 		margin-bottom: 1%;
 	}
 
-.neg span
+.neg p, .pos p
 	{
-		font-size: 800%;
-		display: block;
+		font-size: 1.5vw;
+		margin: 0% auto;
 		text-align: center;
-		margin-top: 3%;
 	}
 
-.neg p
+p#contador
 	{
-		margin: 0% 10% 4% 10%;
-		text-align: justify;
+		font-size: 1vw;
+		margin: 0%;
+		text-align: center;
 	}
 
 /* ---------- Formularios ---------- */

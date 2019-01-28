@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT-Mensaje{% endblock %}
+
+{% block content %}
+	<blockquote class="{{ tipo }}">
+  		{% if tipo == 'neg' %}
+  			<span class="fa fa-ban"></span>
+  		{% else %}
+  			<span class="fa fa-check-circle"></span>
+  		{% endif %}
+  		<h2>{{ titulo }}</h2>
+  		<p>{{ mensaje }}</p>
+  		<p id="contador"></p>
+	</blockquote>
+	{% load static %}
+	<script type="text/javascript" src="{% static "/js/contador.js" %}"></script>
+{% endblock %}

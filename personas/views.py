@@ -31,7 +31,10 @@ def personaNuevo(request, tipo):
 			if form.is_valid():
 				instance = form.save(commit=False)
 				instance.save()
-				return redirect('personas-index', a)
+				tipo='pos'
+				tit='ALUMNO CREADO'
+				men='El alumno ah sido creado exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		if a =="Profesor":
 			form = profesorForm()
@@ -50,7 +53,10 @@ def personaUsuario(request, tipo):
 		dni=profe.dni
 		usuario=User.objects.create_user(username=dni, first_name=nombre, last_name=apellido ,email=mail, password='EDLT1234')
 		usuario.save()
-		return redirect('personas-index', a)
+		tipo='pos'
+		tit='USUARIO CREADO'
+		men='El usuario ah sido creado exitosamente.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 
 def personaDetalle(request, tipo, id):
 	a=tipo
