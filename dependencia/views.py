@@ -47,13 +47,14 @@ def crearAula(request):
 		if form.is_valid():
 			instacia= form.save(commit=False)
 			instacia.save()
-			return redirect('detallecrear')
+			a=Aula.objects.latest('id').id
+			return redirect('detallecrear', a)
 	else:
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request):	
-	a=Aula.objects.latest('id')
+def detalleCrear(request, aula):	
+	a=get_object_or_404(Aula, id=aula)
 	for d in Dia.objects.all():
 		for h in Horario.objects.all():
 			det=DetalleAula()

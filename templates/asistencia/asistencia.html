@@ -21,6 +21,10 @@
             <td style="text-align:center">{{ li.1 }}</td>
             <td><input type="radio" name="pres{{ forloop.counter }}" value="True" required></td>
             <td><input type="radio" name="pres{{ forloop.counter }}" value="False" required></td>
+        {% empty %}
+          <tr>
+              <td colspan="4"><strong>No se encontraron Alumnos o no fueron inscriptos.</strong></td>
+          </tr>
         {% endfor %}
       <tr>
         <td colspan="4"><button type="submit">Registrar</button></td>

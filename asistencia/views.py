@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from datetime import datetime, date, time, timedelta
 from .models import Asistencia
 from personas.models import Profesor, Alumno
 from cursos.models import Curso, Inscripcion
@@ -37,20 +38,29 @@ def listarAlumnoCurso(request, curso):
 
 
 def listarAsistenciaCurso(request, curso):
-
-	inscripcion=Inscripcion.objects.filter(cursoID=curso)
-	lista=[]
-	for ins in inscripcion:
-		present=[]
-		asist=ins.id
-		alumno=ins.alumnoID
-		pres=False
-		present.append(asist)
-		present.append(alumno)
-		present.append(pres)
-		lista.append(present)
-	return render (request, 'asistencia/asistencia.html', {'lista':lista})
-
+	hoy=date.today()
+	inscri=Inscripcion.objects.filter(cursoID=curso).last()
+	print(inscri)
+	fecha=Asistencia.objects.filter(inscripcionID=inscri).last()
+	if fecha == None or fecha.fecha.date() != hoy:
+		inscripcion=Inscripcion.objects.filter(cursoID=curso)
+		lista=[]
+		for ins in inscripcion:
+			present=[]
+			asist=ins.id
+			alumno=ins.alumnoID
+			pres=False
+			present.append(asist)
+			present.append(alumno)
+			present.append(pres)
+			lista.append(present)
+		return render (request, 'asistencia/asistencia.html', {'lista':lista})
+	else:
+		tipo='neg'
+		tit='ASISTENCIA YA REALIZADA'
+		men='Ya se ha registrado la asistencia de este curso hoy.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	
 
 def AsistenciaCrear(request):
 	if request.method=="POST":
@@ -76,6 +86,6 @@ def AsistenciaCrear(request):
 			asistencia.inscripcionID=insc
 			asistencia.save()
 		tipo='pos'
-		tit='ASISTENCIA CREADA'
+		tit='ASISTENCIA FINALIZADA'
 		men='Se ha registrado la asistencia del curso con éxito.'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
