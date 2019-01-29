@@ -13,14 +13,17 @@ def registrarUsuario(request, tipo):
 		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
-			if a=='Super':
-				if request.user.is_superuser:
-					instance.is_superuser=True
-			if a=='Staff':
-				if request.user.is_staff:
+			if request.user.is_superuser:
+				if a=='Super':
+					instance.is_super=True
+					men='El Usuario Gerente ha sido creado exitosamente.'
+				else:
 					instance.is_staff=True
+					men='El Usuario Staff ha sido creado exitosamente.'
 			instance.save()
-			return redirect('home')
+			tipo='pos'
+			tit='USUARIO CREADO'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form = UsuarioForm()
 	return render(request, 'usuarios/registro.html', {'form':form})
@@ -49,10 +52,10 @@ def passwordUsuario(request):
 		if form.is_valid():
 			user = form.save()
 			update_session_auth_hash(request, user)
-			messages.success(request, 'Your password was successfully updated!')
-			return redirect('home')
-		else:
-			messages.error(request, 'Please correct the error below.')
+			tipo='pos'
+			tit='PASSWORD ACTUALIZADO'
+			men='El Password ha sido modificado exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
 	else:
 		form = PasswordChangeForm(request.user)
 	return render(request, 'usuarios/password.html', {'form': form})

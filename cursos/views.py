@@ -36,7 +36,10 @@ def cursosCrear(request):
 		if form.is_valid():
 			instacia= form.save(commit=False)
 			instacia.save()
-			return redirect('cursos-index')
+			tipo='pos'
+			tit='CURSO CREADO'
+			men='El Curso ha sido creado exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=CursoForm()
 	return render(request, 'cursos/crear.html', {'form':form})
@@ -49,7 +52,10 @@ def cursosEditar(request, id):
 		if form.is_valid:
 			form.save(commit=False)
 			form.save()
-			return redirect('cursos-index')
+			tipo='pos'
+			tit='CURSO EDITADO'
+			men='El Curso ha sido editado exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		curso=get_object_or_404(Curso, id=id)
 		form = CursoForm(instance=curso)
@@ -68,7 +74,10 @@ def materiasCrear(request):
 		if form.is_valid():
 			instacia= form.save(commit=False)
 			instacia.save()
-			return redirect('materias-index')
+			tipo='pos'
+			tit='MATERIA CREADA'
+			men='La Materia ha sido creada exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=MateriaForm()
 	return render(request, 'materias/crear.html', {'form':form})
@@ -80,7 +89,10 @@ def materiasEditar(request, id):
 		if form.is_valid:
 			form.save(commit=False)
 			form.save()
-			return redirect('materias-index')
+			tipo='pos'
+			tit='MATERIA EDITADA'
+			men='La Materia ha sido editada exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		materia=get_object_or_404(Materia, id=id)
 		form=MateriaForm(instance=materia)
@@ -95,7 +107,10 @@ def inscripcionCrear(request, tipo, id):
 			alumno=get_object_or_404(Alumno, id=id)
 			instance.alumnoID=alumno
 			form.save()
-			return redirect('personas-index', a)
+			tipo='pos'
+			tit='INSCRIPCIÓN CREADA'
+			men='El Alumno ha sido inscripto exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=InscripcionForm()
 	return render(request, 'cursos/inscripcion.html', {'form':form})

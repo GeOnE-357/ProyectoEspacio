@@ -33,7 +33,7 @@ def personaNuevo(request, tipo):
 				instance.save()
 				tipo='pos'
 				tit='ALUMNO CREADO'
-				men='El alumno ah sido creado exitosamente.'
+				men='El Alumno ha sido creado exitosamente.'
 				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		if a =="Profesor":
@@ -55,7 +55,7 @@ def personaUsuario(request, tipo):
 		usuario.save()
 		tipo='pos'
 		tit='USUARIO CREADO'
-		men='El usuario ah sido creado exitosamente.'
+		men='El Profesor ha sido creado exitosamente.'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 
 def personaDetalle(request, tipo, id):
@@ -77,14 +77,20 @@ def personaEditar(request, tipo, id):
 			if form.is_valid():
 					form.save(commit=False)
 					form.save()
-					return redirect('personas-index', a)
+					tipo='pos'
+					tit='PROFESOR EDITADO'
+					men='Los datos del Profesor han sido editados exitosamente.'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 		else:
 			persona = get_object_or_404(Alumno, id=id)
 			form = alumnoForm(request.POST, instance=persona)
 			if form.is_valid():
 					form.save(commit=False)
 					form.save()
-					return redirect('personas-index', a)			
+					tipo='pos'
+					tit='ALUMNO EDITADO'
+					men='Los datos del Alumno han sido editados exitosamente.'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
 	else:
 		if a == 'Profesor':
 			persona = get_object_or_404(Profesor, id=id)

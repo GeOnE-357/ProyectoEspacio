@@ -37,6 +37,7 @@ def listarAlumnoCurso(request, curso):
 
 
 def listarAsistenciaCurso(request, curso):
+
 	inscripcion=Inscripcion.objects.filter(cursoID=curso)
 	lista=[]
 	for ins in inscripcion:
@@ -68,11 +69,13 @@ def AsistenciaCrear(request):
 			else:
 				temp.append(False)
 				asis.append(temp)	
-
 		for a in asis:
 			asistencia=Asistencia()
 			asistencia.presente=a[1]
 			insc=get_object_or_404(Inscripcion,id=a[0])
 			asistencia.inscripcionID=insc
 			asistencia.save()
-		return redirect('home')
+		tipo='pos'
+		tit='ASISTENCIA CREADA'
+		men='Se ha registrado la asistencia del curso con éxito.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})

@@ -62,7 +62,10 @@ def detalleCrear(request):
 			det.estado="disponible"
 			det.horaId=h
 			det.save()
-	return redirect('dependencia')
+	tipo='pos'
+	tit='AULA CREADA'
+	men='El Aula ha sido creada exitosamente.'
+	return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 
 def detalleEditar(request, id):
 	if request.method=="POST":
@@ -71,7 +74,10 @@ def detalleEditar(request, id):
 		if form.is_valid():
 			form.save(commit=False)
 			form.save()
-			return redirect('dependencia')
+			tipo='pos'
+			tit='AULA EDITADA'
+			men='El Aula ha sido editada exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		detalle=get_object_or_404(DetalleAula, id=id)
 		form = DetalleAulaForm(instance=detalle)
@@ -84,7 +90,10 @@ def dependenciaCrear(request):
 		if form.is_valid:
 			instacia=form.save(commit=False)
 			instacia.save()
-			return redirect('dependencia')
+			tipo='pos'
+			tit='DEPENDENCIA CREADA'
+			men='La Dependencia ha sido creada exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=DependenciaForm()
 		return render(request,'dependencia/dependenciacrear.html',{'form':form})
