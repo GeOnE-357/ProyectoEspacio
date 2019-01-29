@@ -26,9 +26,11 @@
               <td colspan="4"><strong>No se encontraron Alumnos o no fueron inscriptos.</strong></td>
           </tr>
         {% endfor %}
-      <tr>
-        <td colspan="4"><button type="submit">Registrar</button></td>
-      </tr>   
+        {% if lista %}
+          <tr>
+            <td colspan="4"><button type="submit">Registrar</button></td>
+          </tr>
+        {% endif %}   
     </tbody>
   </form>
   </table>

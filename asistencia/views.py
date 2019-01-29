@@ -40,26 +40,32 @@ def listarAlumnoCurso(request, curso):
 def listarAsistenciaCurso(request, curso):
 	hoy=date.today()
 	inscri=Inscripcion.objects.filter(cursoID=curso).last()
-	print(inscri)
-	fecha=Asistencia.objects.filter(inscripcionID=inscri).last()
-	if fecha == None or fecha.fecha.date() != hoy:
-		inscripcion=Inscripcion.objects.filter(cursoID=curso)
-		lista=[]
-		for ins in inscripcion:
-			present=[]
-			asist=ins.id
-			alumno=ins.alumnoID
-			pres=False
-			present.append(asist)
-			present.append(alumno)
-			present.append(pres)
-			lista.append(present)
-		return render (request, 'asistencia/asistencia.html', {'lista':lista})
-	else:
-		tipo='neg'
-		tit='ASISTENCIA YA REALIZADA'
-		men='Ya se ha registrado la asistencia de este curso hoy.'
+	fecha=Asistencia.objects.filter(inscripcionID=inscri)
+	cur=Curso.objects.filter(id=curso)
+	if fecha.count() == cur[0].cantClases:
+		tipo='pos'
+		tit='CURSO FINALIZADO'
+		men='El Curso ya ha finalizado, no puedes seguir tomando asistencia.'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	else:
+		if fecha.last() == None or fecha.last().fecha.date() != hoy:
+			inscripcion=Inscripcion.objects.filter(cursoID=curso)
+			lista=[]
+			for ins in inscripcion:
+				present=[]
+				asist=ins.id
+				alumno=ins.alumnoID
+				pres=False
+				present.append(asist)
+				present.append(alumno)
+				present.append(pres)
+				lista.append(present)
+			return render (request, 'asistencia/asistencia.html', {'lista':lista})
+		else:
+			tipo='neg'
+			tit='ASISTENCIA YA REALIZADA'
+			men='Ya se ha registrado la asistencia de este curso hoy.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	
 
 def AsistenciaCrear(request):
@@ -87,5 +93,5 @@ def AsistenciaCrear(request):
 			asistencia.save()
 		tipo='pos'
 		tit='ASISTENCIA FINALIZADA'
-		men='Se ha registrado la asistencia del curso con éxito.'
+		men='Se ha registrado la asistencia de hoy con éxito.'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
