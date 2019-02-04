@@ -6,28 +6,25 @@
   <h1>Dependencias</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'dependenciacrear' %}">Crear Dependencia</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Dependencia.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    {% include '../filtros/filtroDependencia.html' %}
   </div>
   <div class="box">
   <table class="table ">
     <tr>
-      <th>Aulas</th>
       <th>Nombre</th>
       <th>Direccion</th>
       <th>Telefono</th>
       <th>Whatsapp</th>
+      <th>Aulas</th>
     </tr>
     <tbody>
-    {% for de in dependencia %}
+    {% for de in filtro.qs %}
     <tr>
-      <td><a href="{% url 'aulas' de.id %}">Mostrar</a></td>
       <td> {{ de.nombre }} </td>
       <td> {{ de.direccion }} </td>
       <td> {{ de.telefono }} </td>
       <td> {{ de.whatsapp }} </td>
+      <td><a class="Insc" href="{% url 'aulas' de.id %}">Mostrar</a></td>
     </tr>
     {% empty %}
     <tr>

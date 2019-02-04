@@ -14,14 +14,16 @@
         <th>#ID</th>
         <th>Nombre</th>
         <th>Tipo</th>
+        <th>Editar</th>
       </tr>
   		<tbody>
         {% for Materia in filtro.qs %}
         <tr>
-            <td><a {% if user.is_staff %} href="{% url 'materias-editar' Materia.id %}" {% endif %}>{{ Materia.id }}</a></td>
+            <td> {{ Materia.id }} </td>
             <td> {{ Materia.nombre }} </td>
             <td> {{ Materia.tipo }} </td>
-	        </tr>
+            <td><a class="Edit" {% if user.is_staff %} href="{% url 'materias-editar' Materia.id %}" {% endif %}>Editar</a></td>
+	      </tr>
         {% empty %}
         <tr>
             <td colspan="3"><strong>No se encontraron Materias o no fueron creadas.</strong></td>

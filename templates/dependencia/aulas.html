@@ -3,25 +3,24 @@
 {% block title %}EDLT - Aulas{% endblock %}
 
 {% block content %}
-  <h1>Aulas</h1>
+  <h1>Aulas de {{ depen.0.nombre }}</h1>
   <div class="sub-nav">
     <a class="sub-btn" href="{% url 'aulacrear' %}">Crear Aula</a>
-    <form type="get" action=".">
-      <input type="text" placeholder="Buscar Aula.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    {% include '../filtros/filtroAula.html' %}
   </div>
   <div class="box">
   <table class="table ">
     <tr>
       <th>ID</th>
       <th>Nombre</th>
+      <th>Horarios</th>
     </tr>
     <tbody>
-    {% for a in aulas %}
+    {% for a in filtro.qs %}
     <tr>
-      <td><a href="{% url 'detalleAula' a.id %}">{{ a.id }}</a></td>
+      <td>{{ a.id }}</td>
       <td> {{ a.nombre }} </td>
+      <td><a class="Insc" href="{% url 'detalleAula' a.id %}">Mostrar</td>
     </tr>
     {% empty %}
         <tr>

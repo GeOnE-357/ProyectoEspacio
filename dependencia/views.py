@@ -3,18 +3,19 @@ from django.http import HttpResponse
 from dependencia.models import *
 from .forms import *
 from cursos.models import Curso
-# Create your views here.
+from .filters import DependenciaFilter, AulaFilter
 
 
 def dependencias(request):
-    return render(request, 'dependencia/dependencias.html', {
-        'dependencia': Dependencia.objects.all(),
-    })
+	depen= Dependencia.objects.all()
+	filtro = DependenciaFilter(request.GET, queryset=depen)
+	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
 
 def aulas(request, id):
-	return render (request, 'dependencia/aulas.html',{
-		'aulas':Aula.objects.filter(dependenciaId=id),
-		})
+	aula= Aula.objects.filter(dependenciaId=id)
+	filtro = AulaFilter(request.GET, queryset=aula)
+	depen= Dependencia.objects.filter(id=id)
+	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen,})
 
 def detalleAula(request,id):
 	detalle=DetalleAula.objects.filter(aulaId=id).order_by('horaId', 'diaId')

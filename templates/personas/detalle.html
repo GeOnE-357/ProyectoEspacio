@@ -27,7 +27,7 @@
       <td> {{ Profesor.telefono }} </td>
       <td> {{ Profesor.nacimiento }} </td>
       {% if user.is_staff %}
-      <td><a class="Edit" href="{% url 'persona-editar' tipo Profesor.id %}">EDITAR</a></td>
+      <td><a class="Edit" href="{% url 'persona-editar' tipo Profesor.id %}">Editar</a></td>
       {% endif %}
     </tr>
   </tbody>
@@ -56,7 +56,7 @@
       <td> {{ Alumno.mail }} </td>
       <td> {{ Alumno.telefono }} </td>
       <td> {{ Alumno.nacimiento }} </td>
-      <td><a class="Edit" href="{% url 'persona-editar' tipo Alumno.id %}">EDITAR</a></td>
+      <td><a class="Edit" href="{% url 'persona-editar' tipo Alumno.id %}">Editar</a></td>
     </tr>
   </tbody>
   </table>
