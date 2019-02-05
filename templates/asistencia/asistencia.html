@@ -28,8 +28,10 @@
         {% endfor %}
         {% if lista %}
           <tr>
-            <td colspan="4"><button type="submit">Registrar</button></td>
+            <td colspan="4"><button id="cargar" type="submit">Registrar</button></td>
           </tr>
+          {% load static %}
+            <script type="text/javascript" src="{% static "/js/cargando.js" %}"></script>
         {% endif %}   
     </tbody>
   </form>

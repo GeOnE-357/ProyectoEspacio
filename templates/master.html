@@ -6,10 +6,30 @@
     <meta name="author" content="Soledad Casco, Arias Emilio">
     <!--<link rel="icon" href="">-->
     <link rel="stylesheet" href="{% static "/css/estilo.css" %}" />
+    <link rel="stylesheet" href="{% static "/css/cargando.css" %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{% block title %} EDLT {% endblock %}</title>
 </head>
 <body>
+    <div class="contenedor">
+        <div class="windows8">
+            <div class="wBall" id="wBall_1">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_2">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_3">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_4">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_5">
+                <div class="wInnerBall"></div>
+            </div>
+        </div>
+    </div>
     {% include  "nav.html" %}
     {% block content %}{% endblock %}
 </body>
