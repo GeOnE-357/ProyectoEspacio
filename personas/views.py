@@ -22,19 +22,42 @@ def personaNuevo(request, tipo):
 	if request.method == "POST":
 		if a =="Profesor":
 			form = profesorForm(request.POST or None)
-			if form.is_valid():
-				instance = form.save(commit=False)
-				instance.save()
-				return redirect('persona-usuario', a)
+			prof=Profesor.objects.all()
+			ban=0
+			for p in prof:
+				if int(request.POST["dni"]) == int(p.dni):
+					ban=1
+			if ban == 0:
+				if form.is_valid():
+					instance = form.save(commit=False)
+					instance.save()
+					return redirect('persona-usuario', a)
+			else:
+				tipo='neg'
+				tit='PROFESOR NO CREADO'
+				men='El Profesor ya existe en la base de datos.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
 		else:
 			form = alumnoForm(request.POST or None)
-			if form.is_valid():
-				instance = form.save(commit=False)
-				instance.save()
-				tipo='pos'
-				tit='ALUMNO CREADO'
-				men='El Alumno ha sido creado exitosamente.'
+			alu=Alumno.objects.all()
+			ban=0
+			for a in alu:
+				if int(request.POST["dni"]) == int(a.dni):
+					ban=1
+			if ban == 0:
+				if form.is_valid():
+					instance = form.save(commit=False)
+					instance.save()
+					tipo='pos'
+					tit='ALUMNO CREADO'
+					men='El Alumno ha sido creado exitosamente.'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			else:
+				tipo='neg'
+				tit='ALUMNO NO CREADO'
+				men='El Alumno ya existe en la base de datos.'
 				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			
 	else:
 		if a =="Profesor":
 			form = profesorForm()
