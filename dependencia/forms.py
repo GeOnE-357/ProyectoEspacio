@@ -10,7 +10,7 @@ class DependenciaForm(forms.ModelForm):
 class AulaForm(forms.ModelForm):
 	class Meta:
 		model = Aula 
-		fields = ('nombre', 'dependenciaId')
+		fields = ('nombre',)
 
 
 class DetalleAulaForm(forms.ModelForm):

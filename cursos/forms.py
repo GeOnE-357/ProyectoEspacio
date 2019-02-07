@@ -7,6 +7,8 @@ class CursoForm(forms.ModelForm):
 	fInicio=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Inicio:')
 	fFin=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Finalizacion:')
 	cantClases=forms.IntegerField(required=True, label='Cantidad de Clases:')
+	materiaID=forms.ModelChoiceField(queryset=Materia.objects.all(), label="Materia:", required=True)
+	profesorID=forms.ModelChoiceField(queryset=Profesor.objects.all(), label="Profesor:", required=True)
 	class Meta:
 		model = Curso
 		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'anio', 'estado')

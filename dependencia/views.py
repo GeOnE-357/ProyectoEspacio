@@ -42,12 +42,14 @@ def detalleAula(request,id):
 			lista.append(detalle)
 	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia})
 
-def crearAula(request):
+def crearAula(request, id):
 	if request.method=="POST":
 		form=AulaForm(request.POST or none)
 		if form.is_valid():
-			instacia= form.save(commit=False)
-			instacia.save()
+			depen=get_object_or_404(Dependencia, id=id)
+			instancia= form.save(commit=False)
+			instancia.dependenciaId=depen
+			instancia.save()
 			a=Aula.objects.latest('id').id
 			return redirect('detallecrear', a)
 	else:

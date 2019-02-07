@@ -30,6 +30,8 @@ def personaNuevo(request, tipo):
 			if ban == 0:
 				if form.is_valid():
 					instance = form.save(commit=False)
+					estu=Estudio.objects.filter(id=form.estudiosId)
+					instance.estudiosId=estu
 					instance.save()
 					return redirect('persona-usuario', a)
 			else:
@@ -39,6 +41,7 @@ def personaNuevo(request, tipo):
 				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
 		else:
 			form = alumnoForm(request.POST or None)
+			print(request.POST)
 			alu=Alumno.objects.all()
 			ban=0
 			for a in alu:

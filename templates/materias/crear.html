@@ -8,7 +8,7 @@
 	<form method="POST" class="UserForm">
     	{% csrf_token %}
       	{{ form }}
-        <button id="cargar" type="submit">Registrar</button>
+        <button value="submit" type="submit">Registrar</button>
     </form>
     {% load static %}
 	<script type="text/javascript" src="{% static "/js/cargando.js" %}"></script>
