@@ -9,8 +9,6 @@ from .filters import CursoFilter, MateriaFilter
 
 def cursosListar(request):
 	cursos= Curso.objects.all()
-	materias=Materia.objects.all()
-	profes=Profesor.objects.all()
 	filtro = CursoFilter(request.GET, queryset=cursos)
 	lista=[]
 	for fi in filtro.qs:
@@ -27,7 +25,7 @@ def cursosListar(request):
 		curso.append(dias)
 		curso.append(fi.estado)
 		lista.append(curso)	
-	return render(request, 'cursos/index.html', {'filtro':lista, 'materias':materias, 'profes':profes,} )
+	return render(request, 'cursos/index.html', {'filtro':lista, 'formu':filtro,} )
 
 
 def cursosCrear(request):
@@ -63,7 +61,7 @@ def cursosEditar(request, id):
 
 
 def materiasListar(request):
-	materias=Materia.objects.all()
+	materias= Materia.objects.all()
 	filtro = MateriaFilter(request.GET, queryset=materias)
 	return render(request, 'materias/index.html', {'filtro':filtro})
 

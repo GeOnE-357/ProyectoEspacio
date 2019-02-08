@@ -190,16 +190,21 @@ p#contador
 
 /* ---------- Formularios ---------- */
 
-.BuscarForm div input
+form.BuscarForm p
 	{
-		background-color: rgba(251, 145, 23, 0.5);
+		display: inline-block;
+		width: 30%;
+		margin: 0;
+		padding: 0;
 	}
 
-.BuscarForm div
+form.BuscarForm p input
 	{
-		width: 30%;
-		display: inline-block;
+		background-color: rgba(251, 145, 23, 0.5);
+		margin: 0;
 	}
+
+
 
 .none
 	{

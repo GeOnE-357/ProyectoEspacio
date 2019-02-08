@@ -4,7 +4,6 @@ from personas.models import Profesor, Alumno
 
 class CursoForm(forms.ModelForm):
 	ESTADO=(("Próximo", "Próximo"),("En curso", "En curso"),("Finalizado", "Finalizado"),)
-
 	materiaID=forms.ModelChoiceField(queryset=Materia.objects.all(), label="Materia:", required=True)
 	profesorID=forms.ModelChoiceField(queryset=Profesor.objects.all(), label="Profesor:", required=True)
 	cantClases=forms.IntegerField(required=True, label='Cantidad de Clases:')
