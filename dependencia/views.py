@@ -40,7 +40,7 @@ def detalleAula(request,id):
 			detalle.append(modulo)
 			detalle.append(modif)
 			lista.append(detalle)
-	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia})
+	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia,})
 
 def crearAula(request, id):
 	if request.method=="POST":
@@ -101,3 +101,18 @@ def dependenciaCrear(request):
 	else:
 		form=DependenciaForm()
 		return render(request,'dependencia/dependenciacrear.html',{'form':form})
+
+def cargarCurso(request, id, tipo):
+	if request.method=="POST":
+		form=CargarCursoForm(request.POST or none)
+		if form.is_valid:
+			detalle=DetalleAula.objects.filter(aulaId=id, diaId=form['dia1'].value()).order_by('horaId')
+			hora1=Horario.objects.get(id=form['hora1'].value())
+			hora2=Horario.objects.get(id=form['hora2'].value())
+			for det in detalle:
+				if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
+					print(det)
+	else:
+		if tipo == 'cargar':
+			form=CargarCursoForm()
+			return render(request,'dependencia/curso.html',{'form':form})

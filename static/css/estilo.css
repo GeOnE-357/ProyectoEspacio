@@ -190,7 +190,7 @@ p#contador
 
 /* ---------- Formularios ---------- */
 
-form.BuscarForm p
+.BuscarForm p 
 	{
 		display: inline-block;
 		width: 30%;
@@ -198,13 +198,12 @@ form.BuscarForm p
 		padding: 0;
 	}
 
-form.BuscarForm p input
+.BuscarForm p input
 	{
 		background-color: rgba(251, 145, 23, 0.5);
 		margin: 0;
+
 	}
-
-
 
 .none
 	{

@@ -6,7 +6,6 @@ from cursos.models import Curso, Inscripcion
 from .forms import AsistenciaForm
 
 def index(request,usuario):
-	"""dni=int(usuario) esto convertia el dni STRING en INT, No era necesario."""
 	persona = get_object_or_404(Profesor, dni=usuario)
 	curso=Curso.objects.filter(profesorID=persona.id)
 	return render(request, 'asistencia/index.html',{'cursos':curso})

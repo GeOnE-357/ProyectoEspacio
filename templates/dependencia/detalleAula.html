@@ -4,6 +4,10 @@
 
 {% block content %}
   <h1>Aula {{ aula.nombre }}</h1>
+  <div class="sub-nav">
+    <a href="{% url 'cargarCurso' aula.id 'cargar' %}">Cargar Curso</a>
+    <a href="{% url 'cargarCurso' aula.id 'dispo' %}">Vaciar Aula</a>
+  </div>
   <div class="box">
   <table class="table ">
     <tr>

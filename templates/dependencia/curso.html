@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT - Cargar Curso{% endblock %}
+
+{% block content %}
+    <h1>Cargar Curso</h1>
+  <form method="POST" class="UserForm">
+      {% csrf_token %}
+        {{ form }}
+        <button value="submit" type="submit">Registrar</button>
+  </form>
+  {% load static %}
+	<script type="text/javascript" src="{% static "/js/cargando.js" %}"></script>
+{% endblock %}
