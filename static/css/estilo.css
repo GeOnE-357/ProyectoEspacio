@@ -16,7 +16,7 @@ h1
 
 .logo
 	{
-		width: 30%;
+		width: 25%;
 		display: inline-block;
 	}
 
@@ -292,6 +292,21 @@ p#contador
 	{
 		display: inline-block;
 		width: 30%;
+	}
+
+.UserForm ul.errorlist
+	{
+    	background-color: #DF0101;
+    	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    	border-radius: 5px;
+    	margin: 1% 0;
+    }
+
+.UserForm ul.errorlist li
+	{
+		width: 100%;
+		padding: 2%;
+		color: white;
 	}
 
 /* ---------- Sub Barra Navegacion ----------  */
