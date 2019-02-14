@@ -29,6 +29,7 @@ class MateriaForm(forms.ModelForm):
 		fields = ('nombre', 'tipo')
 
 class InscripcionForm(forms.ModelForm):
+	cursoID=forms.ModelChoiceField(queryset=Curso.objects.all(), label="Cursos:", required=True)
 	class Meta:
 		model = Inscripcion
 		fields = ('cursoID',)

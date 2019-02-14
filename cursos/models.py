@@ -11,7 +11,7 @@ class Curso(models.Model):
 	estado=models.CharField(max_length=15)
 	cantClases=models.IntegerField(blank=True)
 	def __str__(self):
-		nombre=str(self.materiaID)+" "+str(self.modulo)
+		nombre=str(self.materiaID)+" "+str(self.modulo)+" - "+str(self.profesorID)
 		return nombre
 
 class Materia(models.Model):

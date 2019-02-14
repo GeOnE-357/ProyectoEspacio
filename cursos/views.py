@@ -99,16 +99,23 @@ def materiasEditar(request, id):
 def inscripcionCrear(request, tipo, id):
 	a=tipo
 	if request.method=="POST":
-		form=InscripcionForm(request.POST or none)
-		if form.is_valid():
-			instance=form.save(commit=False)
-			alumno=get_object_or_404(Alumno, id=id)
-			instance.alumnoID=alumno
-			form.save()
-			tipo='pos'
-			tit='INSCRIPCIÓN CREADA'
-			men='El Alumno ha sido inscripto exitosamente.'
+		form=InscripcionForm(request.POST or none)	
+		insc=Inscripcion.objects.filter(cursoID=form['cursoID'].value(), alumnoID=id)
+		if insc:
+			tipo='neg'
+			tit='INSCRIPCIÓN YA CREADA'
+			men='El Alumno ha sido inscripto anteriormente.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			if form.is_valid():
+				instance=form.save(commit=False)
+				alumno=get_object_or_404(Alumno, id=id)
+				instance.alumnoID=alumno
+				form.save()
+				tipo='pos'
+				tit='INSCRIPCIÓN CREADA'
+				men='El Alumno ha sido inscripto exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=InscripcionForm()
 	return render(request, 'cursos/inscripcion.html', {'form':form})

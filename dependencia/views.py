@@ -106,24 +106,16 @@ def cargarCurso(request, id, tipo):
 	if request.method=="POST":
 		form=CargarCursoForm(request.POST or none)
 		if form.is_valid:
-			detalle=DetalleAula.objects.filter(aulaId=id, diaId=form['dia1'].value()).order_by('horaId')
-			curso=Curso.objects.get(id=form['curso'].value())
-			hora1=Horario.objects.get(id=form['hora1'].value())
-			hora2=Horario.objects.get(id=form['hora2'].value())
-			for det in detalle:
-				if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
-					det.estado="En Curso"
-					det.cursoID=curso
-					det.save()
-					print(det)
-			detalle2=DetalleAula.objects.filter(aulaId=id, diaId=form['dia2'].value()).order_by('horaId')
-			if detalle2:
-				for det in detalle2:
-					if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:
+			for d in form['dia'].value():
+				detalle=DetalleAula.objects.filter(aulaId=id, diaId=d).order_by('horaId')
+				curso=Curso.objects.get(id=form['curso'].value())
+				hora1=Horario.objects.get(id=form['hora1'].value())
+				hora2=Horario.objects.get(id=form['hora2'].value())
+				for det in detalle:
+					if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
 						det.estado="En Curso"
 						det.cursoID=curso
-						det.save()
-						print(det)
+						det.save()			
 			tipo='pos'
 			tit='CURSOS ASIGNADOS'
 			men='El Curso ha sido creada exitosamente.'
@@ -132,3 +124,13 @@ def cargarCurso(request, id, tipo):
 		if tipo == 'cargar':
 			form=CargarCursoForm()
 			return render(request,'dependencia/curso.html',{'form':form})
+		else:
+			detalle=DetalleAula.objects.filter(aulaId=id)
+			for det in detalle:
+				det.estado="disponible"
+				det.cursoID=None
+				det.save()
+			tipo='pos'
+			tit='CURSO VACIO'
+			men='El Curso ha sido vaciado exitosamente.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})

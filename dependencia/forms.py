@@ -1,6 +1,7 @@
 from django import forms
 from .models import Dependencia, Aula,DetalleAula, Dia, Horario
 from cursos.models import Curso
+from django.forms.widgets import CheckboxSelectMultiple
 
 class DependenciaForm(forms.ModelForm):
 	class Meta:
@@ -28,7 +29,6 @@ class DetalleAulaForm(forms.ModelForm):
 
 class CargarCursoForm(forms.Form):
 	curso=forms.ModelChoiceField(queryset=Curso.objects.all(), required=True)
-	dia1=forms.ModelChoiceField(queryset=Dia.objects.all(), required=True)
-	dia2=forms.ModelChoiceField(queryset=Dia.objects.all(), required=False)
-	hora1=forms.ModelChoiceField(queryset=Horario.objects.all(), required=True)
-	hora2=forms.ModelChoiceField(queryset=Horario.objects.all(), required=True)
+	dia=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), queryset=Dia.objects.all())
+	hora1=forms.ModelChoiceField(queryset=Horario.objects.all(), label="De:",required=True)
+	hora2=forms.ModelChoiceField(queryset=Horario.objects.all(), label="A:",required=True)

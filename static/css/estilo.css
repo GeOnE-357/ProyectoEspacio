@@ -32,7 +32,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);   
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 li 
@@ -275,17 +275,23 @@ p#contador
 
 .UserForm ul
 	{
-		background-color: #F6CECE;
-		border:none;
 		padding: 2%;
-		border-radius: 5px;
+		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+		background-color: rgba(0,0,0,0);
 	}
 
 .UserForm ul li
 	{
-		color: #B43104;
-		width: 96%;
-		text-align: justify;
+		color: rgb(255,255,255);
+		display: inline-block;
+		width: 30%;
+		text-align: left;
+	}
+
+.UserForm ul li input
+	{
+		display: inline-block;
+		width: 30%;
 	}
 
 /* ---------- Sub Barra Navegacion ----------  */
