@@ -12,6 +12,14 @@ h1
 		color:white;
 	}
 
+section
+	{
+		width: 88%;
+		margin: auto;
+	}
+
+
+
 /* ---------- Barra de Navegacion ---------- */
 
 .logo
@@ -112,9 +120,11 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #8A0808;
 	}
 
+
 /* ---------- Botones Tabla ---------- */
 
-td a.Insc, td a.Edit
+
+td a.Insc, td a.Edit, a.Edit, a.Insc
 	{
 		background-color: rgba(0,0,0,0.4);
 		color: white;
@@ -122,18 +132,20 @@ td a.Insc, td a.Edit
 		padding: 10px;
 	}
 
-td a.Insc:hover
+td a.Insc:hover, a.Insc:hover
 	{
 		background-color: rgba(50,160,0,1);
 	}
 
-td a.Edit:hover
+td a.Edit:hover, a.Edit:hover
 	{
 		background-color: rgba(0,0,180,1);
 	}
 
 	
+
 /* ---------- Mensaje ---------- */
+
 
 .neg, .pos
 	{
@@ -188,7 +200,9 @@ p#contador
 		text-align: center;
 	}
 
+
 /* ---------- Formularios ---------- */
+
 
 .BuscarForm p 
 	{
@@ -309,7 +323,9 @@ p#contador
 		color: white;
 	}
 
+
 /* ---------- Sub Barra Navegacion ----------  */
+
 
 .sub-nav
 	{
@@ -341,7 +357,7 @@ p#contador
 		background-color: lightgrey;
 	}
 
- .sub-nav form
+.sub-nav form
  	{
  		width: 75.4%;
  		height: 20px;
