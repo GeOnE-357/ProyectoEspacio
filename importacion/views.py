@@ -12,7 +12,7 @@ def importar(request):
 			men='El archivo no tiene formato .csv .'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 		else:
-			datos=csv_file.read().decode('UTF-8')
+			datos=csv_file.read().decode('latin-1')
 			io_string=io.StringIO(datos)
 			crea=0
 			insc=0
@@ -48,7 +48,7 @@ def importar(request):
 					crea+=1
 			tipo='pos'
 			tit='ALUMNOS REGISTRADOS'
-			men='Se han creado '+str(crea)+' Alumnos y se han inscripto '+str(insc)+' en los cursos.'
+			men='Se han creado '+str(crea)+' Alumnos y se han Inscripto '+str(insc)+' en los cursos.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		prompt={
