@@ -7,9 +7,7 @@
         <h1>Importar Inscripciones</h1>
         <form method="post" enctype="multipart/form-data" class="UserForm">
             {% csrf_token %}
-            <ul>{{datos}}</ul>
-            <input type="file" name="archivo">
-            <p>Solo Acepta CSV Files</p>
+            {{ form.as_p }}
             <button value="submit" type="save">Subir</button>
         </form>
             {% load static %}
