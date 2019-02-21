@@ -9,12 +9,11 @@ class CursoForm(forms.ModelForm):
 	cantClases=forms.IntegerField(required=True, label='Cantidad de Clases:')
 	fInicio=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Inicio:')
 	fFin=forms.DateField(widget = forms.SelectDateWidget(), label='Fecha de Finalizacion:')
-	anio = forms.IntegerField(required=True, label='Año:')
 	estado=forms.ChoiceField(choices=ESTADO , label="Estado:", widget=forms.Select(), required=True)
 
 	class Meta:
 		model = Curso
-		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'anio', 'estado')
+		fields = ('materiaID', 'modulo', 'profesorID', 'cantClases', 'fInicio', 'fFin', 'estado')
 
 class MateriaForm(forms.ModelForm):
 	

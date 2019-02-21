@@ -5,7 +5,7 @@ total = elementos.length;
 for (var i = 0; i < total; i++)
 			{
 				var nombre=elementos[i].name;
-				if (nombre=="anio")
+				if (nombre=="anio" || nombre=="fInicio")
 					{
 						nombre="año";
 					}

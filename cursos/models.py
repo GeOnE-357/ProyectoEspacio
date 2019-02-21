@@ -7,7 +7,6 @@ class Curso(models.Model):
 	profesorID=models.ForeignKey('personas.Profesor', blank=True, default="", on_delete=models.PROTECT)
 	fInicio=models.DateField(auto_now=False, auto_now_add=False)
 	fFin=models.DateField(auto_now=False, auto_now_add=False)
-	anio=models.IntegerField(blank=True)
 	estado=models.CharField(max_length=15)
 	cantClases=models.IntegerField(blank=True)
 	def __str__(self):
@@ -21,8 +20,8 @@ class Materia(models.Model):
 		return self.nombre
 
 class Inscripcion(models.Model):
-	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.PROTECT)
-	alumnoID=models.ForeignKey('personas.Alumno',blank=True,default="",on_delete=models.PROTECT)
+	cursoID=models.ForeignKey('cursos.Curso',blank=True,default="",on_delete=models.CASCADE)
+	alumnoID=models.ForeignKey('personas.Alumno',blank=True,default="",on_delete=models.CASCADE)
 	fecha=models.DateTimeField(auto_now_add=True)
 	def __str__(self):
 		nombre=str(self.alumnoID)+" - "+str(self.cursoID)

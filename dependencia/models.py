@@ -11,14 +11,14 @@ class Dependencia(models.Model):
 
 class Aula(models.Model):
 	nombre = models.CharField(max_length=50)
-	dependenciaId= models.ForeignKey('dependencia.Dependencia', blank=True, default="", on_delete=models.PROTECT)
+	dependenciaId= models.ForeignKey('dependencia.Dependencia', blank=True, default="", on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.nombre
 
 class DetalleAula(models.Model):
 	"""docstring for ClassName"""
-	aulaId=models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.PROTECT)
+	aulaId=models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.CASCADE)
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
 	estado=models.CharField(max_length=20)

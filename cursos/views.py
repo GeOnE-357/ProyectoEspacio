@@ -18,11 +18,16 @@ def cursosListar(request):
 		curso.append(fi.modulo)
 		curso.append(fi.profesorID)
 		dias=[]
-		det=DetalleAula.objects.filter(estado='en curso', cursoID=fi.id)
-		for d in det:
-			dia=str(d.aulaId)+": "+str(d.diaId)+" "+str(d.horaId)+":00"
-			dias.append(dia)
-		curso.append(dias)
+		hor=[]
+		semana=Dia.objects.all()
+		for a in semana:
+			det=DetalleAula.objects.filter(estado='en curso', cursoID=fi.id, diaId=a.id)
+			if det:
+				dias.append(det)
+		for d in dias:
+			dia=str(d[0].aulaId)+", "+str(d[0].diaId)+" de "+str(d[0].horaId)+":00 a "+str(d.last().horaId)+":00."
+			hor.append(dia)
+		curso.append(hor)
 		curso.append(fi.estado)
 		lista.append(curso)	
 	return render(request, 'cursos/index.html', {'filtro':lista, 'formu':filtro,} )
