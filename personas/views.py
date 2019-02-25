@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from personas.models import *
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from espacio.forms import UsuarioForm
 from .forms import profesorForm, alumnoForm
 from .filters import ProfesorFilter, AlumnoFilter
@@ -21,7 +21,8 @@ def personaNuevo(request, tipo):
 	a=tipo
 	if request.method == "POST":
 		if a =="Profesor":
-			if request.user.is_superuser:
+			group = Group.objects.get(name="Gerente").user_set.all()
+			if request.user in group or request.user.is_superuser:
 				form = profesorForm(request.POST or None)
 				prof=Profesor.objects.all()
 				ban=0
@@ -78,7 +79,8 @@ def personaNuevo(request, tipo):
 
 def personaUsuario(request, tipo):
 	a=tipo
-	if request.user.is_staff:
+	group = Group.objects.get(name="Gerente").user_set.all()
+	if request.user in group or request.user.is_superuser:
 		profe=Profesor.objects.latest('id')
 		nombre=profe.nombre
 		apellido=profe.apellido
@@ -105,7 +107,8 @@ def personaEditar(request, tipo, id):
 	a=tipo
 	if request.method=="POST":
 			if a == 'Profesor':
-				if request.user.is_superuser:
+				group = Group.objects.get(name="Gerente").user_set.all()
+				if request.user in group or request.user.is_superuser:
 					persona = get_object_or_404(Profesor, id=id)
 					form = profesorForm(request.POST, instance=persona)
 					if form.is_valid():

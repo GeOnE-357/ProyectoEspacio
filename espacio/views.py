@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, update_session_auth_hash
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from .forms import UsuarioForm
 
 def home(request):
@@ -14,17 +14,20 @@ def registrarUsuario(request, tipo):
 		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
-			if request.user.is_superuser:
+			Group.objects.get_or_create(name="Gerente")
+			Group.objects.get_or_create(name="Staff")
+			if request.user in Group.objects.get(name="Gerente").user_set.all() or request.user.is_superuser:
 				instance.save()
-				if a=='Super':
+				if a=='Gerente':
 					user=User.objects.get(username=instance)
-					user.is_superuser=True
 					user.is_staff=True
+					user.groups.add(Group.objects.get(name="Gerente"))
 					user.save()
 					men='El Usuario Gerente ha sido creado exitosamente.'
 				else:
 					user=User.objects.get(username=instance)
 					user.is_staff=True
+					user.groups.add(Group.objects.get(name="Staff"))
 					user.save()
 					men='El Usuario Staff ha sido creado exitosamente.'
 			tipo='pos'

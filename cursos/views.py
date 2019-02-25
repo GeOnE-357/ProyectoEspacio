@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from django.contrib.auth.models import Group
 from .models import Curso, Materia, Inscripcion
 from personas.models import Profesor, Alumno
 from cursos.models import Curso, Materia
@@ -35,7 +36,8 @@ def cursosListar(request):
 
 def cursosCrear(request):
 	if request.method=="POST":
-		if request.user.is_superuser:
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
 			form=CursoForm(request.POST or none)
 			if form.is_valid():
 				instacia= form.save(commit=False)
@@ -56,7 +58,8 @@ def cursosCrear(request):
 
 def cursosEditar(request, id):
 	if request.method=="POST":
-		if request.user.is_superuser:
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
 			curso=get_object_or_404(Curso, id=id)
 			form = CursoForm(request.POST, instance=curso)
 			if form.is_valid:
@@ -85,7 +88,8 @@ def materiasListar(request):
 
 def materiasCrear(request):
 	if request.method=="POST":
-		if request.user.is_superuser:
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
 			form=MateriaForm(request.POST or none)
 			if form.is_valid():
 				instacia= form.save(commit=False)
@@ -105,7 +109,8 @@ def materiasCrear(request):
 
 def materiasEditar(request, id):
 	if request.method=="POST":
-		if request.user.is_superuser:
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
 			materia=get_object_or_404(Materia, id=id)
 			form=MateriaForm(request.POST, instance=materia)
 			if form.is_valid:
@@ -128,23 +133,29 @@ def materiasEditar(request, id):
 def inscripcionCrear(request, tipo, id):
 	a=tipo
 	if request.method=="POST":
-		form=InscripcionForm(request.POST or none)	
-		insc=Inscripcion.objects.filter(cursoID=form['cursoID'].value(), alumnoID=id)
-		if insc:
-			tipo='neg'
-			tit='INSCRIPCIÓN YA CREADA'
-			men='El Alumno ha sido inscripto anteriormente.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-		else:
-			if form.is_valid():
-				instance=form.save(commit=False)
-				alumno=get_object_or_404(Alumno, id=id)
-				instance.alumnoID=alumno
-				form.save()
-				tipo='pos'
-				tit='INSCRIPCIÓN CREADA'
-				men='El Alumno ha sido inscripto exitosamente.'
+		if request.user.is_staff:
+			form=InscripcionForm(request.POST or none)	
+			insc=Inscripcion.objects.filter(cursoID=form['cursoID'].value(), alumnoID=id)
+			if insc:
+				tipo='neg'
+				tit='INSCRIPCIÓN YA CREADA'
+				men='El Alumno ha sido inscripto anteriormente.'
 				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			else:
+				if form.is_valid():
+					instance=form.save(commit=False)
+					alumno=get_object_or_404(Alumno, id=id)
+					instance.alumnoID=alumno
+					form.save()
+					tipo='pos'
+					tit='INSCRIPCIÓN CREADA'
+					men='El Alumno ha sido inscripto exitosamente.'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=InscripcionForm()
 	return render(request, 'cursos/inscripcion.html', {'form':form})

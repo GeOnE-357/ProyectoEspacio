@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from django.contrib.auth.models import Group
 from django.http import HttpResponse
 from dependencia.models import *
 from .forms import *
@@ -44,43 +45,64 @@ def detalleAula(request,id):
 
 def crearAula(request, id):
 	if request.method=="POST":
-		form=AulaForm(request.POST or none)
-		if form.is_valid():
-			depen=get_object_or_404(Dependencia, id=id)
-			instancia= form.save(commit=False)
-			instancia.dependenciaId=depen
-			instancia.save()
-			a=Aula.objects.latest('id').id
-			return redirect('detallecrear', a)
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
+			form=AulaForm(request.POST or none)
+			if form.is_valid():
+				depen=get_object_or_404(Dependencia, id=id)
+				instancia= form.save(commit=False)
+				instancia.dependenciaId=depen
+				instancia.save()
+				a=Aula.objects.latest('id').id
+				return redirect('detallecrear', a)
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request, aula):	
-	a=get_object_or_404(Aula, id=aula)
-	for d in Dia.objects.all():
-		for h in Horario.objects.all():
-			det=DetalleAula()
-			det.aulaId=a
-			det.diaId=d
-			det.estado="disponible"
-			det.horaId=h
-			det.save()
-	tipo='pos'
-	tit='AULA CREADA'
-	men='El Aula ha sido creada exitosamente.'
-	return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+def detalleCrear(request, aula):
+	group = Group.objects.get(name="Gerente").user_set.all()
+	if request.user in group or request.user.is_superuser:	
+		a=get_object_or_404(Aula, id=aula)
+		for d in Dia.objects.all():
+			for h in Horario.objects.all():
+				det=DetalleAula()
+				det.aulaId=a
+				det.diaId=d
+				det.estado="disponible"
+				det.horaId=h
+				det.save()
+		tipo='pos'
+		tit='AULA CREADA'
+		men='El Aula ha sido creada exitosamente.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	else:
+		tipo='neg'
+		tit='ACCESO DENEGADO'
+		men='No tiene los permisos necesarios para realizar esta tarea.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 
 def detalleEditar(request, id):
 	if request.method=="POST":
-		detalle=get_object_or_404(DetalleAula, id=id)
-		form = DetalleAulaForm(request.POST, instance=detalle)
-		if form.is_valid():
-			form.save(commit=False)
-			form.save()
-			tipo='pos'
-			tit='AULA EDITADA'
-			men='El Aula ha sido editada exitosamente.'
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
+			detalle=get_object_or_404(DetalleAula, id=id)
+			form = DetalleAulaForm(request.POST, instance=detalle)
+			if form.is_valid():
+				form.save(commit=False)
+				form.save()
+				tipo='pos'
+				tit='AULA EDITADA'
+				men='El Aula ha sido editada exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		detalle=get_object_or_404(DetalleAula, id=id)
@@ -90,13 +112,20 @@ def detalleEditar(request, id):
 
 def dependenciaCrear(request):
 	if request.method=="POST":
-		form=DependenciaForm(request.POST or none)
-		if form.is_valid:
-			instacia=form.save(commit=False)
-			instacia.save()
-			tipo='pos'
-			tit='DEPENDENCIA CREADA'
-			men='La Dependencia ha sido creada exitosamente.'
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
+			form=DependenciaForm(request.POST or none)
+			if form.is_valid:
+				instacia=form.save(commit=False)
+				instacia.save()
+				tipo='pos'
+				tit='DEPENDENCIA CREADA'
+				men='La Dependencia ha sido creada exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=DependenciaForm()
@@ -104,21 +133,28 @@ def dependenciaCrear(request):
 
 def cargarCurso(request, id, tipo):
 	if request.method=="POST":
-		form=CargarCursoForm(request.POST or none)
-		if form.is_valid:
-			for d in form['dia'].value():
-				detalle=DetalleAula.objects.filter(aulaId=id, diaId=d).order_by('horaId')
-				curso=Curso.objects.get(id=form['curso'].value())
-				hora1=Horario.objects.get(id=form['hora1'].value())
-				hora2=Horario.objects.get(id=form['hora2'].value())
-				for det in detalle:
-					if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
-						det.estado="En Curso"
-						det.cursoID=curso
-						det.save()			
-			tipo='pos'
-			tit='CURSOS ASIGNADOS'
-			men='El Curso ha sido creada exitosamente.'
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
+			form=CargarCursoForm(request.POST or none)
+			if form.is_valid:
+				for d in form['dia'].value():
+					detalle=DetalleAula.objects.filter(aulaId=id, diaId=d).order_by('horaId')
+					curso=Curso.objects.get(id=form['curso'].value())
+					hora1=Horario.objects.get(id=form['hora1'].value())
+					hora2=Horario.objects.get(id=form['hora2'].value())
+					for det in detalle:
+						if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
+							det.estado="En Curso"
+							det.cursoID=curso
+							det.save()			
+				tipo='pos'
+				tit='CURSOS ASIGNADOS'
+				men='El Curso ha sido creada exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		if tipo == 'cargar':
