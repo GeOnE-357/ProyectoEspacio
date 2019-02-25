@@ -21,24 +21,30 @@ def personaNuevo(request, tipo):
 	a=tipo
 	if request.method == "POST":
 		if a =="Profesor":
-			form = profesorForm(request.POST or None)
-			prof=Profesor.objects.all()
-			ban=0
-			for p in prof:
-				if int(request.POST["dni"]) == int(p.dni):
-					ban=1
-			if ban == 0:
-				if form.is_valid():
-					instance = form.save(commit=False)
-					estu=Estudio.objects.get(id=form['estudiosId'].value())
-					instance.estudiosId=estu
-					instance.save()
-					return redirect('persona-usuario', a)
+			if request.user.is_superuser:
+				form = profesorForm(request.POST or None)
+				prof=Profesor.objects.all()
+				ban=0
+				for p in prof:
+					if int(request.POST["dni"]) == int(p.dni):
+						ban=1
+				if ban == 0:
+					if form.is_valid():
+						instance = form.save(commit=False)
+						estu=Estudio.objects.get(id=form['estudiosId'].value())
+						instance.estudiosId=estu
+						instance.save()
+						return redirect('persona-usuario', a)
+				else:
+					tipo='neg'
+					tit='PROFESOR NO CREADO'
+					men='El Profesor ya existe en la base de datos.'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
 			else:
 				tipo='neg'
-				tit='PROFESOR NO CREADO'
-				men='El Profesor ya existe en la base de datos.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
+				tit='ACCESO DENEGADO'
+				men='No tiene los permisos necesarios para realizar esta tarea.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})		
 		else:
 			form = alumnoForm(request.POST or None)
 			alu=Alumno.objects.all()
@@ -98,26 +104,32 @@ def personaDetalle(request, tipo, id):
 def personaEditar(request, tipo, id):
 	a=tipo
 	if request.method=="POST":
-		if a == 'Profesor':
-			persona = get_object_or_404(Profesor, id=id)
-			form = profesorForm(request.POST, instance=persona)
-			if form.is_valid():
-					form.save(commit=False)
-					form.save()
-					tipo='pos'
-					tit='PROFESOR EDITADO'
-					men='Los datos del Profesor han sido editados exitosamente.'
+			if a == 'Profesor':
+				if request.user.is_superuser:
+					persona = get_object_or_404(Profesor, id=id)
+					form = profesorForm(request.POST, instance=persona)
+					if form.is_valid():
+							form.save(commit=False)
+							form.save()
+							tipo='pos'
+							tit='PROFESOR EDITADO'
+							men='Los datos del Profesor han sido editados exitosamente.'
+							return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				else:
+					tipo='neg'
+					tit='ACCESO DENEGADO'
+					men='No tiene los permisos necesarios para realizar esta tarea.'
 					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-		else:
-			persona = get_object_or_404(Alumno, id=id)
-			form = alumnoForm(request.POST, instance=persona)
-			if form.is_valid():
-					form.save(commit=False)
-					form.save()
-					tipo='pos'
-					tit='ALUMNO EDITADO'
-					men='Los datos del Alumno han sido editados exitosamente.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
+			else:
+				persona = get_object_or_404(Alumno, id=id)
+				form = alumnoForm(request.POST, instance=persona)
+				if form.is_valid():
+						form.save(commit=False)
+						form.save()
+						tipo='pos'
+						tit='ALUMNO EDITADO'
+						men='Los datos del Alumno han sido editados exitosamente.'
+						return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
 	else:
 		if a == 'Profesor':
 			persona = get_object_or_404(Profesor, id=id)

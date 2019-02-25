@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, update_session_auth_hash
+from django.contrib.auth.models import User
 from .forms import UsuarioForm
 
 def home(request):
@@ -8,19 +9,24 @@ def home(request):
 
 
 def registrarUsuario(request, tipo):
-	if request.method=='POST':
-		a=tipo
+	a=tipo
+	if request.method=='POST':	
 		form = UsuarioForm(request.POST)
 		if form.is_valid():
 			instance=form.save(commit=False)
 			if request.user.is_superuser:
+				instance.save()
 				if a=='Super':
-					instance.is_super=True
+					user=User.objects.get(username=instance)
+					user.is_superuser=True
+					user.is_staff=True
+					user.save()
 					men='El Usuario Gerente ha sido creado exitosamente.'
 				else:
-					instance.is_staff=True
+					user=User.objects.get(username=instance)
+					user.is_staff=True
+					user.save()
 					men='El Usuario Staff ha sido creado exitosamente.'
-			instance.save()
 			tipo='pos'
 			tit='USUARIO CREADO'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})

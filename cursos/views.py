@@ -25,7 +25,7 @@ def cursosListar(request):
 			if det:
 				dias.append(det)
 		for d in dias:
-			dia=str(d[0].aulaId)+", "+str(d[0].diaId)+" de "+str(d[0].horaId)+":00 a "+str(d.last().horaId)+":00."
+			dia=str(d[0].diaId)+" de "+str(d[0].horaId)+":00 a "+str(d.last().horaId)+":00 en "+str(d[0].aulaId)+"."
 			hor.append(dia)
 		curso.append(hor)
 		curso.append(fi.estado)
@@ -35,13 +35,19 @@ def cursosListar(request):
 
 def cursosCrear(request):
 	if request.method=="POST":
-		form=CursoForm(request.POST or none)
-		if form.is_valid():
-			instacia= form.save(commit=False)
-			instacia.save()
-			tipo='pos'
-			tit='CURSO CREADO'
-			men='El Curso ha sido creado exitosamente.'
+		if request.user.is_superuser:
+			form=CursoForm(request.POST or none)
+			if form.is_valid():
+				instacia= form.save(commit=False)
+				instacia.save()
+				tipo='pos'
+				tit='CURSO CREADO'
+				men='El Curso ha sido creado exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=CursoForm()
@@ -50,14 +56,20 @@ def cursosCrear(request):
 
 def cursosEditar(request, id):
 	if request.method=="POST":
-		curso=get_object_or_404(Curso, id=id)
-		form = CursoForm(request.POST, instance=curso)
-		if form.is_valid:
-			form.save(commit=False)
-			form.save()
-			tipo='pos'
-			tit='CURSO EDITADO'
-			men='El Curso ha sido editado exitosamente.'
+		if request.user.is_superuser:
+			curso=get_object_or_404(Curso, id=id)
+			form = CursoForm(request.POST, instance=curso)
+			if form.is_valid:
+				form.save(commit=False)
+				form.save()
+				tipo='pos'
+				tit='CURSO EDITADO'
+				men='El Curso ha sido editado exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		curso=get_object_or_404(Curso, id=id)
@@ -73,13 +85,19 @@ def materiasListar(request):
 
 def materiasCrear(request):
 	if request.method=="POST":
-		form=MateriaForm(request.POST or none)
-		if form.is_valid():
-			instacia= form.save(commit=False)
-			instacia.save()
-			tipo='pos'
-			tit='MATERIA CREADA'
-			men='La Materia ha sido creada exitosamente.'
+		if request.user.is_superuser:
+			form=MateriaForm(request.POST or none)
+			if form.is_valid():
+				instacia= form.save(commit=False)
+				instacia.save()
+				tipo='pos'
+				tit='MATERIA CREADA'
+				men='La Materia ha sido creada exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form=MateriaForm()
@@ -87,14 +105,20 @@ def materiasCrear(request):
 
 def materiasEditar(request, id):
 	if request.method=="POST":
-		materia=get_object_or_404(Materia, id=id)
-		form=MateriaForm(request.POST, instance=materia)
-		if form.is_valid:
-			form.save(commit=False)
-			form.save()
-			tipo='pos'
-			tit='MATERIA EDITADA'
-			men='La Materia ha sido editada exitosamente.'
+		if request.user.is_superuser:
+			materia=get_object_or_404(Materia, id=id)
+			form=MateriaForm(request.POST, instance=materia)
+			if form.is_valid:
+				form.save(commit=False)
+				form.save()
+				tipo='pos'
+				tit='MATERIA EDITADA'
+				men='La Materia ha sido editada exitosamente.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		materia=get_object_or_404(Materia, id=id)
