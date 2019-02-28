@@ -118,7 +118,7 @@ li a:hover, .drop:hover .drop-btn:hover
 	    cursor: pointer;
 	}
 
-.logout-btn:hover
+.logout-btn:hover, .sub-nav a#vaciar:hover
 	{
 		background-color: #8A0808;
 	}
@@ -355,7 +355,26 @@ p#contador
 	    height: 20px;
 	}
 
-.sub-nav a:hover
+.sub-nav a#cargar
+	{ 
+	    width: 85%;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+
+.sub-nav a#vaciar
+	{
+		width: 10.4%;
+		background-color: #DF0101;
+		color: white;
+	}
+
+.sub-nav a#cargar:hover
+	{
+		background-color: green;
+	}
+
+.sub-nav a:hover, 
 	{
 		background-color: lightgrey;
 	}
@@ -383,6 +402,7 @@ table
 		margin-left: 5%;
 		border-collapse: collapse;
 		text-align: center;
+		margin-bottom: 3%; 
 	}
 
 th
