@@ -25,7 +25,7 @@
           <td> {{ li.3 }} </td>
           <td> {{ li.4 }} </td>
           <td> {{ li.5 }} </td>
-          <td> {{li.6}} / <strong>{{li.7}}</strong></td>
+          <td><a href="{% url 'alumno-asistencia' curso.id li.0 %}">{{li.6}} / <strong>{{li.7}}</strong></a></td>
           <td><a class="Edit" href="{% url 'persona-editar' 'Alumno' li.0 %}">EDITAR</a></td>
         </tr>
       {% empty %}

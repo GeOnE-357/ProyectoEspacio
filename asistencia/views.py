@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from datetime import datetime, date, time, timedelta
+from django.contrib.auth.models import Group
 from .models import Asistencia
 from personas.models import Profesor, Alumno
 from cursos.models import Curso, Inscripcion
@@ -93,4 +94,15 @@ def AsistenciaCrear(request):
 		tipo='pos'
 		tit='ASISTENCIA FINALIZADA'
 		men='Se ha registrado la asistencia de hoy con éxito.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+
+def detalleAsistencia(request, curso, id):
+	if request.user.is_authenticated:
+		insc=Inscripcion.objects.get(cursoID=curso, alumnoID=id)
+		pres=Asistencia.objects.filter(inscripcionID=insc.id)
+		return render(request, 'asistencia/presente.html', {'pres':pres, 'insc':insc})
+	else:
+		tipo='neg'
+		tit='ACCESO DENEGADO'
+		men='No tiene los permisos necesarios para realizar esta tarea.'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
