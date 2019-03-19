@@ -1,6 +1,7 @@
 from django import forms
 from .models import Curso, Materia, Inscripcion
 from personas.models import Profesor, Alumno
+from espacio.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_str
 
 class CursoForm(forms.ModelForm):
 	ESTADO=(("Próximo", "Próximo"),("En curso", "En curso"),("Finalizado", "Finalizado"),)
@@ -22,7 +23,7 @@ class MateriaForm(forms.ModelForm):
     ("Oficio Tradicional", "Oficio Tradicional"),)
 
 	tipo = forms.ChoiceField(choices = TIPO, label="Tipo:", widget=forms.Select(), required=True)
-	nombre = forms.CharField(required=True)
+	nombre = forms.CharField(required=True, validators=[validate_str])
 	class Meta:
 		model = Materia
 		fields = ('nombre', 'tipo')

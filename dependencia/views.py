@@ -137,16 +137,8 @@ def cargarCurso(request, id, tipo):
 		if request.user in group or request.user.is_superuser:
 			form=CargarCursoForm(request.POST or none)
 			if form.is_valid:
-				for d in form['dia'].value():
-					detalle=DetalleAula.objects.filter(aulaId=id, diaId=d).order_by('horaId')
-					curso=Curso.objects.get(id=form['curso'].value())
-					hora1=Horario.objects.get(id=form['hora1'].value())
-					hora2=Horario.objects.get(id=form['hora2'].value())
-					for det in detalle:
-						if det.horaId.hora >= hora1.hora and det.horaId.hora <= hora2.hora:  
-							det.estado="En Curso"
-							det.cursoID=curso
-							det.save()			
+				instance=form.save(commit=False)
+				instance.save()			
 				tipo='pos'
 				tit='CURSOS ASIGNADOS'
 				men='El Curso ha sido creada exitosamente.'

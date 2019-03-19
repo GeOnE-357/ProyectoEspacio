@@ -30,8 +30,12 @@ def registrarUsuario(request, tipo):
 					user.groups.add(Group.objects.get(name="Staff"))
 					user.save()
 					men='El Usuario Staff ha sido creado exitosamente.'
-			tipo='pos'
-			tit='USUARIO CREADO'
+				tipo='pos'
+				tit='USUARIO CREADO'
+			else:
+				tipo='neg'
+				tit='ACCESO DENEGADO'
+				men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	else:
 		form = UsuarioForm()

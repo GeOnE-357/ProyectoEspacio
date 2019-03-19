@@ -2,8 +2,11 @@ from django import forms
 from .models import Dependencia, Aula,DetalleAula, Dia, Horario
 from cursos.models import Curso
 from django.forms.widgets import CheckboxSelectMultiple
+from espacio.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_dir
 
 class DependenciaForm(forms.ModelForm):
+	telefono=forms.IntegerField(validators=[validate_tel])
+	direccion=forms.CharField(validators=[validate_dir])
 	class Meta:
 		model = Dependencia 
 		fields= ('nombre', 'direccion', 'telefono', 'whatsapp')
