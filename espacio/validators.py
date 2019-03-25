@@ -44,3 +44,8 @@ def validate_dir(value):
         raise ValidationError("La direccion no pueden ser solo numeros.")
     elif num == False:
         raise ValidationError("La direccion no tiene altura.")
+
+def validate_pos(value):
+    a=int(value)
+    if a <0:
+        raise ValidationError("El número no puede ser negativo.")

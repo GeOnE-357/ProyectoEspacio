@@ -25,6 +25,7 @@ class DetalleAulaForm(forms.ModelForm):
     ("en curso", "En curso"),)
 
 	estado = forms.ChoiceField(choices = ESTADO_CHOICES, label="Estado:", widget=forms.Select(), required=True)
+	cursoID= forms.ModelChoiceField(queryset=Curso.objects.all(), label="Curso:",required=True)
 	class Meta:
 		model=DetalleAula 
 		fields=('estado','cursoID')            
