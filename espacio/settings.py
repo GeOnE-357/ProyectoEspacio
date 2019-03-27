@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!v0$k0sa6^p^!*_yir=!3_$=f@b9kd8p)r#h$*=2l!*reo=_fv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG = False
+#DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -83,11 +86,18 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'espacio',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'gestionedlt_db',
+        'USER': 'gestionedlt_db',
+        'PASSWORD': 'lzmSTSkQCu',
         'HOST': 'localhost',
         'PORT': '3306',
+
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'espacio',
+        #'USER': 'root',
+        #'PASSWORD': '',
+        #'HOST': 'localhost',
+        #'PORT': '3306',
     }
 }
 
