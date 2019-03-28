@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'gestionedlt_db',
         'PASSWORD': 'lzmSTSkQCu',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '',
 
         #'ENGINE': 'django.db.backends.mysql',
         #'NAME': 'espacio',
@@ -145,3 +145,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
+
+MEDIA_URL = '/media/'
+MEDIAFILES_DIRS=[os.path.join(BASE_DIR, "media")]
