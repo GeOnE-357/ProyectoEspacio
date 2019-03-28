@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'espacio.settings')
+os.environ(['DJANGO_SETTINGS_MODULE'] = '{{ espacio.settings}}')
+#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'espacio.settings')
 
 application = get_wsgi_application()
