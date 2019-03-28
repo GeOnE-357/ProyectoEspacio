@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'gestionedlt_db',
         'PASSWORD': 'lzmSTSkQCu',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
 
         #'ENGINE': 'django.db.backends.mysql',
         #'NAME': 'espacio',
