@@ -87,7 +87,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gestionedlt_db',
-        'USER': 'gestionedlt_db@localhost',
+        'USER': 'gestionedlt_db',
         'PASSWORD': 'lzmSTSkQCu',
         'HOST': 'localhost',
         'PORT': '3306',
