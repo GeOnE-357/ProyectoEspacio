@@ -1,6 +1,7 @@
 Django==2.1.7
 django-filter==2.1.0
 mysql-connector-python==8.0.12
+nano==0.9.4
 protobuf==3.7.1
 PyMySQL==0.9.3
 pytz==2018.9
