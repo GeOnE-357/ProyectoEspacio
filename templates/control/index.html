@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT - Control Logs{% endblock %}
+
+{% block content %}
+  <h1>Control Logs</h1>
+  <div class="box">
+  <table class="table ">
+    <tbody>
+    <tr>
+      <th>Usuario</th>
+      <th>Nombre</th>
+      <th>Accion</th>
+      <th>Tabla</th>
+      <th>Id. Objeto</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+    </tr>
+    {% for l in lista %}
+    <tr>
+      <td> {{ l.dni }} </td>
+      <td> {{ l.nombre }} </td>
+      <td> {{ l.accion }} </td>
+      <td> {{ l.tabla }} </td>
+      <td> {{ l.objeto }} </td>
+      <td> {{ l.fecha.date }} </td>
+      <td> {{ l.fecha.time }} </td>
+    </tr>
+    {% empty %}
+        <tr>
+            <td colspan="7"><strong>No se encontraron Logs o no fueron creados.</strong></td>
+        </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}

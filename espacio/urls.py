@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^$', views.home, name="home"),
     url(r'^Persona/', include('personas.urls')), #Incluido el archivo urls.py de la app personas.
     url(r'^Dependencia/', include('dependencia.urls')),
+    url(r'^Control/', include('control.urls')),
     url(r'^(?P<tipo>\w+)/Registrar/$', views.registrarUsuario, name="usuario-crear"),
     url(r'^Usuario/Login/$', views.loginUsuario, name="login"),
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),

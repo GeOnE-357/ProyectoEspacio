@@ -1,6 +1,6 @@
 {% load static %}
 <header>
-	<a href="{% url 'home' %}"><img class="logo" src="{% static "/img/logo.png" %}"></a>
+	<a href="{% url 'home' %}"><img class="logo" src="{% static '/img/logo.png' %}"></a>
 </header>
 {% ifequal user.groups.all.0.name 'Gerente'%}
 <ul>
@@ -31,10 +31,11 @@
     </div>
   </li>
   <li class="drop">
-    <a class="drop-btn">Usuarios</a>
+    <a class="drop-btn">Gerente</a>
     <div class="drop-cont">
       <a class="drop-btn" href="{% url 'usuario-crear' tipo='Staff'%}">Crear Staff</a> 
-      <a class="drop-btn" href="{% url 'usuario-crear' tipo='Gerente'%}">Crear Gerente</a>  
+      <a class="drop-btn" href="{% url 'usuario-crear' tipo='Gerente'%}">Crear Gerente</a>
+      <a class="drop-btn" href="{% url 'control-log' %}">Control Log</a>  
     </div>
   </li>
     {% if user.is_authenticated %}
