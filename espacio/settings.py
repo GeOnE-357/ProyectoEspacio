@@ -47,7 +47,24 @@ INSTALLED_APPS = [
     'django_filters',
     'asistencia',
     'importacion',
+    #'mod_wsgi.server',
 ]
+
+LOGGING = {
+    'version':1,
+    'disable_existing_logger':False,
+    'handlers': {
+        'console':{
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django':{
+            'handlers':['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO')
+        },
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
