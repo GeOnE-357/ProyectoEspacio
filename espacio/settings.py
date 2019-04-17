@@ -24,8 +24,8 @@ SECRET_KEY = '!v0$k0sa6^p^!*_yir=!3_$=f@b9kd8p)r#h$*=2l!*reo=_fv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
-#DEBUG = True
+#DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 #ALLOWED_HOSTS = []
@@ -103,19 +103,19 @@ WSGI_APPLICATION = 'espacio.wsgi.application'
 DATABASES = {
     'default': {
         
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gestionedlt_db',
-        'USER': 'gestionedlt_db',
-        'PASSWORD': 'lzmSTSkQCu',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        
         #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'espacio',
-        #'USER': 'root',
-        #'PASSWORD': '',
+        #'NAME': 'gestionedlt_db',
+        #'USER': 'gestionedlt_db',
+        #'PASSWORD': 'lzmSTSkQCu',
         #'HOST': 'localhost',
         #'PORT': '3306',
+        
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'espacio',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -155,7 +155,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -163,4 +163,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
-#STATIC_ROOT = 'static'
+#STATIC_ROOT =os.path.join(BASE_DIR, "static")
