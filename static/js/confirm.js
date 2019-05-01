@@ -1,4 +1,4 @@
 window.onbeforeunload=function()
 		{
-			return 'Seguro que quiere vaciar el aula?';
+			return confirm('Seguro que quiere vaciar el aula?');
 		};

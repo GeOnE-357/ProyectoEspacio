@@ -25,7 +25,7 @@ class DetalleAula(models.Model):
 	mes=models.CharField(max_length=10)
 	anio=models.IntegerField(blank=True)
 	def __str__(self):
-		nombre=str(self.aulaId)+" - "+str(self.diaId)+" a las "+str(self.horaId)+" - "+str(self.cursoID)+" / "+self.mes+"-"str(self.anio)
+		nombre=str(self.aulaId)+" - "+str(self.diaId)+" a las "+str(self.horaId)+" - "+str(self.cursoID)+" / "+self.mes+"-"+str(self.anio)
 		return nombre	
 	
 class Dia(models.Model):

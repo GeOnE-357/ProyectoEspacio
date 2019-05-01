@@ -12,13 +12,28 @@ def dependencias(request):
 	filtro = DependenciaFilter(request.GET, queryset=depen)
 	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
 
-def aulas(request, id):
+def aulaLista(request, id):
 	aula= Aula.objects.filter(dependenciaId=id)
 	filtro = AulaFilter(request.GET, queryset=aula)
 	depen= Dependencia.objects.filter(id=id)
 	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen,})
 
-def detalleAula(request,id):
+def aulaMes(request,id):
+	if request.method=="POST":
+		form=MesForm(request.POST or none)
+		if form.is_valid:
+			diccionario=request.POST.copy()
+			del diccionario['csrfmiddlewaretoken']
+			mes=diccionario['mes']
+			anio=diccionario['anio']
+			#aula=get_object_or_404(Aula, id=id)	
+			return redirect('horarioCrear',id,mes,anio)
+	else:
+		aula=get_object_or_404(Aula, id=id)
+		form=MesForm()
+		return render(request,'dependencia/aula.html',{'aula':aula,'form':form})
+
+def aulaDetalle(request,id,mes,anio):
 	detalle=DetalleAula.objects.filter(aulaId=id).order_by('horaId', 'diaId')
 	aula=get_object_or_404(Aula, id=id)
 	dia=get_list_or_404(Dia)
@@ -41,7 +56,7 @@ def detalleAula(request,id):
 			detalle.append(modulo)
 			detalle.append(modif)
 			lista.append(detalle)
-	return render(request,'dependencia/detalleAula.html',{'aula':aula, 'lista':lista, 'dia':dia,})
+	return render(request,'dependencia/aulaMes.html',{'aula':aula, 'lista':lista, 'dia':dia,})
 
 def crearAula(request, id):
 	if request.method=="POST":
@@ -54,7 +69,8 @@ def crearAula(request, id):
 				instancia.dependenciaId=depen
 				instancia.save()
 				a=Aula.objects.latest('id').id
-				return redirect('detallecrear', a)
+				#return redirect('detallecrear', a)
+				return redirect('home')
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
@@ -64,7 +80,7 @@ def crearAula(request, id):
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
-def detalleCrear(request, aula):
+def horarioCrear(request, aula, mes, anio):
 	group = Group.objects.get(name="Gerente").user_set.all()
 	if request.user in group or request.user.is_superuser:	
 		a=get_object_or_404(Aula, id=aula)
@@ -75,6 +91,8 @@ def detalleCrear(request, aula):
 				det.diaId=d
 				det.estado="disponible"
 				det.horaId=h
+				det.mes=mes
+				det.anio=anio
 				det.save()
 		tipo='pos'
 		tit='AULA CREADA'

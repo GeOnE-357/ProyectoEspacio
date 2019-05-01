@@ -5,7 +5,7 @@
 {% block content %}
   <h1>Aulas de {{ depen.0.nombre }}</h1>
   <div class="sub-nav">
-    <a class="sub-btn" href="{% url 'aulacrear' depen.0.id %}">Crear Aula</a>
+    <a class="sub-btn" href="{% url 'crearAula' depen.0.id %}">Crear Aula</a>
     {% include '../filtros/filtroAula.html' %}
   </div>
   <div class="box">
@@ -20,7 +20,7 @@
     <tr>
       <td>{{ a.id }}</td>
       <td> {{ a.nombre }} </td>
-      <td><a class="Insc" href="{% url 'detalleAula' a.id %}">Mostrar</td>
+      <td><a class="Insc" href="{% url 'aula' a.id %}">Mostrar</td>
     </tr>
     {% empty %}
         <tr>

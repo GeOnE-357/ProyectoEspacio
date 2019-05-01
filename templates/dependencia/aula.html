@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT - Aula{% endblock %}
+
+{% block content %}
+  <h1>Aula {{ aula.nombre }}</h1>
+  <form method="POST" class="UserForm" >
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  {% load static %}
+  <script type="text/javascript" src="{% static '/js/cargando.js' %}"></script>
+{% endblock %}
