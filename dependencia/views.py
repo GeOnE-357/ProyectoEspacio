@@ -137,8 +137,15 @@ def cargarCurso(request, id, tipo):
 		if request.user in group or request.user.is_superuser:
 			form=CargarCursoForm(request.POST or none)
 			if form.is_valid:
-				instance=form.save(commit=False)
-				instance.save()			
+				diccionario=request.POST.copy()
+				del diccionario['csrfmiddlewaretoken']
+				print(diccionario)
+				listaA=list(diccionario['dia'])
+				print(listaA)
+				diccionario=diccionario.items()
+				lista=list(diccionario)
+				print(diccionario)
+				print(lista)		
 				tipo='pos'
 				tit='CURSOS ASIGNADOS'
 				men='El Curso ha sido creada exitosamente.'
