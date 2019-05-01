@@ -17,16 +17,16 @@ class Aula(models.Model):
 		return self.nombre
 
 class DetalleAula(models.Model):
-	"""docstring for ClassName"""
 	aulaId=models.ForeignKey('dependencia.Aula', blank=True, default="", on_delete=models.CASCADE)
 	diaId=models.ForeignKey('dependencia.Dia', blank=True, default="", on_delete=models.PROTECT)
 	horaId=models.ForeignKey('dependencia.Horario', blank=True, default="", on_delete=models.PROTECT)
 	estado=models.CharField(max_length=20)
 	cursoID=models.ForeignKey('cursos.Curso',null=True, blank=True, default="", on_delete=models.PROTECT)
+	mes=models.CharField(max_length=10)
+	anio=models.IntegerField(blank=True)
 	def __str__(self):
-		nombre=str(self.aulaId)+" - "+str(self.diaId)+" a las "+str(self.horaId)+" - "+str(self.cursoID)
-		return nombre
-		
+		nombre=str(self.aulaId)+" - "+str(self.diaId)+" a las "+str(self.horaId)+" - "+str(self.cursoID)+" / "+self.mes+"-"str(self.anio)
+		return nombre	
 	
 class Dia(models.Model):
 	dia = models.CharField(max_length=15) 
@@ -34,7 +34,7 @@ class Dia(models.Model):
 		return self.dia
 
 class Horario(models.Model):
-	hora = models.IntegerField(blank=True)
+	hora = models.CharField(max_length=5)
 	def __str__(self):
-		hora=str(self.hora)
+		hora=self.hora
 		return hora

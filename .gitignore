@@ -1,9 +1,23 @@
 # cache autogenerado por django
 __pycache__/
 computadoras/__pycache__
+asistencia/__pycache__
+control/__pycache__
+cursos/__pycache__
+dependencia/__pycache__
 espacio/__pycache__
+importacion/__pycache__
 personas/__pycache__
-presentes/__pycache__
+
+#migrations
+computadoras/migrations
+asistencia/migrations
+control/migrations
+cursos/migrations
+dependencia/migrations
+espacio/migrations
+importacion/migrations
+personas/migrations
 
 #basura
 .DS_Store
