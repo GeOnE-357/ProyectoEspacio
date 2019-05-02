@@ -12,29 +12,43 @@ def dependencias(request):
 	filtro = DependenciaFilter(request.GET, queryset=depen)
 	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
 
-def aulaLista(request, id):
+def aulasLista(request, id):
 	aula= Aula.objects.filter(dependenciaId=id)
 	filtro = AulaFilter(request.GET, queryset=aula)
 	depen= Dependencia.objects.filter(id=id)
 	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen,})
 
-def aulaMes(request,id):
+def aula(request,id):
 	if request.method=="POST":
 		form=MesForm(request.POST or none)
 		if form.is_valid:
 			diccionario=request.POST.copy()
 			del diccionario['csrfmiddlewaretoken']
 			mes=diccionario['mes']
-			anio=diccionario['anio']
-			#aula=get_object_or_404(Aula, id=id)	
+			anio=diccionario['anio']	
 			return redirect('horarioCrear',id,mes,anio)
 	else:
 		aula=get_object_or_404(Aula, id=id)
 		form=MesForm()
 		return render(request,'dependencia/aula.html',{'aula':aula,'form':form})
 
-def aulaDetalle(request,id,mes,anio):
-	detalle=DetalleAula.objects.filter(aulaId=id).order_by('horaId', 'diaId')
+def aulaBuscar(request,id):
+	if request.method=="POST":
+		form=MesForm(request.POST or none)
+		if form.is_valid:
+			diccionario=request.POST.copy()
+			del diccionario['csrfmiddlewaretoken']
+			mes=diccionario['mes']
+			anio=diccionario['anio']	
+			return redirect('aulaMes',id,mes,anio)
+	else:
+		aula=get_object_or_404(Aula, id=id)
+		form=MesForm()
+		return render(request,'dependencia/aulaBuscar.html',{'aula':aula,'form':form})
+
+
+def aulaMes(request,id,mes,anio):
+	detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
 	aula=get_object_or_404(Aula, id=id)
 	dia=get_list_or_404(Dia)
 	lista=[]

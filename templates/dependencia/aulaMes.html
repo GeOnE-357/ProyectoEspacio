@@ -29,7 +29,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>10:00</td>
+      <td>09:30</td>
           {% for det in lista%}
               {% if forloop.counter > 7 and forloop.counter < 15 %}
                 {% if det.0 != "disponible"%}
@@ -41,7 +41,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>11:00</td>
+      <td>10:00</td>
           {% for det in lista%}
               {% if forloop.counter > 14 and forloop.counter < 22 %}
                 {% if det.0 != "disponible"%}
@@ -53,7 +53,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>12:00</td>
+      <td>10:30</td>
           {% for det in lista%}
               {% if forloop.counter > 21 and forloop.counter < 29 %}
                 {% if det.0 != "disponible"%}
@@ -65,7 +65,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>13:00</td>
+      <td>11:00</td>
           {% for det in lista%}
               {% if forloop.counter > 28 and forloop.counter < 36 %}
                 {% if det.0 != "disponible"%}
@@ -77,7 +77,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>14:00</td>
+      <td>11:30</td>
           {% for det in lista%}
               {% if forloop.counter > 35 and forloop.counter < 43 %}
                 {% if det.0 != "disponible"%}
@@ -89,7 +89,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>15:00</td>
+      <td>12:00</td>
           {% for det in lista%}
               {% if forloop.counter > 42 and forloop.counter < 50 %}
                 {% if det.0 != "disponible"%}
@@ -101,7 +101,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>16:00</td>
+      <td>12:30</td>
           {% for det in lista%}
               {% if forloop.counter > 49 and forloop.counter < 57 %}
                 {% if det.0 != "disponible"%}
@@ -113,7 +113,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>17:00</td>
+      <td>13:00</td>
           {% for det in lista%}
               {% if forloop.counter > 56 and forloop.counter < 64 %}
                 {% if det.0 != "disponible"%}
@@ -125,7 +125,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>18:00</td>
+      <td>13:30</td>
           {% for det in lista%}
               {% if forloop.counter > 63 and forloop.counter < 71 %}
                 {% if det.0 != "disponible"%}
@@ -137,7 +137,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>19:00</td>
+      <td>14:00</td>
           {% for det in lista%}
               {% if forloop.counter > 70 and forloop.counter < 78 %}
                 {% if det.0 != "disponible"%}
@@ -149,7 +149,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>20:00</td>
+      <td>14:30</td>
           {% for det in lista%}
               {% if forloop.counter > 77 and forloop.counter < 85 %}
                 {% if det.0 != "disponible"%}
@@ -161,7 +161,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>21:00</td>
+      <td>15:00</td>
           {% for det in lista%}
               {% if forloop.counter > 84 and forloop.counter < 92 %}
                 {% if det.0 != "disponible"%}
@@ -173,7 +173,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>22:00</td>
+      <td>15:30</td>
           {% for det in lista%}
               {% if forloop.counter > 91 and forloop.counter < 99 %}
                 {% if det.0 != "disponible"%}
@@ -185,7 +185,7 @@
           {% endfor %}
     </tr>
     <tr>
-      <td>23:00</td>
+      <td>16:00</td>
           {% for det in lista%}
               {% if forloop.counter > 98 and forloop.counter < 106 %}
                 {% if det.0 != "disponible"%}
@@ -196,8 +196,150 @@
               {% endif %}
           {% endfor %}
     </tr>
+    <tr>
+      <td>16:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 105 and forloop.counter < 113 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>17:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 112 and forloop.counter < 120 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>17:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 119 and forloop.counter < 127 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>18:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 126 and forloop.counter < 134 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>18:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 133 and forloop.counter < 141 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>19:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 140 and forloop.counter < 148 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>19:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 147 and forloop.counter < 155 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>20:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 154 and forloop.counter < 162 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>20:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 161 and forloop.counter < 169 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>21:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 168 and forloop.counter < 176 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>21:30</td>
+          {% for det in lista%}
+              {% if forloop.counter > 175 and forloop.counter < 183 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
+    <tr>
+      <td>22:00</td>
+          {% for det in lista%}
+              {% if forloop.counter > 182 and forloop.counter < 190 %}
+                {% if det.0 != "disponible"%}
+                  <td><a href="{% url 'detalleEditar' det.2 %}">{{det.0}} {{det.1}}</a></td>
+                {% else %}
+                  <td><a href="{% url 'detalleEditar' det.1 %}">{{det.0}}</a></td>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+    </tr>
   </table>
 </div>
-{% load static %}
-<script type="text/javascript" src="{% static '/js/confirm.js'%}"></script>
 {% endblock %}

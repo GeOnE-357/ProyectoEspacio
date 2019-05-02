@@ -26,7 +26,7 @@ class MesForm(forms.Form):
 	("noviembre", "Noviembre"),
 	("diciembre", "Diciembre"),)
 	mes = forms.ChoiceField(choices = MES_CHOICES, label="Mes:", widget=forms.Select(), required=True)
-	anio=forms.DateField(label="Año:")
+	anio=forms.IntegerField(label="Año:", required=True)
 
 class AulaForm(forms.ModelForm):
 	class Meta:

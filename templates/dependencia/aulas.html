@@ -13,14 +13,15 @@
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Horarios</th>
+      <th colspan="2">Horarios</th>
     </tr>
     <tbody>
     {% for a in filtro.qs %}
     <tr>
       <td>{{ a.id }}</td>
       <td> {{ a.nombre }} </td>
-      <td><a class="Insc" href="{% url 'aula' a.id %}">Mostrar</td>
+      <td><a class="Insc" href="{% url 'aula' a.id %}">Crear</td>
+      <td><a class="Edit" href="{% url 'aulaBuscar' a.id %}">Buscar</td>
     </tr>
     {% empty %}
         <tr>
