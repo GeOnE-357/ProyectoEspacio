@@ -4,6 +4,5 @@
 	{"model":"dependencia.Dia","fields":{"dia":"Miercoles"}},
 	{"model":"dependencia.Dia","fields":{"dia":"Jueves"}},
 	{"model":"dependencia.Dia","fields":{"dia":"Viernes"}},
-	{"model":"dependencia.Dia","fields":{"dia":"Sabado"}},
-	{"model":"dependencia.Dia","fields":{"dia":"Domingo"}}
+	{"model":"dependencia.Dia","fields":{"dia":"Sabado"}}
 ]
