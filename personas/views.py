@@ -32,8 +32,6 @@ def personaNuevo(request, tipo):
 				if ban == 0:
 					if form.is_valid():
 						instance = form.save(commit=False)
-						estu=Estudio.objects.get(id=form['estudiosId'].value())
-						instance.estudiosId=estu
 						instance.save()
 						return redirect('persona-usuario', a)
 				else:
@@ -56,8 +54,6 @@ def personaNuevo(request, tipo):
 			if ban == 0:
 				if form.is_valid():
 					instance = form.save(commit=False)
-					estu=Estudio.objects.get(id=form['estudiosId'].value())
-					instance.estudiosId=estu
 					instance.save()
 					tipo='pos'
 					tit='ALUMNO CREADO'

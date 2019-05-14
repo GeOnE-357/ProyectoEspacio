@@ -8,26 +8,17 @@ class Persona(models.Model):
 	mail=models.EmailField(max_length=30)
 	telefono=models.BigIntegerField(blank=True)
 	nacimiento=models.DateField(auto_now=False, auto_now_add=False)
-	titulo=models.CharField(max_length=30)
-	estudiosId=models.ForeignKey('personas.Estudio', blank=True, default="", on_delete=models.PROTECT)
-
+	estudios=models.CharField(max_length=30)
 	class Meta:
 		abstract = True
 
 class Profesor(Persona):
+	titulo=models.CharField(max_length=30)
 	expediente=models.IntegerField(blank=True)
 	def __str__(self):
 		return "Prof. "+self.nombre +" "+ self.apellido
 
 class Alumno(Persona):	
 	trabajo=models.BooleanField(default=True)
-	dispHoraria=models.CharField(max_length=30)
 	def __str__(self):
 		return self.nombre +" "+ self.apellido
-
-class Estudio(models.Model):
-	nivel=models.CharField(max_length=30)
-	estado=models.CharField(max_length=30)
-
-	def __str__(self):
-		return self.nivel+" / "+self.estado

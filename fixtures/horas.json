@@ -25,5 +25,5 @@
 	{"model":"dependencia.Horario","fields":{"hora":"20:30"}},
 	{"model":"dependencia.Horario","fields":{"hora":"21:00"}},
 	{"model":"dependencia.Horario","fields":{"hora":"21:30"}},
-	{"model":"dependencia.Horario","fields":{"hora":"22:00"}},
+	{"model":"dependencia.Horario","fields":{"hora":"22:00"}}
 ]

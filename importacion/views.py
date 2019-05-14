@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 import csv,io
-from personas.models import Alumno,Estudio
+from personas.models import Alumno
 from cursos.models import Inscripcion,Curso
 from .forms import ImportarForm
 
@@ -42,7 +42,7 @@ def importar(request):
 							alu.titulo=fila[6]
 							alu.trabajo=fila[7]
 							alu.dispHoraria=fila[8]
-							alu.estudiosId=get_object_or_404(Estudio,id=fila[9])
+							alu.estudios=fila[9]
 							alu.save()
 							inscribir=Inscripcion()
 							inscribir.cursoID=get_object_or_404(Curso,id=fila[10])

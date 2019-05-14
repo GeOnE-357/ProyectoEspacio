@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from asistencia.models import Asistencia
 from cursos.models import Curso, Materia, Inscripcion
 from dependencia.models import Dependencia, Aula, DetalleAula, Dia, Horario
-from personas.models import Profesor, Alumno, Estudio
+from personas.models import Profesor, Alumno
 from .models import Log
 
 @receiver(post_save, sender=User)
@@ -32,7 +32,6 @@ def create_user(sender, instance, raw, created, **kwargs):
 @receiver(post_save, sender=Asistencia)
 @receiver(post_save, sender=Profesor)
 @receiver(post_save, sender=Alumno)
-@receiver(post_save, sender=Estudio)
 def create_persona(sender, instance, raw, created, **kwargs):
 	u=User.objects.order_by('-last_login').first() #Usuario que lo creo.
 	dni=str(u.username) 
