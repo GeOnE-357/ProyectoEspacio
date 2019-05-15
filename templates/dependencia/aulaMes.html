@@ -3,10 +3,10 @@
 {% block title %}EDLT - Detalle de Aula{% endblock %}
 
 {% block content %}
-  <h1>Aula {{ aula.nombre }}</h1>
+  <h1>Aula {{ aula.nombre }} - {{ mes }} / {{ anio }}</h1>
   <div class="sub-nav">
-    <a id="cargar" href="{% url 'cargarCurso' aula.id 'cargar' %}">Cargar Curso</a>
-    <a id="vaciar" href="{% url 'cargarCurso' aula.id 'vaciar' %}">Vaciar</a>
+    <a id="cargar" href="{% url 'cargarCurso' aula.id mes anio 'cargar' %}">Cargar Curso</a>
+    <a id="vaciar" href="{% url 'cargarCurso' aula.id mes anio 'vaciar' %}">Vaciar</a>
   </div>
   <div class="box">
   <table class="table ">
@@ -15,7 +15,8 @@
       {% for d in dia %}
       <th>{{d.dia}}</th>
       {% endfor %}
-    </tr>
+    </tr>    
+    {% if lista %}
     <tr>
       <td>09:00</td>
           {% for det in lista%}
@@ -340,6 +341,11 @@
               {% endif %}
           {% endfor %}
     </tr>
+    {% else %}
+    <tr>
+      <td colspan="7"><strong>No hay Horarios creados para este Curso, Mes y/o Año.</strong></td>
+    </tr>
+    {% endif %}
   </table>
 </div>
 {% endblock %}

@@ -51,6 +51,8 @@ def aulaMes(request,id,mes,anio):
 	detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
 	aula=get_object_or_404(Aula, id=id)
 	dia=get_list_or_404(Dia)
+	anio=anio
+	mes=mes
 	lista=[]
 	for det in detalle:
 		if det.estado == "disponible":
@@ -70,7 +72,7 @@ def aulaMes(request,id,mes,anio):
 			detalle.append(modulo)
 			detalle.append(modif)
 			lista.append(detalle)
-	return render(request,'dependencia/aulaMes.html',{'aula':aula, 'lista':lista, 'dia':dia,})
+	return render(request,'dependencia/aulaMes.html',{'aula':aula, 'lista':lista, 'dia':dia, 'anio':anio, 'mes':mes})
 
 def crearAula(request, id):
 	if request.method=="POST":
@@ -163,7 +165,7 @@ def dependenciaCrear(request):
 		form=DependenciaForm()
 		return render(request,'dependencia/dependenciacrear.html',{'form':form})
 
-def cargarCurso(request, id, tipo):
+def cargarCurso(request, id, mes, anio, tipo):
 	if request.method=="POST":
 		group = Group.objects.get(name="Gerente").user_set.all()
 		if request.user in group or request.user.is_superuser:
@@ -177,7 +179,9 @@ def cargarCurso(request, id, tipo):
 				diccionario=diccionario.items()
 				lista=list(diccionario)
 				print(diccionario)
-				print(lista)		
+				print(lista)
+				detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
+				print(detalle)
 				tipo='pos'
 				tit='CURSOS ASIGNADOS'
 				men='El Curso ha sido creada exitosamente.'
@@ -192,7 +196,7 @@ def cargarCurso(request, id, tipo):
 			form=CargarCursoForm()
 			return render(request,'dependencia/curso.html',{'form':form})
 		else:
-			detalle=DetalleAula.objects.filter(aulaId=id)
+			detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
 			for det in detalle:
 				det.estado="disponible"
 				det.cursoID=None

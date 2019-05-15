@@ -13,7 +13,7 @@ class Persona(models.Model):
 		abstract = True
 
 class Profesor(Persona):
-	titulo=models.CharField(max_length=30)
+	titulo=models.CharField(max_length=80)
 	expediente=models.IntegerField(blank=True)
 	def __str__(self):
 		return "Prof. "+self.nombre +" "+ self.apellido
