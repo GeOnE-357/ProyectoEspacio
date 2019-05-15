@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm,UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .validators import validate_dni, validate_cel, validate_tel, validate_str, validate_str
 
@@ -13,3 +13,10 @@ class UsuarioForm(UserCreationForm):
 	class Meta:
 		model = User
 		fields = ('username', 'first_name', 'last_name','email', 'password1', 'password2', )
+
+class AutenticacionForm(AuthenticationForm,):
+	username=forms.CharField(max_length=30, required=True, label='Numero de Usuario (DNI):', validators=[validate_dni])
+	password=forms.CharField(widget=forms.PasswordInput, label="Contraseña:")
+	class Meta:
+		model=User
+		fields=('username', 'password')

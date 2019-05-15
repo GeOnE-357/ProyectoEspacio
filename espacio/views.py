@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
-from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.models import User, Group
-from .forms import UsuarioForm
+from .forms import UsuarioForm, AutenticacionForm
 
 def home(request):
     return render(request, 'home.html')
@@ -44,13 +44,13 @@ def registrarUsuario(request, tipo):
 
 def loginUsuario(request):
 	if request.method == "POST":
-		form = AuthenticationForm(data=request.POST)
+		form = AutenticacionForm(data=request.POST)
 		if form.is_valid():
 			user = form.get_user()
 			login(request, user)
 			return redirect('home')
 	else:
-		form = AuthenticationForm()
+		form = AutenticacionForm()
 	return render(request, 'usuarios/login.html', {'form':form}) 
 
 
