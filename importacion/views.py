@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from datetime import datetime
 import csv,io
 from personas.models import Alumno
 from cursos.models import Inscripcion,Curso
@@ -20,36 +21,39 @@ def importar(request):
 					io_string=io.StringIO(datos)
 					crea=0
 					insc=0
+					count=0;
 					for fila in csv.reader(io_string, delimiter=';', quotechar="|"):
-						
-						if Alumno.objects.filter(dni=fila[2]):
-							a=Alumno.objects.filter(dni=fila[2])
-							print(a)
-							if not Inscripcion.objects.filter(alumnoID=a[0]):
+						if count!=0:
+							if Alumno.objects.filter(dni=fila[2]):
+								a=Alumno.objects.filter(dni=fila[2])
+								print(a)
+								if not Inscripcion.objects.filter(alumnoID=a[0]):
+									inscribir=Inscripcion()
+									inscribir.cursoID=get_object_or_404(Curso,id=fila[9])
+									inscribir.alumnoID=get_object_or_404(Alumno,dni=fila[2])
+									inscribir.save()
+									insc+=1
+							else:
+								alu=Alumno()
+								alu.nombre=fila[0]
+								alu.apellido=fila[1]
+								alu.dni=fila[2]
+								alu.mail=fila[3]
+								alu.telefono=fila[4]
+								fecha=datetime.strptime(fila[5],'%d/%m/%Y')
+								alu.nacimiento=fecha.strftime('%Y-%m-%d')
+								alu.trabajo=fila[6]
+								alu.estudios=fila[7]
+								alu.save()
 								inscribir=Inscripcion()
-								inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
+								inscribir.cursoID=get_object_or_404(Curso,id=fila[8])
 								inscribir.alumnoID=get_object_or_404(Alumno,dni=fila[2])
 								inscribir.save()
 								insc+=1
+								crea+=1
 						else:
-							alu=Alumno()
-							alu.nombre=fila[0]
-							alu.apellido=fila[1]
-							alu.dni=fila[2]
-							alu.mail=fila[3]
-							alu.telefono=fila[4]
-							alu.nacimiento=fila[5]
-							alu.titulo=fila[6]
-							alu.trabajo=fila[7]
-							alu.dispHoraria=fila[8]
-							alu.estudios=fila[9]
-							alu.save()
-							inscribir=Inscripcion()
-							inscribir.cursoID=get_object_or_404(Curso,id=fila[10])
-							inscribir.alumnoID=get_object_or_404(Alumno,dni=fila[2])
-							inscribir.save()
-							insc+=1
-							crea+=1
+							count+=1
+							continue
 					tipo='pos'
 					tit='ALUMNOS REGISTRADOS'
 					men='Se han creado '+str(crea)+' Alumnos y se han Inscripto '+str(insc)+' en los cursos.'

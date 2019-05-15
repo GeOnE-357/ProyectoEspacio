@@ -33,14 +33,14 @@ class alumnoForm(forms.ModelForm):
 	LISTA.reverse()
 	
 	ESTUDIOS_CHOICES=(('Primario Cursando','Primario Cursando'),('Primario Completo','Primario Completo'),('Primario Incompleto','Primario Incompleto'),('Secundario Cursando','Secundario Cursando'),('Secundario Completo','Secundario Completo'),('Secundario Incompleto','Secundario Incompleto'),('Terciario Cursando','Terciario Cursando'),('Terciario Completo','Terciario Completo'),('Terciario Incompleto','Terciario Incompleto'),('Universitario Cursando','Universitario Cursando'),('Universitario Completo','Universitario Completo'),('Universitario Incompleto','Universitario Incompleto'),)
-	HORARIOS=(("Mañana", "Mañana"),("Tarde", "Tarde"),("Noche","Noche"))
+	#HORARIOS=(("Mañana", "Mañana"),("Tarde", "Tarde"),("Noche","Noche"))
 	nombre=forms.CharField(validators=[validate_str])
 	apellido=forms.CharField(validators=[validate_str])
 	dni=forms.CharField(validators=[validate_dni])
 	telefono=forms.CharField(validators=[validate_cel])
 	nacimiento=forms.DateField(widget=forms.SelectDateWidget(years=LISTA))
-	dispHoraria=forms.ChoiceField(choices =HORARIOS , label="Disponibilidad:", widget=forms.Select(), required=True)
+	#dispHoraria=forms.ChoiceField(choices =HORARIOS , label="Disponibilidad:", widget=forms.Select(), required=True)
 	estudios=forms.ChoiceField(choices=ESTUDIOS_CHOICES, label="Estudios:", widget=forms.Select(), required=True)
 	class Meta:
 		model = Alumno
-		fields = ('nombre', 'apellido', 'dni', 'mail', 'telefono', 'nacimiento', 'estudios', 'trabajo', 'dispHoraria')
+		fields = ('nombre', 'apellido', 'dni', 'mail', 'telefono', 'nacimiento', 'estudios', 'trabajo')

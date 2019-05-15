@@ -7,10 +7,24 @@
         <h1>Importar Inscripciones</h1>
         <form method="post" enctype="multipart/form-data" class="UserForm">
             {% csrf_token %}
+            <blockquote class="neg" style="width: 90%;">
+                <h2>Orden de los campos del .csv</h2>
+                <ul style="display:block; height: 50px; text-align: center;">
+                    <li>1° Nombre</li>
+                    <li>2°Apellido</li>
+                    <li>3° Dni</li>
+                    <li>4° Mail</li>
+                    <li>5° Telefono</li>
+                    <li>6° Nacimiento</li>
+                    <li>7° Trabajo</li>
+                    <li>8° Estudio</li>
+                    <li>9° Id. Curso</li>
+                </ul>
+            </blockquote>
             {{ form.as_p }}
             <button value="submit" type="save">Subir</button>
         </form>
             {% load static %}
-            <script type="text/javascript" src="{% static "/js/cargando.js" %}"></script>
+            <script type="text/javascript" src="{% static '/js/cargando.js' %}"></script>
     {% endif %}
 {% endblock %}
