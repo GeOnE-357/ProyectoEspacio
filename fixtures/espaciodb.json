@@ -1,0 +1,1423 @@
+{
+  "auth_group": [
+    {
+      "id": "1",
+      "name": "Gerente"
+    },
+    {
+      "id": "2",
+      "name": "Staff"
+    }
+  ],
+  "auth_permission": [
+    {
+      "id": "1",
+      "name": "Can add log entry",
+      "content_type_id": "1",
+      "codename": "add_logentry"
+    },
+    {
+      "id": "2",
+      "name": "Can change log entry",
+      "content_type_id": "1",
+      "codename": "change_logentry"
+    },
+    {
+      "id": "3",
+      "name": "Can delete log entry",
+      "content_type_id": "1",
+      "codename": "delete_logentry"
+    },
+    {
+      "id": "4",
+      "name": "Can view log entry",
+      "content_type_id": "1",
+      "codename": "view_logentry"
+    },
+    {
+      "id": "5",
+      "name": "Can add permission",
+      "content_type_id": "2",
+      "codename": "add_permission"
+    },
+    {
+      "id": "6",
+      "name": "Can change permission",
+      "content_type_id": "2",
+      "codename": "change_permission"
+    },
+    {
+      "id": "7",
+      "name": "Can delete permission",
+      "content_type_id": "2",
+      "codename": "delete_permission"
+    },
+    {
+      "id": "8",
+      "name": "Can view permission",
+      "content_type_id": "2",
+      "codename": "view_permission"
+    },
+    {
+      "id": "9",
+      "name": "Can add group",
+      "content_type_id": "3",
+      "codename": "add_group"
+    },
+    {
+      "id": "10",
+      "name": "Can change group",
+      "content_type_id": "3",
+      "codename": "change_group"
+    },
+    {
+      "id": "11",
+      "name": "Can delete group",
+      "content_type_id": "3",
+      "codename": "delete_group"
+    },
+    {
+      "id": "12",
+      "name": "Can view group",
+      "content_type_id": "3",
+      "codename": "view_group"
+    },
+    {
+      "id": "13",
+      "name": "Can add user",
+      "content_type_id": "4",
+      "codename": "add_user"
+    },
+    {
+      "id": "14",
+      "name": "Can change user",
+      "content_type_id": "4",
+      "codename": "change_user"
+    },
+    {
+      "id": "15",
+      "name": "Can delete user",
+      "content_type_id": "4",
+      "codename": "delete_user"
+    },
+    {
+      "id": "16",
+      "name": "Can view user",
+      "content_type_id": "4",
+      "codename": "view_user"
+    },
+    {
+      "id": "17",
+      "name": "Can add content type",
+      "content_type_id": "5",
+      "codename": "add_contenttype"
+    },
+    {
+      "id": "18",
+      "name": "Can change content type",
+      "content_type_id": "5",
+      "codename": "change_contenttype"
+    },
+    {
+      "id": "19",
+      "name": "Can delete content type",
+      "content_type_id": "5",
+      "codename": "delete_contenttype"
+    },
+    {
+      "id": "20",
+      "name": "Can view content type",
+      "content_type_id": "5",
+      "codename": "view_contenttype"
+    },
+    {
+      "id": "21",
+      "name": "Can add session",
+      "content_type_id": "6",
+      "codename": "add_session"
+    },
+    {
+      "id": "22",
+      "name": "Can change session",
+      "content_type_id": "6",
+      "codename": "change_session"
+    },
+    {
+      "id": "23",
+      "name": "Can delete session",
+      "content_type_id": "6",
+      "codename": "delete_session"
+    },
+    {
+      "id": "24",
+      "name": "Can view session",
+      "content_type_id": "6",
+      "codename": "view_session"
+    },
+    {
+      "id": "25",
+      "name": "Can add aula",
+      "content_type_id": "7",
+      "codename": "add_aula"
+    },
+    {
+      "id": "26",
+      "name": "Can change aula",
+      "content_type_id": "7",
+      "codename": "change_aula"
+    },
+    {
+      "id": "27",
+      "name": "Can delete aula",
+      "content_type_id": "7",
+      "codename": "delete_aula"
+    },
+    {
+      "id": "28",
+      "name": "Can view aula",
+      "content_type_id": "7",
+      "codename": "view_aula"
+    },
+    {
+      "id": "29",
+      "name": "Can add dependencia",
+      "content_type_id": "8",
+      "codename": "add_dependencia"
+    },
+    {
+      "id": "30",
+      "name": "Can change dependencia",
+      "content_type_id": "8",
+      "codename": "change_dependencia"
+    },
+    {
+      "id": "31",
+      "name": "Can delete dependencia",
+      "content_type_id": "8",
+      "codename": "delete_dependencia"
+    },
+    {
+      "id": "32",
+      "name": "Can view dependencia",
+      "content_type_id": "8",
+      "codename": "view_dependencia"
+    },
+    {
+      "id": "33",
+      "name": "Can add detalle aula",
+      "content_type_id": "9",
+      "codename": "add_detalleaula"
+    },
+    {
+      "id": "34",
+      "name": "Can change detalle aula",
+      "content_type_id": "9",
+      "codename": "change_detalleaula"
+    },
+    {
+      "id": "35",
+      "name": "Can delete detalle aula",
+      "content_type_id": "9",
+      "codename": "delete_detalleaula"
+    },
+    {
+      "id": "36",
+      "name": "Can view detalle aula",
+      "content_type_id": "9",
+      "codename": "view_detalleaula"
+    },
+    {
+      "id": "37",
+      "name": "Can add dia",
+      "content_type_id": "10",
+      "codename": "add_dia"
+    },
+    {
+      "id": "38",
+      "name": "Can change dia",
+      "content_type_id": "10",
+      "codename": "change_dia"
+    },
+    {
+      "id": "39",
+      "name": "Can delete dia",
+      "content_type_id": "10",
+      "codename": "delete_dia"
+    },
+    {
+      "id": "40",
+      "name": "Can view dia",
+      "content_type_id": "10",
+      "codename": "view_dia"
+    },
+    {
+      "id": "41",
+      "name": "Can add horario",
+      "content_type_id": "11",
+      "codename": "add_horario"
+    },
+    {
+      "id": "42",
+      "name": "Can change horario",
+      "content_type_id": "11",
+      "codename": "change_horario"
+    },
+    {
+      "id": "43",
+      "name": "Can delete horario",
+      "content_type_id": "11",
+      "codename": "delete_horario"
+    },
+    {
+      "id": "44",
+      "name": "Can view horario",
+      "content_type_id": "11",
+      "codename": "view_horario"
+    },
+    {
+      "id": "45",
+      "name": "Can add alumno",
+      "content_type_id": "12",
+      "codename": "add_alumno"
+    },
+    {
+      "id": "46",
+      "name": "Can change alumno",
+      "content_type_id": "12",
+      "codename": "change_alumno"
+    },
+    {
+      "id": "47",
+      "name": "Can delete alumno",
+      "content_type_id": "12",
+      "codename": "delete_alumno"
+    },
+    {
+      "id": "48",
+      "name": "Can view alumno",
+      "content_type_id": "12",
+      "codename": "view_alumno"
+    },
+    {
+      "id": "49",
+      "name": "Can add estudio",
+      "content_type_id": "13",
+      "codename": "add_estudio"
+    },
+    {
+      "id": "50",
+      "name": "Can change estudio",
+      "content_type_id": "13",
+      "codename": "change_estudio"
+    },
+    {
+      "id": "51",
+      "name": "Can delete estudio",
+      "content_type_id": "13",
+      "codename": "delete_estudio"
+    },
+    {
+      "id": "52",
+      "name": "Can view estudio",
+      "content_type_id": "13",
+      "codename": "view_estudio"
+    },
+    {
+      "id": "53",
+      "name": "Can add profesor",
+      "content_type_id": "14",
+      "codename": "add_profesor"
+    },
+    {
+      "id": "54",
+      "name": "Can change profesor",
+      "content_type_id": "14",
+      "codename": "change_profesor"
+    },
+    {
+      "id": "55",
+      "name": "Can delete profesor",
+      "content_type_id": "14",
+      "codename": "delete_profesor"
+    },
+    {
+      "id": "56",
+      "name": "Can view profesor",
+      "content_type_id": "14",
+      "codename": "view_profesor"
+    },
+    {
+      "id": "57",
+      "name": "Can add curso",
+      "content_type_id": "15",
+      "codename": "add_curso"
+    },
+    {
+      "id": "58",
+      "name": "Can change curso",
+      "content_type_id": "15",
+      "codename": "change_curso"
+    },
+    {
+      "id": "59",
+      "name": "Can delete curso",
+      "content_type_id": "15",
+      "codename": "delete_curso"
+    },
+    {
+      "id": "60",
+      "name": "Can view curso",
+      "content_type_id": "15",
+      "codename": "view_curso"
+    },
+    {
+      "id": "61",
+      "name": "Can add inscripcion",
+      "content_type_id": "16",
+      "codename": "add_inscripcion"
+    },
+    {
+      "id": "62",
+      "name": "Can change inscripcion",
+      "content_type_id": "16",
+      "codename": "change_inscripcion"
+    },
+    {
+      "id": "63",
+      "name": "Can delete inscripcion",
+      "content_type_id": "16",
+      "codename": "delete_inscripcion"
+    },
+    {
+      "id": "64",
+      "name": "Can view inscripcion",
+      "content_type_id": "16",
+      "codename": "view_inscripcion"
+    },
+    {
+      "id": "65",
+      "name": "Can add materia",
+      "content_type_id": "17",
+      "codename": "add_materia"
+    },
+    {
+      "id": "66",
+      "name": "Can change materia",
+      "content_type_id": "17",
+      "codename": "change_materia"
+    },
+    {
+      "id": "67",
+      "name": "Can delete materia",
+      "content_type_id": "17",
+      "codename": "delete_materia"
+    },
+    {
+      "id": "68",
+      "name": "Can view materia",
+      "content_type_id": "17",
+      "codename": "view_materia"
+    },
+    {
+      "id": "69",
+      "name": "Can add log",
+      "content_type_id": "18",
+      "codename": "add_log"
+    },
+    {
+      "id": "70",
+      "name": "Can change log",
+      "content_type_id": "18",
+      "codename": "change_log"
+    },
+    {
+      "id": "71",
+      "name": "Can delete log",
+      "content_type_id": "18",
+      "codename": "delete_log"
+    },
+    {
+      "id": "72",
+      "name": "Can view log",
+      "content_type_id": "18",
+      "codename": "view_log"
+    },
+    {
+      "id": "73",
+      "name": "Can add asistencia",
+      "content_type_id": "19",
+      "codename": "add_asistencia"
+    },
+    {
+      "id": "74",
+      "name": "Can change asistencia",
+      "content_type_id": "19",
+      "codename": "change_asistencia"
+    },
+    {
+      "id": "75",
+      "name": "Can delete asistencia",
+      "content_type_id": "19",
+      "codename": "delete_asistencia"
+    },
+    {
+      "id": "76",
+      "name": "Can view asistencia",
+      "content_type_id": "19",
+      "codename": "view_asistencia"
+    }
+  ],
+  "auth_user": [
+    {
+      "id": "1",
+      "password": "pbkdf2_sha256$120000$y6A0b7z6PUtN$mQHg9DlfSWrupjE5GqcaBtE9Q42n5tdhFibCnqZM1mI=",
+      "last_login": "2019-05-14 11:03:28.433116",
+      "is_superuser": "1",
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "emedarias@gmail.com",
+      "is_staff": "1",
+      "is_active": "1",
+      "date_joined": "2019-04-17 12:33:50.337195"
+    },
+    {
+      "id": "2",
+      "password": "pbkdf2_sha256$120000$Own5OKClk51a$HyuAPXBR5nlnvefJ8jH/q9yYLtFuPlYceLRGKIuQT5A=",
+      "last_login": "2019-04-17 15:42:27.941092",
+      "is_superuser": "0",
+      "username": "33484609",
+      "first_name": "Federico Leon",
+      "last_name": "Gimenez",
+      "email": "sistdf@gmail.com",
+      "is_staff": "1",
+      "is_active": "1",
+      "date_joined": "2019-04-17 13:54:32.210646"
+    },
+    {
+      "id": "4",
+      "password": "pbkdf2_sha256$120000$CAXgRmV20iHR$KUPkB0P9VSNICyzev/XnbJCnCI/oEbRelpdSThkK80c=",
+      "last_login": "2019-05-14 11:28:25.212666",
+      "is_superuser": "0",
+      "username": "31151300",
+      "first_name": "luciana natalia",
+      "last_name": "martinez",
+      "email": "luciananmartinez84@gmail.com",
+      "is_staff": "1",
+      "is_active": "1",
+      "date_joined": "2019-04-17 14:07:12.278369"
+    },
+    {
+      "id": "5",
+      "password": "pbkdf2_sha256$120000$PqPeTI9db97r$/er6hPZjMiiW23o4NLrfnAm36IyiTOWC2RqqeR6fcRE=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "38499177",
+      "first_name": "Micaela",
+      "last_name": "Soto",
+      "email": "mica.as@hotmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-17 14:19:44.034332"
+    },
+    {
+      "id": "7",
+      "password": "pbkdf2_sha256$120000$pRl6mISEcy7t$/OM6rw4C0zVvJq49oRbkp+H2MUoAaUghbjXq3887dus=",
+      "last_login": "2019-04-17 15:42:40.426366",
+      "is_superuser": "0",
+      "username": "33991836",
+      "first_name": "Emilio Eduardo",
+      "last_name": "Arias",
+      "email": "emedarias@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-17 15:41:15.041515"
+    },
+    {
+      "id": "8",
+      "password": "pbkdf2_sha256$120000$vJK0eX4dgOCU$xiMvHi4nXiKupL+BG8/2BWQjnn5OoA3Un5SsuG/rJFU=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "27138116",
+      "first_name": "Anahi Alejandra",
+      "last_name": "Sandoval",
+      "email": "anahi.sandoval@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-17 16:09:03.615354"
+    },
+    {
+      "id": "9",
+      "password": "pbkdf2_sha256$120000$MUYQOwWRJetE$MHCSY/22/v61rIq/nHYItrvg6AFNGBEhi/ZkEOd1vbM=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "30153995",
+      "first_name": "Claudia",
+      "last_name": "Ibazeta",
+      "email": "claudiaibazeta@gmail.com",
+      "is_staff": "1",
+      "is_active": "1",
+      "date_joined": "2019-04-17 16:31:58.495050"
+    },
+    {
+      "id": "10",
+      "password": "pbkdf2_sha256$120000$RirCzv2piX1f$OC1EEBvydOyRkINy0D8JgovNVn2ylqXZhXvlEu565+Q=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "39999640",
+      "first_name": "Maximiliano",
+      "last_name": "Mocoso",
+      "email": "moscosomaximiliano@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-26 12:24:37.302182"
+    },
+    {
+      "id": "11",
+      "password": "pbkdf2_sha256$120000$eepiaungIgrJ$Tzz0A2Q/tiqokBP+uzNMv7GAi/d/BFU4A5x11G2qq5c=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "43179467",
+      "first_name": "Ruben Ramiro",
+      "last_name": "Gallego",
+      "email": "ramirogallego0@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 11:43:39.003583"
+    },
+    {
+      "id": "12",
+      "password": "pbkdf2_sha256$120000$24uscHSUPTSc$BfqgmPBgtnYATdZaWQk8MGHWLCPYHg35CTQHxSBR2MQ=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "39140457",
+      "first_name": "Manuel Ignacio",
+      "last_name": "Gajardo",
+      "email": "manuel.devian@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 11:52:02.062427"
+    },
+    {
+      "id": "13",
+      "password": "pbkdf2_sha256$120000$2rjRvBVx8rG0$qAKj/M8M3347tQGvqo6K1r6LLGffkQUqCs/Ma0ktgxc=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "94703581",
+      "first_name": "Faizel",
+      "last_name": "Jacobs",
+      "email": "fjleo9@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 11:59:23.018388"
+    },
+    {
+      "id": "14",
+      "password": "pbkdf2_sha256$120000$NVhH9vlhYvdk$1IXuUjKPgGy4JbAmqN4Zn+PdAahxhSa1k5tf1rbIS4o=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "36551908",
+      "first_name": "Luciana",
+      "last_name": "Oyarzo Boyadjian",
+      "email": "oyarzoluciana@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 12:16:11.124088"
+    },
+    {
+      "id": "15",
+      "password": "pbkdf2_sha256$120000$3AX4vp8HWNbr$uAmqMFb6gLujQa3O02Ss8IPiEWTn/BTJekTq+qv0tLY=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "37836308",
+      "first_name": "Martin",
+      "last_name": "Rodriguez",
+      "email": "martinrg9423@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 15:29:40.679940"
+    },
+    {
+      "id": "16",
+      "password": "pbkdf2_sha256$120000$VleYKNdpZuv2$aKOTTQmYsLTfj/SoOigbgpXSPu+v4HilAd2+XKAFXhM=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "33484049",
+      "first_name": "Kuanip Matias",
+      "last_name": "Ipas",
+      "email": "matiasipas@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 17:08:52.131250"
+    },
+    {
+      "id": "17",
+      "password": "pbkdf2_sha256$120000$8OGzXemkmAge$zqVKpjb+JNVr/Bvwz4jkCMND1QYZHKdd8NOpm9ulKAk=",
+      "last_login": null,
+      "is_superuser": "0",
+      "username": "35356943",
+      "first_name": "Veronica",
+      "last_name": "Olariaga",
+      "email": "olariagaveronicaa@gmail.com",
+      "is_staff": "0",
+      "is_active": "1",
+      "date_joined": "2019-04-30 17:40:05.052009"
+    }
+  ],
+  "auth_user_groups": [
+    {
+      "id": "1",
+      "user_id": "2",
+      "group_id": "1"
+    },
+    {
+      "id": "3",
+      "user_id": "4",
+      "group_id": "1"
+    },
+    {
+      "id": "4",
+      "user_id": "9",
+      "group_id": "2"
+    }
+  ],
+  "cursos_curso": [
+    {
+      "id": "1",
+      "modulo": "Mayo - TT",
+      "fInicio": "2019-05-07",
+      "fFin": "2019-08-01",
+      "estado": "Próximo",
+      "cantClases": "26",
+      "materiaID_id": "1",
+      "profesorID_id": "3"
+    },
+    {
+      "id": "2",
+      "modulo": "C.C 1",
+      "fInicio": "2019-05-13",
+      "fFin": "2019-06-12",
+      "estado": "Próximo",
+      "cantClases": "10",
+      "materiaID_id": "13",
+      "profesorID_id": "12"
+    },
+    {
+      "id": "3",
+      "modulo": "cc3",
+      "fInicio": "2019-05-06",
+      "fFin": "2019-07-02",
+      "estado": "En curso",
+      "cantClases": "17",
+      "materiaID_id": "2",
+      "profesorID_id": "11"
+    }
+  ],
+  "cursos_materia": [
+    {
+      "id": "1",
+      "nombre": "Diseño Web",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "2",
+      "nombre": "Aprende a Programar",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "3",
+      "nombre": "Photoshop",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "4",
+      "nombre": "Diseño de Personajes",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "5",
+      "nombre": "Programaciòn para Niños",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "6",
+      "nombre": "Robotica y Electrónica para Niños",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "7",
+      "nombre": "Robotica y Electronica para Adolescentes",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "8",
+      "nombre": "Ingles Técnico",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "9",
+      "nombre": "+Juego+ aprendo ingles nivel 2A  Unboxing y TikTok",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "10",
+      "nombre": "Administración de Redes y Servidores",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "11",
+      "nombre": "Reparación de PC",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "12",
+      "nombre": "Alfabetización Digital",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "13",
+      "nombre": "Aprende a Usar tu Celular",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "14",
+      "nombre": "Tecnoliteratura",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "15",
+      "nombre": "Paquete Office",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "16",
+      "nombre": "Impresión 3D",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "17",
+      "nombre": "Autocad",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "18",
+      "nombre": "Electronica",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "19",
+      "nombre": "Robotica para Adultos Mayores",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "20",
+      "nombre": "Chicas en Tecnología",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "21",
+      "nombre": "DES. V.J Diseño visual",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "22",
+      "nombre": "DES.V.J Diseño de Juegos",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "23",
+      "nombre": "DES.VJ. Programación UNITY",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "24",
+      "nombre": "+juego+aprendo ingles nivel 2B Unboxing Tik Tok",
+      "tipo": "Tecnológico"
+    },
+    {
+      "id": "25",
+      "nombre": "Arte Digital para Niños",
+      "tipo": "Tecnológico"
+    }
+  ],
+  "dependencia_aula": [
+    {
+      "id": "1",
+      "nombre": "Punto Digital",
+      "dependenciaId_id": "1"
+    },
+    {
+      "id": "2",
+      "nombre": "SUM",
+      "dependenciaId_id": "1"
+    },
+    {
+      "id": "3",
+      "nombre": "Coworking",
+      "dependenciaId_id": "1"
+    },
+    {
+      "id": "4",
+      "nombre": "Samsung",
+      "dependenciaId_id": "1"
+    },
+    {
+      "id": "5",
+      "nombre": "Oficina Direccion",
+      "dependenciaId_id": "1"
+    }
+  ],
+  "dependencia_dependencia": [
+    {
+      "id": "1",
+      "nombre": "Espacio Tecnologico",
+      "direccion": "Pellegrini N° 520",
+      "telefono": "2964436225",
+      "whatsapp": "2964654663"
+    },
+    {
+      "id": "2",
+      "nombre": "Biblioteca el Muelle",
+      "direccion": "Keninek Nº 321",
+      "telefono": "2964441381",
+      "whatsapp": "2"
+    }
+  ],
+  "dependencia_dia": [
+    {
+      "id": "1",
+      "dia": "Lunes"
+    },
+    {
+      "id": "2",
+      "dia": "Martes"
+    },
+    {
+      "id": "3",
+      "dia": "Miercoles"
+    },
+    {
+      "id": "4",
+      "dia": "Jueves"
+    },
+    {
+      "id": "5",
+      "dia": "Viernes"
+    },
+    {
+      "id": "6",
+      "dia": "Sabado"
+    }
+  ],
+  "django_admin_log": [
+    {
+      "id": "1",
+      "action_time": "2019-04-17 14:19:41.819102",
+      "object_id": "5",
+      "object_repr": "Oficina Direccion",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "7",
+      "user_id": "1"
+    },
+    {
+      "id": "2",
+      "action_time": "2019-04-17 14:19:41.897238",
+      "object_id": "4",
+      "object_repr": "Samsung",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "7",
+      "user_id": "1"
+    },
+    {
+      "id": "3",
+      "action_time": "2019-04-17 14:19:41.933576",
+      "object_id": "3",
+      "object_repr": "Coworking",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "7",
+      "user_id": "1"
+    },
+    {
+      "id": "4",
+      "action_time": "2019-04-17 14:19:42.042922",
+      "object_id": "2",
+      "object_repr": "SUM",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "7",
+      "user_id": "1"
+    },
+    {
+      "id": "5",
+      "action_time": "2019-04-17 14:19:42.081426",
+      "object_id": "1",
+      "object_repr": "Punto Digital",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "7",
+      "user_id": "1"
+    },
+    {
+      "id": "6",
+      "action_time": "2019-04-17 14:34:27.448441",
+      "object_id": "3",
+      "object_repr": "33991836",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "4",
+      "user_id": "1"
+    },
+    {
+      "id": "7",
+      "action_time": "2019-04-17 15:40:05.793529",
+      "object_id": "2",
+      "object_repr": "Prof. Emilio Arias",
+      "action_flag": "3",
+      "change_message": "",
+      "content_type_id": "14",
+      "user_id": "1"
+    }
+  ],
+  "django_content_type": [
+    {
+      "id": "1",
+      "app_label": "admin",
+      "model": "logentry"
+    },
+    {
+      "id": "19",
+      "app_label": "asistencia",
+      "model": "asistencia"
+    },
+    {
+      "id": "3",
+      "app_label": "auth",
+      "model": "group"
+    },
+    {
+      "id": "2",
+      "app_label": "auth",
+      "model": "permission"
+    },
+    {
+      "id": "4",
+      "app_label": "auth",
+      "model": "user"
+    },
+    {
+      "id": "5",
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    },
+    {
+      "id": "18",
+      "app_label": "control",
+      "model": "log"
+    },
+    {
+      "id": "15",
+      "app_label": "cursos",
+      "model": "curso"
+    },
+    {
+      "id": "16",
+      "app_label": "cursos",
+      "model": "inscripcion"
+    },
+    {
+      "id": "17",
+      "app_label": "cursos",
+      "model": "materia"
+    },
+    {
+      "id": "7",
+      "app_label": "dependencia",
+      "model": "aula"
+    },
+    {
+      "id": "8",
+      "app_label": "dependencia",
+      "model": "dependencia"
+    },
+    {
+      "id": "9",
+      "app_label": "dependencia",
+      "model": "detalleaula"
+    },
+    {
+      "id": "10",
+      "app_label": "dependencia",
+      "model": "dia"
+    },
+    {
+      "id": "11",
+      "app_label": "dependencia",
+      "model": "horario"
+    },
+    {
+      "id": "12",
+      "app_label": "personas",
+      "model": "alumno"
+    },
+    {
+      "id": "13",
+      "app_label": "personas",
+      "model": "estudio"
+    },
+    {
+      "id": "14",
+      "app_label": "personas",
+      "model": "profesor"
+    },
+    {
+      "id": "6",
+      "app_label": "sessions",
+      "model": "session"
+    }
+  ],
+  "django_session": [
+    {
+      "session_key": "1feeqav8fyp8r0wfv5davkjw6aakppq8",
+      "session_data": "ZDkxYTZkNTdjMWI1MTJkZTkzMzkwYjhiZDRhODU4YjA4NjNiNzZiOTp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4YzQwZmQ0YjI3NzkyNzc3YWY3NmY2MDRlMjhiYjYxM2ZhODJkY2NjIn0=",
+      "expire_date": "2019-05-01 15:42:40.473153"
+    },
+    {
+      "session_key": "5nfx5zrc8gg89yqb9c6fetqd9gviq5jq",
+      "session_data": "NDk2MTk5ODVlZmFmMmRhNWQ0MmQzMDA0YzkzZmViZjdiMGY1MjE0Yzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMDkwYzIxZWYyOTIzNGY0MzYyNDEwYTAxMjYzZjY1ZTM3MjU5NjUzIn0=",
+      "expire_date": "2019-05-01 15:17:27.147781"
+    },
+    {
+      "session_key": "7dzyit074wpu1g6ej3g5fpaay6eteeqn",
+      "session_data": "NGUxNWMxNGZmOTZlMzM0MGI4M2ZlNGYzMWNjMTQ3MjMwOTE1NjdkYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxOGU3YTNiYTI2MGIyNmUxZjI2MDY4NDNiNDQxNDk0MDFmNzk3NTY2In0=",
+      "expire_date": "2019-05-28 11:03:28.520648"
+    },
+    {
+      "session_key": "7qcx8cgdxz0siou9n870hizu1puy57ck",
+      "session_data": "NDk2MTk5ODVlZmFmMmRhNWQ0MmQzMDA0YzkzZmViZjdiMGY1MjE0Yzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMDkwYzIxZWYyOTIzNGY0MzYyNDEwYTAxMjYzZjY1ZTM3MjU5NjUzIn0=",
+      "expire_date": "2019-05-13 19:28:59.817146"
+    },
+    {
+      "session_key": "ctspbd44ogf1w38obkl4wwxpt7yhw0u9",
+      "session_data": "OTM2M2VhZWI4MWU2ZDQxNmRlMzgxOGU3ODAwMTA3YjczMWY3ZmViMTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjNzEwN2UwMmVhODk1MmJhNjUzNDM3MjJhOTdiODlmOGUxODUwZmI5In0=",
+      "expire_date": "2019-05-01 15:42:27.987882"
+    },
+    {
+      "session_key": "cvti9mv1wh6y9iz9fvyx6kh57fjnti5x",
+      "session_data": "NGUxNWMxNGZmOTZlMzM0MGI4M2ZlNGYzMWNjMTQ3MjMwOTE1NjdkYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxOGU3YTNiYTI2MGIyNmUxZjI2MDY4NDNiNDQxNDk0MDFmNzk3NTY2In0=",
+      "expire_date": "2019-05-01 14:13:43.489488"
+    },
+    {
+      "session_key": "gk59x4jg6myojj8pavdza2ax52v4i9bd",
+      "session_data": "NGUxNWMxNGZmOTZlMzM0MGI4M2ZlNGYzMWNjMTQ3MjMwOTE1NjdkYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxOGU3YTNiYTI2MGIyNmUxZjI2MDY4NDNiNDQxNDk0MDFmNzk3NTY2In0=",
+      "expire_date": "2019-05-01 14:42:23.843113"
+    },
+    {
+      "session_key": "lmpupoyxap1qhneocrf5la51trbbb7im",
+      "session_data": "NDk2MTk5ODVlZmFmMmRhNWQ0MmQzMDA0YzkzZmViZjdiMGY1MjE0Yzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMDkwYzIxZWYyOTIzNGY0MzYyNDEwYTAxMjYzZjY1ZTM3MjU5NjUzIn0=",
+      "expire_date": "2019-05-28 11:28:25.287623"
+    },
+    {
+      "session_key": "mrvk8tqte6kxkgm7243wkwl5gu6ojke9",
+      "session_data": "NGUxNWMxNGZmOTZlMzM0MGI4M2ZlNGYzMWNjMTQ3MjMwOTE1NjdkYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxOGU3YTNiYTI2MGIyNmUxZjI2MDY4NDNiNDQxNDk0MDFmNzk3NTY2In0=",
+      "expire_date": "2019-05-16 11:28:52.842092"
+    },
+    {
+      "session_key": "wto4spmsatxu7hd531mhuy6pme2fsa7p",
+      "session_data": "NDk2MTk5ODVlZmFmMmRhNWQ0MmQzMDA0YzkzZmViZjdiMGY1MjE0Yzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMDkwYzIxZWYyOTIzNGY0MzYyNDEwYTAxMjYzZjY1ZTM3MjU5NjUzIn0=",
+      "expire_date": "2019-05-09 11:42:50.689942"
+    }
+  ],
+  "personas_profesor": [
+    {
+      "id": "1",
+      "nombre": "Micaela",
+      "apellido": "Ala Soto",
+      "dni": "38499177",
+      "mail": "mica.as@hotmail.com",
+      "telefono": "2964502891",
+      "nacimiento": "1994-10-20",
+      "titulo": "Idonea",
+      "expediente": "1",
+      "estudiosId_id": "Universitario Cursando"
+    },
+    {
+      "id": "3",
+      "nombre": "Emilio Eduardo",
+      "apellido": "Arias",
+      "dni": "33991836",
+      "mail": "emedarias@gmail.com",
+      "telefono": "2964525540",
+      "nacimiento": "1988-10-17",
+      "titulo": "Diseñador Grafico/Programador",
+      "expediente": "2",
+      "estudiosId_id": "Terciario Completo"
+    },
+    {
+      "id": "4",
+      "nombre": "Anahi Alejandra",
+      "apellido": "Sandoval",
+      "dni": "27138116",
+      "mail": "anahi.sandoval@gmail.com",
+      "telefono": "2804400482",
+      "nacimiento": "1979-02-20",
+      "titulo": "Lic. en informática / analista programadora universitaria",
+      "expediente": "3",
+      "estudiosId_id": "Universitario Completo"
+    },
+    {
+      "id": "5",
+      "nombre": "Idalia",
+      "apellido": "Plaza",
+      "dni": "94437708",
+      "mail": "idaliaplazaa@gmail.com",
+      "telefono": "2964624585",
+      "nacimiento": "1981-12-02",
+      "titulo": "Lic. En diseño Grafico",
+      "expediente": "4",
+      "estudiosId_id": "Universitario Completo"
+    },
+    {
+      "id": "6",
+      "nombre": "Macarena susana",
+      "apellido": "Oyarzo Retamal",
+      "dni": "35885692",
+      "mail": "macarenaoyarzo.tdf@gmail.com",
+      "telefono": "2964590199",
+      "nacimiento": "1991-07-05",
+      "titulo": "Idonea",
+      "expediente": "5",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "7",
+      "nombre": "Matias Andres",
+      "apellido": "Navarro",
+      "dni": "33688006",
+      "mail": "pulsarush@gmail.com",
+      "telefono": "2964510177",
+      "nacimiento": "1988-05-03",
+      "titulo": "idoneo cert. php y mysql",
+      "expediente": "6",
+      "estudiosId_id": "Secundario Completo"
+    },
+    {
+      "id": "8",
+      "nombre": "Pablo Gabriel",
+      "apellido": "Wies",
+      "dni": "28870482",
+      "mail": "wiespablo@gmail.com",
+      "telefono": "2964469157",
+      "nacimiento": "1981-08-07",
+      "titulo": "Tecnico Electronico",
+      "expediente": "7",
+      "estudiosId_id": "Terciario Completo"
+    },
+    {
+      "id": "9",
+      "nombre": "Estefania Antonella",
+      "apellido": "Llauca Vilches",
+      "dni": "38786058",
+      "mail": "llaucae@gmail.com",
+      "telefono": "2964489890",
+      "nacimiento": "1995-07-01",
+      "titulo": "tecnica en inf. personal y prof",
+      "expediente": "8",
+      "estudiosId_id": "Terciario Completo"
+    },
+    {
+      "id": "10",
+      "nombre": "Angelina",
+      "apellido": "Rodriguez",
+      "dni": "35885669",
+      "mail": "Angy.ipes@gmail.com",
+      "telefono": "2964506664",
+      "nacimiento": "1991-07-07",
+      "titulo": "Idonea",
+      "expediente": "9",
+      "estudiosId_id": "Terciario Incompleto"
+    },
+    {
+      "id": "11",
+      "nombre": "Leandro",
+      "apellido": "Terrado",
+      "dni": "28828990",
+      "mail": "Lterrado@gmail.com",
+      "telefono": "2964404044",
+      "nacimiento": "1981-06-03",
+      "titulo": "Idoneo",
+      "expediente": "10",
+      "estudiosId_id": "Secundario Completo"
+    },
+    {
+      "id": "12",
+      "nombre": "Yasmin de Lourdes",
+      "apellido": "Echeverria",
+      "dni": "39175765",
+      "mail": "yleyasmin24@gamil.com",
+      "telefono": "2964502524",
+      "nacimiento": "1995-06-26",
+      "titulo": "idonea",
+      "expediente": "11",
+      "estudiosId_id": "Terciario Incompleto"
+    },
+    {
+      "id": "13",
+      "nombre": "Jorge",
+      "apellido": "Bernard",
+      "dni": "14667818",
+      "mail": "artistabernard@yahoo.com.ar",
+      "telefono": "2964615062",
+      "nacimiento": "1962-02-09",
+      "titulo": "Idoneo",
+      "expediente": "12",
+      "estudiosId_id": "Secundario Completo"
+    },
+    {
+      "id": "14",
+      "nombre": "Juan Nahuel",
+      "apellido": "Cabral",
+      "dni": "36316066",
+      "mail": "juan.n.cabral@gmail.com",
+      "telefono": "2964548483",
+      "nacimiento": "1991-06-24",
+      "titulo": "idoneo",
+      "expediente": "13",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "15",
+      "nombre": "Pablo Martin",
+      "apellido": "Corani",
+      "dni": "32668499",
+      "mail": "Pablocorani@icloud.com",
+      "telefono": "2964502597",
+      "nacimiento": "1986-09-21",
+      "titulo": "Tecnico Electronico",
+      "expediente": "14",
+      "estudiosId_id": "Universitario Cursando"
+    },
+    {
+      "id": "16",
+      "nombre": "Jonas Fernando",
+      "apellido": "Echeverria",
+      "dni": "35668803",
+      "mail": "jfejonas09@gmail.com",
+      "telefono": "2964419703",
+      "nacimiento": "1990-09-07",
+      "titulo": "Idoneo",
+      "expediente": "15",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "17",
+      "nombre": "Esteban German",
+      "apellido": "Acosta",
+      "dni": "35885478",
+      "mail": "german-acosta91@hotmail.com",
+      "telefono": "2964417750",
+      "nacimiento": "1991-05-22",
+      "titulo": "tec.sup.en Programacion/tecnicoen equipos e inst.Elect",
+      "expediente": "16",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "18",
+      "nombre": "Maximiliano",
+      "apellido": "Mocoso",
+      "dni": "39999640",
+      "mail": "moscosomaximiliano@gmail.com",
+      "telefono": "29644678007",
+      "nacimiento": "1997-05-25",
+      "titulo": "idoneo",
+      "expediente": "17",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "19",
+      "nombre": "Ruben Ramiro",
+      "apellido": "Gallego",
+      "dni": "43179467",
+      "mail": "ramirogallego0@gmail.com",
+      "telefono": "2964471633",
+      "nacimiento": "2000-12-30",
+      "titulo": "idoneo",
+      "expediente": "18",
+      "estudiosId_id": "Secunadrio Incompleto"
+    },
+    {
+      "id": "20",
+      "nombre": "Manuel Ignacio",
+      "apellido": "Gajardo",
+      "dni": "39140457",
+      "mail": "manuel.devian@gmail.com",
+      "telefono": "2964580946",
+      "nacimiento": "1993-01-23",
+      "titulo": "idoneo",
+      "expediente": "19",
+      "estudiosId_id": "Terciario Cursando"
+    },
+    {
+      "id": "21",
+      "nombre": "Faizel",
+      "apellido": "Jacobs",
+      "dni": "94703581",
+      "mail": "fjleo9@gmail.com",
+      "telefono": "2964618833",
+      "nacimiento": "1969-08-09",
+      "titulo": "TEFL/ TESOL Certificate",
+      "expediente": "20",
+      "estudiosId_id": "Terciario Completo"
+    },
+    {
+      "id": "22",
+      "nombre": "Luciana",
+      "apellido": "Oyarzo Boyadjian",
+      "dni": "36551908",
+      "mail": "oyarzoluciana@gmail.com",
+      "telefono": "2964486311",
+      "nacimiento": "1991-10-08",
+      "titulo": "Lic. en Diseño de interiores.",
+      "expediente": "21",
+      "estudiosId_id": "Universitario Completo"
+    },
+    {
+      "id": "23",
+      "nombre": "Martin",
+      "apellido": "Rodriguez",
+      "dni": "37836308",
+      "mail": "martinrg9423@gmail.com",
+      "telefono": "2964486626",
+      "nacimiento": "1994-01-23",
+      "titulo": "idoneo",
+      "expediente": "22",
+      "estudiosId_id": "Terciario Completo"
+    },
+    {
+      "id": "24",
+      "nombre": "Kuanip Matias",
+      "apellido": "Ipas",
+      "dni": "33484049",
+      "mail": "matiasipas@gmail.com",
+      "telefono": "2964551462",
+      "nacimiento": "1987-11-30",
+      "titulo": "idoneo",
+      "expediente": "23",
+      "estudiosId_id": "Secundario Completo"
+    },
+    {
+      "id": "25",
+      "nombre": "Veronica",
+      "apellido": "Olariaga",
+      "dni": "35356943",
+      "mail": "olariagaveronicaa@gmail.com",
+      "telefono": "2964576433",
+      "nacimiento": "1990-11-27",
+      "titulo": "idonea",
+      "expediente": "24",
+      "estudiosId_id": "Terciario Cursando"
+    }
+  ]
+}

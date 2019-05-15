@@ -1,14 +1,14 @@
 [
-	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Completo"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Cursando"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Incompleto"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Completo"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Cursando"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Incompleto"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Completo"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Cursando"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Incompleto"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Completo"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Cursando"}},
-	{"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Incompleto"}}
+	1 {"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Completo"}},
+	2 {"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Cursando"}},
+	3 {"model":"personas.Estudio","fields":{"nivel":"Primario", "estado":"Incompleto"}},
+	4 {"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Completo"}},
+	5 {"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Cursando"}},
+	6 {"model":"personas.Estudio","fields":{"nivel":"Secundario", "estado":"Incompleto"}},
+	7 {"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Completo"}},
+	8 {"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Cursando"}},
+	9 {"model":"personas.Estudio","fields":{"nivel":"Terciario", "estado":"Incompleto"}},
+	10 {"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Completo"}},
+	11 {"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Cursando"}},
+	12 {"model":"personas.Estudio","fields":{"nivel":"Universitario", "estado":"Incompleto"}}
 ]

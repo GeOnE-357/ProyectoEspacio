@@ -3,7 +3,7 @@ from django.db import models
 class Curso(models.Model):
 	"""docstring for Curso"""
 	materiaID=models.ForeignKey('cursos.Materia',blank=True,default="",on_delete=models.PROTECT)
-	modulo=models.IntegerField(blank=True)
+	modulo=models.CharField(max_length=15)
 	profesorID=models.ForeignKey('personas.Profesor', blank=True, default="", on_delete=models.PROTECT)
 	fInicio=models.DateField(auto_now=False, auto_now_add=False)
 	fFin=models.DateField(auto_now=False, auto_now_add=False)
