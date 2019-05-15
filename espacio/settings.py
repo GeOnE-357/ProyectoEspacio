@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_filters',
     'asistencia',
     'importacion',
+    'multiselectfield',
     #'mod_wsgi.server',
 ]
 

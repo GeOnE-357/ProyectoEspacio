@@ -3,7 +3,7 @@ from .models import Dependencia, Aula,DetalleAula, Dia, Horario
 from cursos.models import Curso
 from django.forms.widgets import CheckboxSelectMultiple
 from espacio.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_dir
-
+from multiselectfield import MultiSelectField
 class DependenciaForm(forms.ModelForm):
 	telefono=forms.IntegerField(validators=[validate_tel])
 	direccion=forms.CharField(validators=[validate_dir])
@@ -49,6 +49,6 @@ class DetalleAulaForm(forms.ModelForm):
 
 class CargarCursoForm(forms.Form):
 	curso=forms.ModelChoiceField(queryset=Curso.objects.all(), required=True)
-	dia=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), queryset=Dia.objects.all())
+	#dia=MultiSelectField(choices=Dia.objects.all())
 	hora1=forms.ModelChoiceField(queryset=Horario.objects.all(), label="De:",required=True)
 	hora2=forms.ModelChoiceField(queryset=Horario.objects.all(), label="A:",required=True)
