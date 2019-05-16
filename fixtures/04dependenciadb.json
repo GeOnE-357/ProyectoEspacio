@@ -1,0 +1,16 @@
+[
+    {"model":"dependencia.Dependencia", "fields":{
+      "id": "1",
+      "nombre": "Espacio Tecnologico",
+      "direccion": "Pellegrini N° 520",
+      "telefono": "2964436225",
+      "whatsapp": "2964654663"
+    }},
+    {"model":"dependencia.Dependencia", "fields":{
+      "id": "2",
+      "nombre": "Biblioteca el Muelle",
+      "direccion": "Keninek Nº 321",
+      "telefono": "2964441381",
+      "whatsapp": "2"
+    }}
+]

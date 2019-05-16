@@ -1,0 +1,127 @@
+[
+    {"model":"cursos.Materia", "fields":{
+      "id": "1",
+      "nombre": "Diseño Web",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "2",
+      "nombre": "Aprende a Programar",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "3",
+      "nombre": "Photoshop",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "4",
+      "nombre": "Diseño de Personajes",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "5",
+      "nombre": "Programaciòn para Niños",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "6",
+      "nombre": "Robotica y Electrónica para Niños",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "7",
+      "nombre": "Robotica y Electronica para Adolescentes",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "8",
+      "nombre": "Ingles Técnico",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "9",
+      "nombre": "+Juego+ aprendo ingles nivel 2A  Unboxing y TikTok",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "10",
+      "nombre": "Administración de Redes y Servidores",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "11",
+      "nombre": "Reparación de PC",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "12",
+      "nombre": "Alfabetización Digital",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "13",
+      "nombre": "Aprende a Usar tu Celular",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "14",
+      "nombre": "Tecnoliteratura",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "15",
+      "nombre": "Paquete Office",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "16",
+      "nombre": "Impresión 3D",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "17",
+      "nombre": "Autocad",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "18",
+      "nombre": "Electronica",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "19",
+      "nombre": "Robotica para Adultos Mayores",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "20",
+      "nombre": "Chicas en Tecnología",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "21",
+      "nombre": "DES. V.J Diseño visual",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "22",
+      "nombre": "DES.V.J Diseño de Juegos",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "23",
+      "nombre": "DES.VJ. Programación UNITY",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "24",
+      "nombre": "+juego+aprendo ingles nivel 2B Unboxing Tik Tok",
+      "tipo": "Tecnológico"
+    }},
+    {"model":"cursos.Materia", "fields":{
+      "id": "25",
+      "nombre": "Arte Digital para Niños",
+      "tipo": "Tecnológico"
+    }}
+  ]
