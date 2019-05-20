@@ -194,7 +194,8 @@ def cargarCurso(request, id, mes, anio, tipo):
 				tipo='pos'
 				tit='CURSOS ASIGNADOS'
 				men='El Curso ha sido creada exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Dependencia/Mostrar/Aula/'+str(id)+'/'+mes+'/'+anio+'/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'

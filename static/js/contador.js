@@ -6,7 +6,7 @@ function contador()
       time--;
     } 
     else {
-     	 location.href="/" //Redirecciona al index.
+     	 location.href="{{ url }}" //Redirecciona al index.
     	}
     }
 

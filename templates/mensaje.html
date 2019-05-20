@@ -13,6 +13,20 @@
   		<p>{{ mensaje }}</p>
   		<p id="contador"></p>
 	</blockquote>
-	{% load static %}
-	<script type="text/javascript" src="{% static '/js/contador.js' %}"></script>
+	<script type="text/javascript">
+   var time = 5;
+   function contador()
+    {
+      if(time > 0)
+        {
+          document.getElementById("contador").innerHTML = "Seras redireccionado en <b>"+ time + "</b> segundos.";
+          time--;
+        } 
+      else 
+        {
+          location.href="{{ url }}" //Redirecciona al index.
+        }
+    }
+  setInterval(contador, 1000) 
+  </script>
 {% endblock %}
