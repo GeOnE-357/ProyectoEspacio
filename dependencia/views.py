@@ -173,15 +173,24 @@ def cargarCurso(request, id, mes, anio, tipo):
 			if form.is_valid:
 				diccionario=request.POST.copy()
 				del diccionario['csrfmiddlewaretoken']
+				diccionario=dict(diccionario)
+				diccionario=diccionario
 				print(diccionario)
-				listaA=list(diccionario['dia'])
-				print(listaA)
-				diccionario=diccionario.items()
-				lista=list(diccionario)
-				print(diccionario)
-				print(lista)
-				detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
-				print(detalle)
+				dias=[]
+				horas=[]
+				for a, b in diccionario.items():
+					if a=="dia":
+						for x in b:
+							dias.append(x)
+					if a=='hora1' or a=='hora2':
+						horas.append(int(b[0]))
+				for d in dias:
+					detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio,diaId=d).order_by('horaId')
+					for det in detalle:
+						if det.horaId.id>=horas[0] and det.horaId.id<=horas[1]:
+							det.cursoID=Curso.objects.get(id=diccionario['curso'][0])
+							det.estado="en curso"
+							det.save()
 				tipo='pos'
 				tit='CURSOS ASIGNADOS'
 				men='El Curso ha sido creada exitosamente.'

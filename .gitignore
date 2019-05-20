@@ -10,7 +10,6 @@ importacion/__pycache__
 personas/__pycache__
 
 #migrations
-computadoras/migrations
 asistencia/migrations
 control/migrations
 cursos/migrations
