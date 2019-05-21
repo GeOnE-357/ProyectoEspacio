@@ -38,12 +38,14 @@ def personaNuevo(request, tipo):
 					tipo='neg'
 					tit='PROFESOR NO CREADO'
 					men='El Profesor ya existe en la base de datos.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
+					url='/Persona/Profesor/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 			else:
 				tipo='neg'
 				tit='ACCESO DENEGADO'
 				men='No tiene los permisos necesarios para realizar esta tarea.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})		
+				url='/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			form = alumnoForm(request.POST or None)
 			alu=Alumno.objects.all()
@@ -58,12 +60,14 @@ def personaNuevo(request, tipo):
 					tipo='pos'
 					tit='ALUMNO CREADO'
 					men='El Alumno ha sido creado exitosamente.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+					url='/Persona/Alumno/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 			else:
 				tipo='neg'
 				tit='ALUMNO NO CREADO'
 				men='El Alumno ya existe en la base de datos.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Persona/Alumno/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 			
 	else:
 		if a =="Profesor":
@@ -87,7 +91,8 @@ def personaUsuario(request, tipo):
 		tipo='pos'
 		tit='USUARIO CREADO'
 		men='El Profesor ha sido creado exitosamente.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		url='/Persona/Profesor/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 
 def personaDetalle(request, tipo, id):
 	a=tipo
@@ -113,12 +118,14 @@ def personaEditar(request, tipo, id):
 							tipo='pos'
 							tit='PROFESOR EDITADO'
 							men='Los datos del Profesor han sido editados exitosamente.'
-							return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+							url='/Persona/Detalle/Profesor/'+str(persona.id)+'/'
+							return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 				else:
 					tipo='neg'
 					tit='ACCESO DENEGADO'
 					men='No tiene los permisos necesarios para realizar esta tarea.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+					url='/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 			else:
 				persona = get_object_or_404(Alumno, id=id)
 				form = alumnoForm(request.POST, instance=persona)
@@ -128,7 +135,8 @@ def personaEditar(request, tipo, id):
 						tipo='pos'
 						tit='ALUMNO EDITADO'
 						men='Los datos del Alumno han sido editados exitosamente.'
-						return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
+						url='/Persona/Detalle/Alumno/'+str(persona.id)+'/'
+						return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		if a == 'Profesor':
 			persona = get_object_or_404(Profesor, id=id)

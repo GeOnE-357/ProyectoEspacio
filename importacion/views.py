@@ -15,7 +15,8 @@ def importar(request):
 					tipo='neg'
 					tit='ARCHIVO NO VALIDO'
 					men='El archivo no tiene formato .csv .'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+					url='/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 				else:
 					datos=csv_file.read().decode('latin-1')
 					io_string=io.StringIO(datos)
@@ -57,12 +58,14 @@ def importar(request):
 					tipo='pos'
 					tit='ALUMNOS REGISTRADOS'
 					men='Se han creado '+str(crea)+' Alumnos y se han Inscripto '+str(insc)+' en los cursos.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+					url='/Importacion/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=ImportarForm()
 		return render(request, "importacion/importar.html", {'form':form})

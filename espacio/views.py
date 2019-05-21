@@ -36,7 +36,8 @@ def registrarUsuario(request, tipo):
 				tipo='neg'
 				tit='ACCESO DENEGADO'
 				men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form = UsuarioForm()
 	return render(request, 'usuarios/registro.html', {'form':form})
@@ -68,7 +69,8 @@ def passwordUsuario(request):
 			tipo='pos'
 			tit='PASSWORD ACTUALIZADO'
 			men='El Password ha sido modificado exitosamente.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})			
+			url= '/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form = PasswordChangeForm(request.user)
 	return render(request, 'usuarios/password.html', {'form': form})

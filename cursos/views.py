@@ -45,12 +45,14 @@ def cursosCrear(request):
 				tipo='pos'
 				tit='CURSO CREADO'
 				men='El Curso ha sido creado exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Curso/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=CursoForm()
 	return render(request, 'cursos/crear.html', {'form':form})
@@ -68,12 +70,14 @@ def cursosEditar(request, id):
 				tipo='pos'
 				tit='CURSO EDITADO'
 				men='El Curso ha sido editado exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Curso/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		curso=get_object_or_404(Curso, id=id)
 		form = CursoForm(instance=curso)
@@ -97,12 +101,14 @@ def materiasCrear(request):
 				tipo='pos'
 				tit='MATERIA CREADA'
 				men='La Materia ha sido creada exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Curso/Materia/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=MateriaForm()
 	return render(request, 'materias/crear.html', {'form':form})
@@ -119,12 +125,14 @@ def materiasEditar(request, id):
 				tipo='pos'
 				tit='MATERIA EDITADA'
 				men='La Materia ha sido editada exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Curso/Materia/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		materia=get_object_or_404(Materia, id=id)
 		form=MateriaForm(instance=materia)
@@ -140,7 +148,8 @@ def inscripcionCrear(request, tipo, id):
 				tipo='neg'
 				tit='INSCRIPCIÓN YA CREADA'
 				men='El Alumno ha sido inscripto anteriormente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 			else:
 				if form.is_valid():
 					instance=form.save(commit=False)
@@ -150,12 +159,14 @@ def inscripcionCrear(request, tipo, id):
 					tipo='pos'
 					tit='INSCRIPCIÓN CREADA'
 					men='El Alumno ha sido inscripto exitosamente.'
-					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+					url='/Persona/Alumno/'
+					return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=InscripcionForm()
 	return render(request, 'cursos/inscripcion.html', {'form':form})

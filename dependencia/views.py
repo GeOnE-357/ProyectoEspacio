@@ -25,7 +25,7 @@ def aula(request,id):
 			diccionario=request.POST.copy()
 			del diccionario['csrfmiddlewaretoken']
 			mes=diccionario['mes']
-			anio=diccionario['anio']	
+			anio=diccionario['anio']    
 			return redirect('horarioCrear',id,mes,anio)
 	else:
 		aula=get_object_or_404(Aula, id=id)
@@ -39,7 +39,7 @@ def aulaBuscar(request,id):
 			diccionario=request.POST.copy()
 			del diccionario['csrfmiddlewaretoken']
 			mes=diccionario['mes']
-			anio=diccionario['anio']	
+			anio=diccionario['anio']    
 			return redirect('aulaMes',id,mes,anio)
 	else:
 		aula=get_object_or_404(Aula, id=id)
@@ -84,21 +84,24 @@ def crearAula(request, id):
 				instancia= form.save(commit=False)
 				instancia.dependenciaId=depen
 				instancia.save()
-				a=Aula.objects.latest('id').id
-				#return redirect('detallecrear', a)
-				return redirect('home')
+				tipo='pos'
+				tit='AULA CREADA'
+				men='El Aula ha sido creada exitosamente.'
+				url='/Dependencia/Mostrar/Aulas/'+str(depen.id)
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=AulaForm()
 		return render(request, 'dependencia/crearAula.html',{'form':form})
 
 def horarioCrear(request, aula, mes, anio):
 	group = Group.objects.get(name="Gerente").user_set.all()
-	if request.user in group or request.user.is_superuser:	
+	if request.user in group or request.user.is_superuser:  
 		a=get_object_or_404(Aula, id=aula)
 		for d in Dia.objects.all():
 			for h in Horario.objects.all():
@@ -111,14 +114,16 @@ def horarioCrear(request, aula, mes, anio):
 				det.anio=anio
 				det.save()
 		tipo='pos'
-		tit='AULA CREADA'
-		men='El Aula ha sido creada exitosamente.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		tit='HORARIO CREADO'
+		men='Los horarios del Aula han sido creada exitosamente.'
+		url='/Dependencia/Mostrar/Aula/'+aula+'/'+mes+'/'+anio+'/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		tipo='neg'
 		tit='ACCESO DENEGADO'
 		men='No tiene los permisos necesarios para realizar esta tarea.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		url='/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 
 def detalleEditar(request, id):
 	if request.method=="POST":
@@ -132,12 +137,14 @@ def detalleEditar(request, id):
 				tipo='pos'
 				tit='AULA EDITADA'
 				men='El Aula ha sido editada exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Dependencia/Mostrar/Aula/'+str(detalle.aulaId.id)+'/'+str(detalle.mes)+'/'+str(detalle.anio)+'/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		detalle=get_object_or_404(DetalleAula, id=id)
 		form = DetalleAulaForm(instance=detalle)
@@ -155,12 +162,14 @@ def dependenciaCrear(request):
 				tipo='pos'
 				tit='DEPENDENCIA CREADA'
 				men='La Dependencia ha sido creada exitosamente.'
-				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+				url='/Dependencia/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 		else:
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		form=DependenciaForm()
 		return render(request,'dependencia/dependenciacrear.html',{'form':form})
@@ -200,7 +209,8 @@ def cargarCurso(request, id, mes, anio, tipo):
 			tipo='neg'
 			tit='ACCESO DENEGADO'
 			men='No tiene los permisos necesarios para realizar esta tarea.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		if tipo == 'cargar':
 			form=CargarCursoForm()
@@ -214,4 +224,5 @@ def cargarCurso(request, id, mes, anio, tipo):
 			tipo='pos'
 			tit='CURSO VACIO'
 			men='El Curso ha sido vaciado exitosamente.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url='/Dependencia/Mostrar/Aula/'+str(id)+'/'+mes+'/'+anio+'/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})

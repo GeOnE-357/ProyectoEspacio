@@ -46,7 +46,8 @@ def listarAsistenciaCurso(request, curso):
 		tipo='pos'
 		tit='CURSO FINALIZADO'
 		men='El Curso ya ha finalizado, no puedes seguir tomando asistencia.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		url= '/Asistencia/Mostrar/MisCursos/'+str(cur[0].profesorID.dni)+'/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		if fecha.last() == None or fecha.last().fecha.date() != hoy:
 			inscripcion=Inscripcion.objects.filter(cursoID=curso)
@@ -65,7 +66,8 @@ def listarAsistenciaCurso(request, curso):
 			tipo='neg'
 			tit='ASISTENCIA YA REALIZADA'
 			men='Ya se ha registrado la asistencia de este curso hoy.'
-			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+			url= '/Asistencia/Mostrar/MisCursos/'+str(cur[0].profesorID.dni)+'/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	
 
 def AsistenciaCrear(request):
@@ -94,7 +96,8 @@ def AsistenciaCrear(request):
 		tipo='pos'
 		tit='ASISTENCIA FINALIZADA'
 		men='Se ha registrado la asistencia de hoy con éxito.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		url='/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 
 def detalleAsistencia(request, curso, id):
 	if request.user.is_authenticated:
@@ -105,4 +108,5 @@ def detalleAsistencia(request, curso, id):
 		tipo='neg'
 		tit='ACCESO DENEGADO'
 		men='No tiene los permisos necesarios para realizar esta tarea.'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		url='/'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
