@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!v0$k0sa6^p^!*_yir=!3_$=f@b9kd8p)r#h$*=2l!*reo=_fv'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #DEBUG = False
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 #ALLOWED_HOSTS = []
@@ -103,18 +103,11 @@ WSGI_APPLICATION = 'espacio.wsgi.application'
 DATABASES = {
     'default': {
         
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'gestionedlt_db',
-        #'USER': 'gestionedlt_db',
-        #'PASSWORD': 'lzmSTSkQCu',
-        #'HOST': 'localhost',
-        #'PORT': '3306',
-        
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'espacio',
-        'USER': 'root',
-        'PASSWORD': 'keeponrock357',
-        'HOST': 'localhost',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': '3306',
     }
     }

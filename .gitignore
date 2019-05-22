@@ -41,3 +41,6 @@ MANIFEST
 # dependencias
 /node_modules
 /bower_components
+
+# datos sensibles
+setting.ini
