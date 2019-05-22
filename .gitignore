@@ -43,4 +43,4 @@ MANIFEST
 /bower_components
 
 # datos sensibles
-setting.ini
+settings.ini
