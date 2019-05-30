@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 
 class Persona(models.Model):
 	nombre=models.CharField(max_length=20)
@@ -15,6 +15,7 @@ class Persona(models.Model):
 class Profesor(Persona):
 	titulo=models.CharField(max_length=80)
 	expediente=models.IntegerField(blank=True)
+	user=models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
 	def __str__(self):
 		return "Prof. "+self.nombre +" "+ self.apellido
 

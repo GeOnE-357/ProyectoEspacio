@@ -88,6 +88,8 @@ def personaUsuario(request, tipo):
 		dni=profe.dni
 		usuario=User.objects.create_user(username=dni, first_name=nombre, last_name=apellido ,email=mail, password='EDLT1234')
 		usuario.save()
+		profe.user=User.objects.latest('id')
+		profe.save()
 		tipo='pos'
 		tit='USUARIO CREADO'
 		men='El Profesor ha sido creado exitosamente.'
