@@ -42,6 +42,7 @@ class alumnoForm(forms.ModelForm):
 	nacimiento=forms.DateField(widget=forms.SelectDateWidget(years=LISTA))
 	#dispHoraria=forms.ChoiceField(choices =HORARIOS , label="Disponibilidad:", widget=forms.Select(), required=True)
 	estudios=forms.ChoiceField(choices=ESTUDIOS_CHOICES, label="Estudios:", widget=forms.Select(), required=True)
+	trabajo=forms.ChoiceField(choices=TRABAJO_CHOICES, label="Trabajo:", widget=forms.Select(), required=True)
 	class Meta:
 		model = Alumno
 		fields = ('nombre', 'apellido', 'dni', 'mail', 'telefono', 'nacimiento', 'estudios', 'trabajo')
