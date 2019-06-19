@@ -20,6 +20,6 @@ class Profesor(Persona):
 		return "Prof. "+self.nombre +" "+ self.apellido
 
 class Alumno(Persona):	
-	trabajo=models.BooleanField(default=True)
+	trabajo=models.CharField(max_length=50)
 	def __str__(self):
 		return self.nombre +" "+ self.apellido

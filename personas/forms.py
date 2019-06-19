@@ -33,6 +33,7 @@ class alumnoForm(forms.ModelForm):
 	LISTA.reverse()
 	
 	ESTUDIOS_CHOICES=(('Primario Cursando','Primario Cursando'),('Primario Completo','Primario Completo'),('Primario Incompleto','Primario Incompleto'),('Secundario Cursando','Secundario Cursando'),('Secundario Completo','Secundario Completo'),('Secundario Incompleto','Secundario Incompleto'),('Terciario Cursando','Terciario Cursando'),('Terciario Completo','Terciario Completo'),('Terciario Incompleto','Terciario Incompleto'),('Universitario Cursando','Universitario Cursando'),('Universitario Completo','Universitario Completo'),('Universitario Incompleto','Universitario Incompleto'),)
+	TRABAJO_CHOICES=(('No estoy trabajando','No estoy trabajando'),('Trabajo de manera informal','Trabajo de manera informal'),('Estoy en relación de dependencia','Estoy en relación de dependencia'),('Soy independiente','Soy independiente'))
 	#HORARIOS=(("Mañana", "Mañana"),("Tarde", "Tarde"),("Noche","Noche"))
 	nombre=forms.CharField(validators=[validate_str])
 	apellido=forms.CharField(validators=[validate_str])
