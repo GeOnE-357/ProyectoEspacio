@@ -20,7 +20,7 @@
             <td><input type="hidden" name="id{{ forloop.counter }}" value="{{ li.0 }}" readonly></td>
             <td style="text-align:center">{{ li.1 }}</td>
             <td><input type="radio" name="pres{{ forloop.counter }}" value="True" required></td>
-            <td><input type="radio" name="pres{{ forloop.counter }}" value="False" required></td>
+            <td><input type="radio" name="pres{{ forloop.counter }}" value="False" checked required></td>
         {% empty %}
           <tr>
               <td colspan="4"><strong>No se encontraron Alumnos o no fueron inscriptos.</strong></td>
