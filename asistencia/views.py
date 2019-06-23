@@ -19,10 +19,13 @@ def listarAlumnoCurso(request, curso):
 		alumno=[]
 		alum=ins.alumnoID
 		asis=Asistencia.objects.filter(inscripcionID=ins.id)
-		asist=0
+		pres=0
+		aus=0
 		for a in asis:
 			if a.presente == True:
-				asist += 1
+				pres += 1
+			elif a.presente == False:
+				aus +=1
 		cur=ins.cursoID	
 		clas=cur.cantClases
 		alumno.append(alum.id)
@@ -31,7 +34,8 @@ def listarAlumnoCurso(request, curso):
 		alumno.append(alum.dni)
 		alumno.append(alum.mail)
 		alumno.append(alum.telefono)
-		alumno.append(asist)
+		alumno.append(pres)
+		alumno.append(aus)
 		alumno.append(clas)
 		lista.append(alumno)
 	return render (request, 'asistencia/detalle.html', {'lista':lista , 'curso':curs})
