@@ -37,6 +37,9 @@ def listarAlumnoCurso(request, curso):
 		alumno.append(pres)
 		alumno.append(aus)
 		alumno.append(clas)
+		if aus >= clas/2:
+			color="rgba(237,48,48,1)"
+			alumno.append(color)
 		lista.append(alumno)
 	return render (request, 'asistencia/detalle.html', {'lista':lista , 'curso':curs})
 
@@ -64,6 +67,10 @@ def listarAsistenciaCurso(request, curso):
 				present.append(asist)
 				present.append(alumno)
 				present.append(pres)
+				x=Asistencia.objects.filter(inscripcionID=asist,presente=False)
+				if len(x) >= cur[0].cantClases/2:
+					color="rgba(237,48,48,1)"
+					present.append(color)
 				lista.append(present)
 			return render (request, 'asistencia/asistencia.html', {'lista':lista})
 		else:

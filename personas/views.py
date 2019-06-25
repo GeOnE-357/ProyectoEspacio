@@ -32,6 +32,8 @@ def personaNuevo(request, tipo):
 				if ban == 0:
 					if form.is_valid():
 						instance = form.save(commit=False)
+						instance.nombre=instance.nombre.title()
+						instance.apellido=instance.apellido.title()
 						instance.save()
 						return redirect('persona-usuario', a)
 				else:
@@ -56,6 +58,8 @@ def personaNuevo(request, tipo):
 			if ban == 0:
 				if form.is_valid():
 					instance = form.save(commit=False)
+					instance.nombre=instance.nombre.title()
+					instance.apellido=instance.apellido.title()
 					instance.save()
 					tipo='pos'
 					tit='ALUMNO CREADO'
@@ -82,8 +86,8 @@ def personaUsuario(request, tipo):
 	group = Group.objects.get(name="Gerente").user_set.all()
 	if request.user in group or request.user.is_superuser:
 		profe=Profesor.objects.latest('id')
-		nombre=profe.nombre
-		apellido=profe.apellido
+		nombre=profe.nombre.title()
+		apellido=profe.apellido.title()
 		mail=profe.mail
 		dni=profe.dni
 		usuario=User.objects.create_user(username=dni, first_name=nombre, last_name=apellido ,email=mail, password='EDLT1234')

@@ -20,7 +20,11 @@
       <th>Editar</th>
     </tr>
       {% for li in lista %}
+        {% if li.9 %}
+        <tr style="background-color: {{ li.9 }}">
+        {% else %}
         <tr>
+        {% endif %}
           <td> {{ li.0 }} </td>
           <td> {{ li.1 }} </td>
           <td> {{ li.2 }} </td>

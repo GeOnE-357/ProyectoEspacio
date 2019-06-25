@@ -97,6 +97,7 @@ def materiasCrear(request):
 			form=MateriaForm(request.POST or none)
 			if form.is_valid():
 				instacia= form.save(commit=False)
+				instancia.nombre=instancia.nombre.title()
 				instacia.save()
 				tipo='pos'
 				tit='MATERIA CREADA'

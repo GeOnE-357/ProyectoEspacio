@@ -36,8 +36,8 @@ def importar(request):
 									insc+=1
 							else:
 								alu=Alumno()
-								alu.nombre=fila[0]
-								alu.apellido=fila[1]
+								alu.nombre=fila[0].title()
+								alu.apellido=fila[1].title()
 								alu.dni=fila[2]
 								alu.mail=fila[3]
 								alu.telefono=fila[4]
