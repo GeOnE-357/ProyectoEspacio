@@ -41,6 +41,7 @@ def listarAlumnoCurso(request, curso):
 			color="rgba(237,48,48,1)"
 			alumno.append(color)
 		lista.append(alumno)
+	lista.sort(key=lambda presente: presente[6], reverse=True)
 	return render (request, 'asistencia/detalle.html', {'lista':lista , 'curso':curs})
 
 
@@ -72,6 +73,7 @@ def listarAsistenciaCurso(request, curso):
 					color="rgba(237,48,48,1)"
 					present.append(color)
 				lista.append(present)
+			lista.sort(key=lambda presente:presente[2], reverse=True)
 			return render (request, 'asistencia/asistencia.html', {'lista':lista})
 		else:
 			tipo='neg'

@@ -1,10 +1,10 @@
 from django.db import models
 
 class Log(models.Model):
-	dni = models.CharField(max_length=20)
-	nombre = models.CharField(max_length=20)
-	accion = models.CharField(max_length=20)
-	tabla = models.CharField(max_length=20)
+	dni = models.CharField(max_length=50)
+	nombre = models.CharField(max_length=50)
+	accion = models.CharField(max_length=50)
+	tabla = models.CharField(max_length=50)
 	objeto = models.IntegerField()
 	fecha = models.DateTimeField(null=True)
 
