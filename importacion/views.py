@@ -30,7 +30,7 @@ def importar(request):
 								print(a)
 								if not Inscripcion.objects.filter(alumnoID=a[0]):
 									inscribir=Inscripcion()
-									inscribir.cursoID=get_object_or_404(Curso,id=fila[9])
+									inscribir.cursoID=get_object_or_404(Curso,id=fila[8])
 									inscribir.alumnoID=get_object_or_404(Alumno,dni=fila[2])
 									inscribir.save()
 									insc+=1
