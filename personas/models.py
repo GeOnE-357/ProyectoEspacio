@@ -6,7 +6,7 @@ class Persona(models.Model):
 	apellido=models.CharField(max_length=20)
 	dni=models.BigIntegerField(blank=True)
 	mail=models.EmailField(max_length=30)
-	telefono=models.BigIntegerField(blank=True)
+	telefono=models.CharField(max_length=20)
 	nacimiento=models.DateField(auto_now=False, auto_now_add=False)
 	estudios=models.CharField(max_length=30)
 	class Meta:
