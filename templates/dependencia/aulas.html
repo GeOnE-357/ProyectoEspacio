@@ -21,7 +21,20 @@
       <td>{{ a.id }}</td>
       <td> {{ a.nombre }} </td>
       <td><a class="Insc" href="{% url 'aula' a.id %}">Crear</td>
-      <td><a class="Edit" href="{% url 'aulaBuscar' a.id %}">Buscar</td>
+      <td>
+        <ul>
+          <li class="drop">
+            <a class="drop-btn">Meses <span class="fa fa-angle-down"></span></a>
+              <div class="drop-cont">
+              {% for b in lista %}
+                {% if a.id == b.0 %}
+                    <a class="drop-btn" href="{% url 'aulaMes' a.id b.1 b.2 %}">{{b.1}} / {{b.2}}</a>  
+                {% endif %}    
+              {% endfor %}
+              </div>
+          </li> 
+        </ul>
+      </td>
     </tr>
     {% empty %}
         <tr>

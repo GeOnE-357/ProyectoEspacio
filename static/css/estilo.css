@@ -73,7 +73,7 @@ li a:hover, .drop:hover .drop-btn:hover
 	{
 	    background-color: #333;
 	    color: white;
-	}
+	} 
 
 .drop-cont 
 	{
@@ -123,6 +123,23 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #8A0808;
 	}
 
+/* Desplegable de tabla */
+td ul
+	{
+		width: 70%;
+		margin: auto;
+	}
+
+td ul li.drop
+	{
+		display: inline-block;
+		width: 100%;
+	}
+
+td ul li.drop div.drop-cont
+	{
+		width: 15.5%;
+	}
 
 /* ---------- Botones Tabla ---------- */
 

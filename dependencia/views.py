@@ -13,10 +13,37 @@ def dependencias(request):
 	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
 
 def aulasLista(request, id):
+	MES_CHOICES = (
+	("enero", "Enero"),
+	("febrero", "Febrero"),
+	("marzo", "Marzo"),
+	("abril", "Abril"),
+	("mayo", "Mayo"),
+	("junio", "Junio"),
+	("julio", "Julio"),
+	("agosto", "Agosto"),
+	("septiembre", "Septiembre"),
+	("octubre", "Octubre"),
+	("noviembre", "Noviembre"),
+	("diciembre", "Diciembre"),)
 	aula= Aula.objects.filter(dependenciaId=id)
 	filtro = AulaFilter(request.GET, queryset=aula)
 	depen= Dependencia.objects.filter(id=id)
-	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen,})
+	print(filtro)
+	lista=[]
+	for b in aula:
+		for a in MES_CHOICES:
+			mes=DetalleAula.objects.filter(aulaId=b.id, mes=a[0]).values()
+			mes=list(mes)
+			meses=[]
+			if mes:
+				mes=mes[0]
+				meses.append(b.id)
+				meses.append(mes['mes'])
+				meses.append(mes['anio'])
+				lista.append(meses)
+	print(lista)
+	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen, 'lista':lista})
 
 def aula(request,id):
 	if request.method=="POST":
@@ -31,21 +58,6 @@ def aula(request,id):
 		aula=get_object_or_404(Aula, id=id)
 		form=MesForm()
 		return render(request,'dependencia/aula.html',{'aula':aula,'form':form})
-
-def aulaBuscar(request,id):
-	if request.method=="POST":
-		form=MesForm(request.POST or none)
-		if form.is_valid:
-			diccionario=request.POST.copy()
-			del diccionario['csrfmiddlewaretoken']
-			mes=diccionario['mes']
-			anio=diccionario['anio']    
-			return redirect('aulaMes',id,mes,anio)
-	else:
-		aula=get_object_or_404(Aula, id=id)
-		form=MesForm()
-		return render(request,'dependencia/aulaBuscar.html',{'aula':aula,'form':form})
-
 
 def aulaMes(request,id,mes,anio):
 	detalle=DetalleAula.objects.filter(aulaId=id,mes=mes,anio=anio).order_by('horaId', 'diaId')
