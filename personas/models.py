@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser, User
 class Persona(models.Model):
 	nombre=models.CharField(max_length=20)
 	apellido=models.CharField(max_length=20)
-	dni=models.BigIntegerField(blank=True)
+	dni=models.CharField(max_length=10)
 	mail=models.EmailField(max_length=30)
 	telefono=models.CharField(max_length=20)
 	nacimiento=models.DateField(auto_now=False, auto_now_add=False)

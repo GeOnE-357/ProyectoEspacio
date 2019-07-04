@@ -25,7 +25,7 @@ def importar(request):
 					count=0;
 					for fila in csv.reader(io_string, delimiter=';', quotechar="|"):
 						if count!=0:
-							if Alumno.objects.filter(dni=fila[2]):
+							if Alumno.objects.filter(dni=int(fila[2])):
 								a=Alumno.objects.filter(dni=fila[2])
 								print(a)
 								if not Inscripcion.objects.filter(alumnoID=a[0]):
