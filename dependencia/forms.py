@@ -6,7 +6,6 @@ from espacio.validators import validate_dni, validate_cel, validate_tel, validat
 
 class DependenciaForm(forms.ModelForm):
 	telefono=forms.IntegerField(validators=[validate_tel])
-	direccion=forms.CharField(validators=[validate_dir])
 	class Meta:
 		model = Dependencia 
 		fields= ('nombre', 'direccion', 'telefono', 'whatsapp')
