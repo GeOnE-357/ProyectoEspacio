@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from personas.models import *
+from cursos.models import Inscripcion
 from django.contrib.auth.models import User, Group
 from espacio.forms import UsuarioForm
 from .forms import profesorForm, alumnoForm
@@ -107,7 +108,8 @@ def personaDetalle(request, tipo, id):
 		return render(request, 'personas/detalle.html', {'Profesor':persona, 'tipo':a})
 	else:
 		persona = get_object_or_404(Alumno, id=id)
-		return render(request, 'personas/detalle.html', {'Alumno':persona, 'tipo':a})
+		insc=Inscripcion.objects.filter(alumnoID=id)
+		return render(request, 'personas/detalle.html', {'Alumno':persona, 'tipo':a, 'cursos':insc,})
 
 
 def personaEditar(request, tipo, id):

@@ -2,7 +2,7 @@
 {% block title %}EDLT - Detalle Persona{% endblock %}
 {% block content %}
 {% if tipo == 'Profesor'%}
-  <h1>Detalle - {{ Profesor.nombre }} {{ Profesor.apellido }}</h1>
+  <h1>Detalle Profesor:</h1>
   <div class="box">
   <table class="table ">
     <tr>
@@ -34,7 +34,7 @@
   </table>
 </div>
 {% else %}
-  <h1>Detalle - {{ Alumno.nombre }} {{ Alumno.apellido }}</h1>
+  <h1>Detalle Alumno:</h1>
   <div class="box">
   <table class="table ">
     <tr>
@@ -59,6 +59,33 @@
       <td><a class="Edit" href="{% url 'persona-editar' tipo Alumno.id %}">Editar</a></td>
     </tr>
   </tbody>
+  </table>
+</div>
+<h1>Cursos:</h1>
+<div class="box">
+  <table class="table ">
+    <tr>
+      <th>#ID</th>
+      <th>Curso</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Estado</th>
+      <th>Asistencia</th>
+    </tr>
+    {% for a in cursos %}
+    <tr>
+      <td>{{ a.cursoID.id }}</td>
+      <td>{{ a.cursoID }} </td>
+      <td><strong>{{ a.cursoID.fInicio }}</strong></td>
+      <td><strong>{{ a.cursoID.fFin }}</strong></td>
+      <td>{{ a.cursoID.estado }}</td>
+      <td><a class="insc" href="{%url 'alumno-asistencia' a.cursoID.id Alumno.id%}">Detalle</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5"><strong>El alumno no se inscribio a ningun curso.</strong></td>
+    </tr>
+    {% endfor %}
   </table>
 </div>
 {% endif %}
