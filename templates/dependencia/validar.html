@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}EDLT - Aula{% endblock %}
+
+{% block content %}
+<h1>Vaciar {{ aula.nombre }} - {{ mes }} - {{ anio }}</h1>
+{% if user.is_authenticated %}
+	<form method="POST" class="UserForm">
+    	{% csrf_token %}
+    	<button value="submit" type="submit">Crear</button>
+	</form>
+	{% load static %}
+	<script type="text/javascript" src="{% static "/js/cargando.js" %}"></script>
+{% endif %}
+{% endblock %}
