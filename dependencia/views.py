@@ -77,11 +77,8 @@ def aulaMes(request,id,mes,anio):
 		else:
 			detalle=[]
 			curso=det.cursoID
-			materia=curso.materiaID
-			modulo=curso.modulo
 			modif=det.id
-			detalle.append(materia)
-			detalle.append(modulo)
+			detalle.append(curso)
 			detalle.append(modif)
 			lista.append(detalle)
 	return render(request,'dependencia/aulaMes.html',{'aula':aula, 'lista':lista, 'dia':dia, 'anio':anio, 'mes':mes})
