@@ -438,10 +438,27 @@ td
 		border-bottom: solid;
 		padding: 1%;
 		border-bottom-color: white;
-		border-bottom-width: 1px;	
+		border-bottom-width: 1px;
+		width:12.85%;	
 	}
 
 td:hover
 	{
 		background:rgba(255,255,255,0.2);
+	}
+
+td a
+	{
+		text-decoration: none;
+		color: white; 
+	}
+
+tr ul li a
+	{
+		color:black;
+	}
+
+td:nth-child(1)
+	{
+		width: 10%;
 	}
