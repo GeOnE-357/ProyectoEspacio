@@ -27,7 +27,6 @@ def importar(request):
 						if count!=0:
 							if Alumno.objects.filter(dni=int(fila[2])):
 								a=Alumno.objects.filter(dni=fila[2])
-								print(a)
 								if not Inscripcion.objects.filter(alumnoID=a[0]):
 									inscribir=Inscripcion()
 									inscribir.cursoID=get_object_or_404(Curso,id=fila[8])

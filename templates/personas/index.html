@@ -13,17 +13,17 @@
     
     <table class="table ">
       <tr>
+        <th>Expediente</th>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Expediente</th>
         <th>Info.</th>
       </tr>
       <tbody>
         {% for Profesor in filtro.qs %}
-        <tr>  
+        <tr>
+          <td> {{ Profesor.expediente }} </td>  
           <td> {{ Profesor.nombre }} </td>
           <td> {{ Profesor.apellido }} </td>
-          <td> {{ Profesor.expediente }} </td>
           <td><a class="Insc" {% if user.is_staff %} href="{% url 'persona-detalle' tipo Profesor.id %}" {% endif %}>Detalle</a></td>
         </tr>
         {% empty %}

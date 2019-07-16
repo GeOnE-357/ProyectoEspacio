@@ -29,7 +29,6 @@ def aulasLista(request, id):
 	aula= Aula.objects.filter(dependenciaId=id)
 	filtro = AulaFilter(request.GET, queryset=aula)
 	depen= Dependencia.objects.filter(id=id)
-	print(filtro)
 	lista=[]
 	for b in aula:
 		for a in MES_CHOICES:
@@ -42,7 +41,6 @@ def aulasLista(request, id):
 				meses.append(mes['mes'])
 				meses.append(mes['anio'])
 				lista.append(meses)
-	print(lista)
 	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen, 'lista':lista})
 
 def aula(request,id):
@@ -193,7 +191,6 @@ def cargarCurso(request, id, mes, anio, tipo):
 				del diccionario['csrfmiddlewaretoken']
 				diccionario=dict(diccionario)
 				diccionario=diccionario
-				print(diccionario)
 				dias=[]
 				horas=[]
 				for a, b in diccionario.items():
