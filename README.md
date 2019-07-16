@@ -5,17 +5,17 @@ Proyecto del Espacio para el desarrollo laboral y tecnologico.
 
 + **Python 3.6.5**
 + **Pip3 18.0** 
-+ **Xampp 3.2.2**
-+ **MySQL Connector/Python==8.0**
++ **Xampp 3.2.2** (Solo para BD SQL)
++ **MySQL Connector/Python==8.0** (Solo para BD SQL)
 + **Django 2.1.1**
 + **Filter**
-+ **Django Rest Framework**
-+ **Gunicorn**
-+ **White Noise**
-+ **PyMySQL**
-+ **My SQL client**
-+ **Decouple**
-+ **Virtual env**
++ **Django Rest Framework** (No es necesario)
++ **Gunicorn** (No es necesario)
++ **White Noise** (No es necesario)
++ **PyMySQL** (Solo para BD SQL)
++ **My SQL client** (Solo para BD SQL)
++ **Decouple** 
++ **Virtual env** (No es necesario)
 
 > sudo pip install
 > sudo pip install django==2.1.1
