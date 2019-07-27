@@ -21,7 +21,7 @@
       <td>{{ a.id }}</td>
       <td> {{ a.nombre }} </td>
       <td><a class="Insc" href="{% url 'aula' a.id %}">Crear Mes</td>
-      <td><a class="Edit" href="">Copiar Mes</td>
+      <td><a class="Edit" href="{% url 'horarioCopiar' a.id %}">Copiar Mes</td>
       <td>
         <ul>
           <li class="drop">

@@ -1,0 +1,34 @@
+{% extends 'master.html' %}
+
+{% block title %}EDLT - Copiar Mes{% endblock %}
+
+{% block content %}
+<h1>Copiar Mes</h1>
+<form method="POST" class="UserForm">
+	{% csrf_token %}
+	<label>Copiar:</label>
+	<select name="mes">
+		{% for a in meses %}
+			<option value="{{ a }}">{{ a }}</option>
+		{% endfor %}
+	</select>
+	<select name="anio">
+		{% for a in anios %}
+			<option value="{{ a }}">{{ a }}</option>
+		{% endfor %}
+	</select>
+	<label>En:</label>
+	<select name="mesCopia">
+		{% for a in meses %}
+			<option value="{{ a }}">{{ a }}</option>
+		{% endfor %}
+	</select>
+	<select name="anioCopia">
+		{% for a in anios %}
+			<option value="{{ a }}">{{ a }}</option>
+		{% endfor %}
+	</select>
+	<button value="submit" type="submit">Registrar</button>
+</form>
+
+{% endblock %}

@@ -6,14 +6,7 @@ from .forms import *
 from cursos.models import Curso
 from .filters import DependenciaFilter, AulaFilter
 
-
-def dependencias(request):
-	depen= Dependencia.objects.all()
-	filtro = DependenciaFilter(request.GET, queryset=depen)
-	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
-
-def aulasLista(request, id):
-	MES_CHOICES = (
+MES_CHOICES = (
 	("enero", "Enero"),
 	("febrero", "Febrero"),
 	("marzo", "Marzo"),
@@ -26,6 +19,13 @@ def aulasLista(request, id):
 	("octubre", "Octubre"),
 	("noviembre", "Noviembre"),
 	("diciembre", "Diciembre"),)
+
+def dependencias(request):
+	depen= Dependencia.objects.all()
+	filtro = DependenciaFilter(request.GET, queryset=depen)
+	return render(request, 'dependencia/dependencias.html', {'filtro':filtro,})
+
+def aulasLista(request, id):
 	aula= Aula.objects.filter(dependenciaId=id)
 	filtro = AulaFilter(request.GET, queryset=aula)
 	depen= Dependencia.objects.filter(id=id)
@@ -132,6 +132,35 @@ def horarioCrear(request, aula, mes, anio):
 		url='/'
 		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 
+def horarioCopiar(request, id):
+	if request.method=="POST":
+		group = Group.objects.get(name="Gerente").user_set.all()
+		if request.user in group or request.user.is_superuser:
+			diccionario=request.POST.copy()
+			del diccionario['csrfmiddlewaretoken']
+			#diccionario=diccionario.items()
+			diccionario=dict(diccionario)
+			print(diccionario)
+
+	else:
+		aula= Aula.objects.filter(id=id)
+		lista=[]
+		meses=[]
+		anios=[]
+		for b in aula:
+			for a in MES_CHOICES:
+				mes=DetalleAula.objects.filter(aulaId=b.id, mes=a[0]).values()
+				mes=list(mes)
+				if mes:
+					mes=mes[0]
+					meses.append(mes['mes'])
+					anios.append(mes['anio'])
+			meses=list(set(meses))
+			anios=list(set(anios))
+			aulaid=b.id
+		return render(request, 'dependencia/copiarMes.html', {'meses':meses, 'anios':anios, 'aula':aulaid})
+
+
 def detalleEditar(request, id):
 	if request.method=="POST":
 		group = Group.objects.get(name="Gerente").user_set.all()
@@ -190,7 +219,6 @@ def cargarCurso(request, id, mes, anio, tipo):
 				diccionario=request.POST.copy()
 				del diccionario['csrfmiddlewaretoken']
 				diccionario=dict(diccionario)
-				diccionario=diccionario
 				dias=[]
 				horas=[]
 				for a, b in diccionario.items():
