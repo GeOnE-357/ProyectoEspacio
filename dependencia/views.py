@@ -31,17 +31,29 @@ def aulasLista(request, id):
 	depen= Dependencia.objects.filter(id=id)
 	lista=[]
 	for b in aula:
-		for a in MES_CHOICES:
-			mes=DetalleAula.objects.filter(aulaId=b.id, mes=a[0]).values()
-			mes=list(mes)
-			meses=[]
-			if mes:
-				mes=mes[0]
-				meses.append(b.id)
-				meses.append(mes['mes'])
-				meses.append(mes['anio'])
-				lista.append(meses)
-	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen, 'lista':lista})
+		det=DetalleAula.objects.filter(aulaId=b.id)
+		anios=[]
+		for c in det:
+			anios.append(c.anio)
+		anios=list(set(anios))
+		if anios:
+			temp=[]
+			temp.append(b.id)
+			for c in anios:
+				temp.append(c)
+			lista.append(temp)
+	listaB=[]
+	for c in MES_CHOICES:
+		for a in lista:
+			for b in a:
+				pri=DetalleAula.objects.all().filter(aulaId=a[0], mes=c[0], anio=b).first()
+				if pri:
+					mesA=[]
+					mesA.append(a[0])
+					mesA.append(pri.mes)
+					mesA.append(pri.anio)
+					listaB.append(mesA)
+	return render (request, 'dependencia/aulas.html',{'filtro':filtro, 'depen':depen, 'lista':listaB})
 
 def aula(request,id):
 	if request.method=="POST":
@@ -110,21 +122,29 @@ def horarioCrear(request, aula, mes, anio):
 	group = Group.objects.get(name="Gerente").user_set.all()
 	if request.user in group or request.user.is_superuser:  
 		a=get_object_or_404(Aula, id=aula)
-		for d in Dia.objects.all():
-			for h in Horario.objects.all():
-				det=DetalleAula()
-				det.aulaId=a
-				det.diaId=d
-				det.estado="disponible"
-				det.horaId=h
-				det.mes=mes
-				det.anio=anio
-				det.save()
-		tipo='pos'
-		tit='HORARIO CREADO'
-		men='Los horarios del Aula han sido creada exitosamente.'
-		url='/Dependencia/Mostrar/Aula/'+aula+'/'+mes+'/'+anio+'/'
-		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
+		b=DetalleAula.objects.filter(aulaId=aula, mes=mes, anio=anio)
+		if b:
+			tipo='neg'
+			tit='HORARIO EXISTENTE'
+			men='Los horarios del Aula que intenta crear ya existen.'
+			url='/Dependencia/Mostrar/Aula/'+aula+'/'+mes+'/'+anio+'/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})	
+		else:
+			for d in Dia.objects.all():
+				for h in Horario.objects.all():
+					det=DetalleAula()
+					det.aulaId=a
+					det.diaId=d
+					det.estado="disponible"
+					det.horaId=h
+					det.mes=mes
+					det.anio=anio
+					det.save()
+			tipo='pos'
+			tit='HORARIO CREADO'
+			men='Los horarios del Aula han sido creada exitosamente.'
+			url='/Dependencia/Mostrar/Aula/'+aula+'/'+mes+'/'+anio+'/'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		tipo='neg'
 		tit='ACCESO DENEGADO'
@@ -138,10 +158,27 @@ def horarioCopiar(request, id):
 		if request.user in group or request.user.is_superuser:
 			diccionario=request.POST.copy()
 			del diccionario['csrfmiddlewaretoken']
-			#diccionario=diccionario.items()
 			diccionario=dict(diccionario)
-			print(diccionario)
-
+			if diccionario['mes'][0]==diccionario['mesCopia'][0] and diccionario['anio'][0]==diccionario['anioCopia'][0]:
+				tipo='neg'
+				tit='MISMO MES'
+				men='Los meses seleccionados son exactamente los mismos.'
+				url='/Dependencia/Copiar/Aula/Horarios/'+str(id)
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
+			else:
+				mes=DetalleAula.objects.filter(aulaId=id, mes=diccionario['mes'][0], anio=diccionario['anio'][0])
+				mes=list(mes.order_by('horaId', 'diaId'))
+				copia=DetalleAula.objects.filter(aulaId=id, mes=diccionario['mesCopia'][0], anio=diccionario['anioCopia'][0])
+				copia=list(copia.order_by('horaId', 'diaId'))
+				for n, a in enumerate(mes):
+					copia[n].estado=a.estado
+					copia[n].cursoID=a.cursoID
+					copia[n].save()		
+				tipo='pos'
+				tit='MES COPIADO'
+				men='Los cursos del mes han sido copiados exitosamente.'
+				url='/Dependencia/Mostrar/Aula/'+str(id)+'/'+str(diccionario['mesCopia'][0])+'/'+str(diccionario['anioCopia'][0])+'/'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men, 'url':url})
 	else:
 		aula= Aula.objects.filter(id=id)
 		lista=[]
