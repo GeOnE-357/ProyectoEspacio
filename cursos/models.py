@@ -13,6 +13,11 @@ class Curso(models.Model):
 		nombre=str(self.materiaID)+" "+str(self.modulo)+" - "+str(self.profesorID)
 		return nombre
 
+	def nombre_tabla(self):
+		tabla=str(self._meta.db_table)
+		return tabla
+
+
 class Materia(models.Model):
 	nombre=models.CharField(max_length=50)
 	tipo=models.CharField(max_length=20)

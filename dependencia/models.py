@@ -9,6 +9,10 @@ class Dependencia(models.Model):
 	def __str__(self):
 		return self.nombre+" "+self.direccion
 
+	def nombre_tabla(self):
+		tabla=str(self._meta.db_table)
+		return tabla
+
 class Aula(models.Model):
 	nombre = models.CharField(max_length=50)
 	dependenciaId= models.ForeignKey('dependencia.Dependencia', blank=True, default="", on_delete=models.CASCADE)

@@ -3,6 +3,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.models import User, Group
 from .forms import UsuarioForm, AutenticacionForm
+from espacio import usuario
 
 def home(request):
     return render(request, 'home.html')
